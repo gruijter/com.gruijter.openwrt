@@ -1,0 +1,38 @@
+{
+  "type": "number",
+  "title": {
+    "en": "CPU Used",
+    "nl": "CPU-gebruik",
+    "da": "CPU-forbrug",
+    "de": "CPU-Auslastung",
+    "es": "Uso de CPU",
+    "fr": "Utilisation du CPU",
+    "it": "Utilizzo della CPU",
+    "no": "CPU-bruk",
+    "sv": "CPU-användning",
+    "pl": "Zużycie CPU",
+    "ru": "Использование CPU",
+    "ko": "CPU 사용량",
+    "ar": "استخدام وحدة المعالجة المركزية"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "%",
+    "da": "%",
+    "de": "%",
+    "es": "%",
+    "fr": "%",
+    "it": "%",
+    "no": "%",
+    "sv": "%",
+    "pl": "%",
+    "ru": "%",
+    "ko": "%",
+    "nl": "%",
+    "ar": "%"
+  },
+  "decimals": 0,
+  "insights": true,
+  "icon": "./assets/cpu_utilization.svg"
+}

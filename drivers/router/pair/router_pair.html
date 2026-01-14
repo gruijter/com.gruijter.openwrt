@@ -1,0 +1,42 @@
+<script>
+	Homey.setTitle('OpenWRT Router');
+	Homey.setSubtitle('SSH connection settings');
+	Homey.hideLoadingOverlay();
+
+	async function save() {
+		try {
+			Homey.showLoadingOverlay();
+			const settings = {
+				host: document.getElementById('host').value,
+				port: Number(document.getElementById('port').value) || 22,
+				username: document.getElementById('username').value,
+				password: document.getElementById('password').value,
+			};
+			const result = await Homey.emit('pairSettings', settings);
+			Homey.hideLoadingOverlay();
+			// Homey.alert(result, 'info');
+		} catch (error) { 
+			Homey.hideLoadingOverlay();
+			Homey.alert(error, 'error');
+		}
+	}
+</script>
+
+<div class="homey-form-group">
+	<label class="homey-form-label" for="host">IP address</label>
+	<input class="homey-form-input" id="host" type="text" placeholder="e.g. 192.168.1.1" value="" />
+</div>
+<div class="homey-form-group">
+	<label class="homey-form-label" for="port">Port</label>
+	<input class="homey-form-input" id="port" type="number" placeholder="22" value=22 />
+</div>
+
+<div class="homey-form-group">
+	<label class="homey-form-label" for="username">Username</label>
+	<input class="homey-form-input" id="username" type="text" value="root" />
+</div>
+<div class="homey-form-group">
+	<label class="homey-form-label" for="password">Password</label>
+	<input class="homey-form-input" id="password" type="password" value="" />
+</div>
+<button class="homey-button-primary-full" onclick="save()">SAVE</button>

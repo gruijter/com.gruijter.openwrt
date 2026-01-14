@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Name in Router",
+    "nl": "Naam in de router",
+    "da": "Navn i routeren",
+    "de": "Name im Router",
+    "es": "Nombre en el router",
+    "fr": "Nom dans le routeur",
+    "it": "Nome nel router",
+    "no": "Navn i ruteren",
+    "sv": "Namn i routern",
+    "pl": "Nazwa w routerze",
+    "ru": "Имя в маршрутизаторе",
+    "ko": "라우터의 이름",
+    "ar": "اسم الراوتر"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/name_in_router.svg"
+}

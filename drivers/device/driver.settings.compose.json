@@ -1,0 +1,302 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device information",
+      "nl": "Apparaatinformatie",
+      "da": "Enhedsinformation",
+      "de": "Geräteinformationen",
+      "es": "Información del dispositivo",
+      "fr": "Informations sur l'appareil",
+      "it": "Informazioni sul dispositivo",
+      "no": "Enhetsinformasjon",
+      "sv": "Enhetsinformation",
+      "pl": "Informacje o urządzeniu",
+      "ru": "Информация об устройстве",
+      "ko": "장치 정보"
+    },
+    "children": [
+      {
+        "id": "mac",
+        "type": "label",
+        "label": {
+          "en": "MAC",
+          "nl": "MAC",
+          "da": "MAC",
+          "de": "MAC",
+          "es": "MAC",
+          "fr": "MAC",
+          "it": "MAC",
+          "no": "MAC",
+          "sv": "MAC",
+          "pl": "MAC",
+          "ru": "MAC",
+          "ko": "MAC"
+        },
+        "value": ""
+      },
+      {
+        "id": "name",
+        "type": "label",
+        "label": {
+          "en": "Device name",
+          "nl": "Apparaatnaam",
+          "da": "Enhedsnavn",
+          "de": "Gerätename",
+          "es": "Nombre del dispositivo",
+          "fr": "Nom de l'appareil",
+          "it": "Nome del dispositivo",
+          "no": "Enhetsnavn",
+          "sv": "Enhetsnamn",
+          "pl": "Nazwa urządzenia",
+          "ru": "Имя устройства",
+          "ko": "장치 이름"
+        },
+        "value": ""
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Aliases",
+      "nl": "Aliassen",
+      "da": "Aliasser",
+      "de": "Aliase",
+      "es": "Alias",
+      "fr": "Alias",
+      "it": "Alias",
+      "no": "Aliaser",
+      "sv": "Alias",
+      "pl": "Aliasy",
+      "ru": "Псевдонимы",
+      "ko": "별칭"
+    },
+    "children": [
+      {
+        "id": "alias1",
+        "type": "text",
+        "label": {
+          "en": "Alias MAC 1",
+          "nl": "Alias MAC 1",
+          "da": "Alias MAC 1",
+          "de": "Alias MAC 1",
+          "es": "Alias MAC 1",
+          "fr": "Alias MAC 1",
+          "it": "Alias MAC 1",
+          "no": "Alias MAC 1",
+          "sv": "Alias MAC 1",
+          "pl": "Alias MAC 1",
+          "ru": "Псевдоним MAC 1",
+          "ko": "별칭 MAC 1"
+        },
+        "hint": {
+          "en": "Additional MAC address of the same device.",
+          "nl": "Extra MAC-adres van hetzelfde apparaat.",
+          "da": "Yderligere MAC-adresse for samme enhed.",
+          "de": "Zusätzliche MAC-Adresse desselben Geräts.",
+          "es": "Dirección MAC adicional del mismo dispositivo.",
+          "fr": "Adresse MAC supplémentaire du même appareil.",
+          "it": "Indirizzo MAC aggiuntivo dello stesso dispositivo.",
+          "no": "Ekstra MAC-adresse for samme enhet.",
+          "sv": "Ytterligare MAC-adress för samma enhet.",
+          "pl": "Dodatkowy adres MAC tego samego urządzenia.",
+          "ru": "Дополнительный MAC-адрес того же устройства.",
+          "ko": "동일한 장치의 추가 MAC 주소입니다."
+        },
+        "value": ""
+      },
+      {
+        "id": "alias2",
+        "type": "text",
+        "label": {
+          "en": "Alias MAC 2",
+          "nl": "Alias MAC 2",
+          "da": "Alias MAC 2",
+          "de": "Alias MAC 2",
+          "es": "Alias MAC 2",
+          "fr": "Alias MAC 2",
+          "it": "Alias MAC 2",
+          "no": "Alias MAC 2",
+          "sv": "Alias MAC 2",
+          "pl": "Alias MAC 2",
+          "ru": "Псевдоним MAC 2",
+          "ko": "별칭 MAC 2"
+        },
+        "hint": {
+          "en": "Additional MAC address of the same device.",
+          "nl": "Extra MAC-adres van hetzelfde apparaat.",
+          "da": "Yderligere MAC-adresse for samme enhed.",
+          "de": "Zusätzliche MAC-Adresse desselben Geräts.",
+          "es": "Dirección MAC adicional del mismo dispositivo.",
+          "fr": "Adresse MAC supplémentaire du même appareil.",
+          "it": "Indirizzo MAC aggiuntivo dello stesso dispositivo.",
+          "no": "Ekstra MAC-adresse for samme enhet.",
+          "sv": "Ytterligare MAC-adress för samma enhet.",
+          "pl": "Dodatkowy adres MAC tego samego urządzenia.",
+          "ru": "Дополнительный MAC-адрес того же устройства.",
+          "ko": "동일한 장치의 추가 MAC 주소입니다."
+        },
+        "value": ""
+      },
+      {
+        "id": "alias3",
+        "type": "text",
+        "label": {
+          "en": "Alias MAC 3",
+          "nl": "Alias MAC 3",
+          "da": "Alias MAC 3",
+          "de": "Alias MAC 3",
+          "es": "Alias MAC 3",
+          "fr": "Alias MAC 3",
+          "it": "Alias MAC 3",
+          "no": "Alias MAC 3",
+          "sv": "Alias MAC 3",
+          "pl": "Alias MAC 3",
+          "ru": "Псевдоним MAC 3",
+          "ko": "별칭 MAC 3"
+        },
+        "hint": {
+          "en": "Additional MAC address of the same device.",
+          "nl": "Extra MAC-adres van hetzelfde apparaat.",
+          "da": "Yderligere MAC-adresse for samme enhed.",
+          "de": "Zusätzliche MAC-Adresse desselben Geräts.",
+          "es": "Dirección MAC adicional del mismo dispositivo.",
+          "fr": "Adresse MAC supplémentaire du même appareil.",
+          "it": "Indirizzo MAC aggiuntivo dello stesso dispositivo.",
+          "no": "Ekstra MAC-adresse for samme enhet.",
+          "sv": "Ytterligare MAC-adress för samma enhet.",
+          "pl": "Dodatkowy adres MAC tego samego urządzenia.",
+          "ru": "Дополнительный MAC-адрес того же устройства.",
+          "ko": "동일한 장치의 추가 MAC 주소입니다."
+        },
+        "value": ""
+      },
+      {
+        "id": "alias4",
+        "type": "text",
+        "label": {
+          "en": "Alias MAC 4",
+          "nl": "Alias MAC 4",
+          "da": "Alias MAC 4",
+          "de": "Alias MAC 4",
+          "es": "Alias MAC 4",
+          "fr": "Alias MAC 4",
+          "it": "Alias MAC 4",
+          "no": "Alias MAC 4",
+          "sv": "Alias MAC 4",
+          "pl": "Alias MAC 4",
+          "ru": "Псевдоним MAC 4",
+          "ko": "별칭 MAC 4"
+        },
+        "hint": {
+          "en": "Additional MAC address of the same device.",
+          "nl": "Extra MAC-adres van hetzelfde apparaat.",
+          "da": "Yderligere MAC-adresse for samme enhed.",
+          "de": "Zusätzliche MAC-Adresse desselben Geräts.",
+          "es": "Dirección MAC adicional del mismo dispositivo.",
+          "fr": "Adresse MAC supplémentaire du même appareil.",
+          "it": "Indirizzo MAC aggiuntivo dello stesso dispositivo.",
+          "no": "Ekstra MAC-adresse for samme enhet.",
+          "sv": "Ytterligare MAC-adress för samma enhet.",
+          "pl": "Dodatkowy adres MAC tego samego urządzenia.",
+          "ru": "Дополнительный MAC-адрес того же устройства.",
+          "ko": "동일한 장치의 추가 MAC 주소입니다."
+        },
+        "value": ""
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Presence settings",
+      "nl": "Aanwezigheidsinstellingen",
+      "da": "Tilstedeværelsesindstillinger",
+      "de": "Anwesenheitseinstellungen",
+      "es": "Configuración de presencia",
+      "fr": "Paramètres de présence",
+      "it": "Impostazioni di presenza",
+      "no": "Tilstedeværelsesinnstillinger",
+      "sv": "Närvaroinställningar",
+      "pl": "Ustawienia obecności",
+      "ru": "Настройки присутствия",
+      "ko": "존재 설정"
+    },
+    "children": [
+      {
+        "id": "offline_after",
+        "type": "number",
+        "label": {
+          "en": "Offline after (seconds)",
+          "nl": "Offline na (seconden)",
+          "da": "Offline efter (sekunder)",
+          "de": "Offline nach (Sekunden)",
+          "es": "Desconectado después de (segundos)",
+          "fr": "Hors ligne après (secondes)",
+          "it": "Offline dopo (secondi)",
+          "no": "Frakoblet etter (sekunder)",
+          "sv": "Offline efter (sekunder)",
+          "pl": "Offline po (sekundach)",
+          "ru": "Офлайн через (секунд)",
+          "ko": "오프라인 대기 시간 (초)"
+        },
+        "hint": {
+          "en": "If you have false disconnect reports, increase this value.",
+          "nl": "Als u valse ontkoppelingsmeldingen krijgt, verhoog dan deze waarde.",
+          "da": "Hvis du får falske afbrydelsesrapporter, skal du øge denne værdi.",
+          "de": "Wenn Sie falsche Trennungsmeldungen erhalten, erhöhen Sie diesen Wert.",
+          "es": "Si tiene informes de desconexión falsos, aumente este valor.",
+          "fr": "Si vous avez de faux rapports de déconnexion, augmentez cette valeur.",
+          "it": "Se si verificano falsi rapporti di disconnessione, aumentare questo valore.",
+          "no": "Hvis du får falske frakoblingsrapporter, øk denne verdien.",
+          "sv": "Om du får falska frånkopplingsrapporter, öka detta värde.",
+          "pl": "Jeśli otrzymujesz fałszywe raporty o rozłączeniu, zwiększ tę wartość.",
+          "ru": "Если вы получаете ложные отчеты об отключении, увеличьте это значение.",
+          "ko": "잘못된 연결 끊김 보고가 발생하면 이 값을 늘리십시오."
+        },
+        "attr": {
+          "min": 30
+        },
+        "value": 120
+      },
+      {
+        "id": "knownDevicesCacheTTL",
+        "type": "number",
+        "label": {
+          "en": "Known devices cache (days)",
+          "nl": "Cache bekende apparaten (dagen)",
+          "da": "Cache for kendte enheder (dage)",
+          "de": "Cache für bekannte Geräte (Tage)",
+          "es": "Caché de dispositivos conocidos (días)",
+          "fr": "Cache des appareils connus (jours)",
+          "it": "Cache dispositivi noti (giorni)",
+          "no": "Buffer for kjente enheter (dager)",
+          "sv": "Cache för kända enheter (dagar)",
+          "pl": "Pamięć podręczna znanych urządzeń (dni)",
+          "ru": "Кэш известных устройств (дней)",
+          "ko": "알려진 장치 캐시 (일)"
+        },
+        "hint": {
+          "en": "Time to keep known devices in cache. When offline for longer than this value, they will be detected as new unknown device on next connection.",
+          "nl": "Tijd om bekende apparaten in de cache te bewaren. Wanneer ze langer offline zijn dan deze waarde, worden ze bij de volgende verbinding gedetecteerd als nieuw onbekend apparaat.",
+          "da": "Tid til at beholde kendte enheder i cachen. Når de er offline i længere tid end denne værdi, vil de blive opdaget som en ny ukendt enhed ved næste forbindelse.",
+          "de": "Zeit, um bekannte Geräte im Cache zu halten. Wenn sie länger als dieser Wert offline sind, werden sie bei der nächsten Verbindung als neues unbekanntes Gerät erkannt.",
+          "es": "Tiempo para mantener los dispositivos conocidos en caché. Cuando estén desconectados por más tiempo que este valor, se detectarán como un nuevo dispositivo desconocido en la próxima conexión.",
+          "fr": "Temps de conservation des appareils connus en cache. Lorsqu'ils sont hors ligne plus longtemps que cette valeur, ils seront détectés comme un nouvel appareil inconnu à la prochaine connexion.",
+          "it": "Tempo per mantenere i dispositivi noti nella cache. Quando offline per un periodo superiore a questo valore, verranno rilevati come nuovo dispositivo sconosciuto alla connessione successiva.",
+          "no": "Tid for å beholde kjente enheter i hurtigbufferen. Når de er frakoblet lenger enn denne verdien, vil de bli oppdaget som en ny ukjent enhet ved neste tilkobling.",
+          "sv": "Tid att behålla kända enheter i cachen. När de är offline längre än detta värde kommer de att upptäckas som en ny okänd enhet vid nästa anslutning.",
+          "pl": "Czas przechowywania znanych urządzeń w pamięci podręcznej. Po upływie tego czasu w trybie offline, przy następnym połączeniu zostaną wykryte jako nowe nieznane urządzenie.",
+          "ru": "Время хранения известных устройств в кэше. Если устройство находится офлайн дольше этого значения, при следующем подключении оно будет обнаружено как новое неизвестное устройство.",
+          "ko": "알려진 장치를 캐시에 유지하는 시간입니다. 이 값보다 오래 오프라인 상태이면 다음 연결 시 새로운 알 수 없는 장치로 감지됩니다."
+        },
+        "attr": {
+          "min": 1,
+          "max": 365
+        },
+        "value": 30
+      }
+    ]
+  }
+]

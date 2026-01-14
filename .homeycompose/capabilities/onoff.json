@@ -1,0 +1,23 @@
+{
+  "type": "boolean",
+  "uiComponent": null,
+  "uiQuickAction": null,
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "title": {
+    "en": "Present",
+    "nl": "Aanwezig",
+    "da": "Tilstede",
+    "de": "Anwesend",
+    "es": "Presente",
+    "fr": "Présent",
+    "it": "Presente",
+    "no": "Til stede",
+    "sv": "Närvarande",
+    "pl": "Obecny",
+    "ru": "Присутствует",
+    "ko": "출석",
+    "ar": "الحاضر"
+  }
+}

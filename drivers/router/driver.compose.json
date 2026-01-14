@@ -1,0 +1,132 @@
+{
+  "name": {
+    "en": "Router"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "uptime",
+    "alarm_connectivity",
+    "measure_download_speed",
+    "measure_upload_speed",
+    "measure_attached_devices",
+    "measure_signal_strength",
+    "measure_cpu_utilization",
+    "measure_mem_utilization",
+    "measure_temperature",
+    "measure_attached_devices.wifi_2_4",
+    "measure_data_rate.2_4",
+    "measure_signal_strength.tx_2_4",
+    "measure_signal_strength.noise_2_4",
+    "measure_signal_strength.snr_2_4",
+    "measure_attached_devices.wifi_5",
+    "measure_data_rate.5",
+    "measure_signal_strength.tx_5",
+    "measure_signal_strength.noise_5",
+    "measure_signal_strength.snr_5"
+  ],
+  "capabilitiesOptions": {
+    "measure_signal_strength.tx_2_4": {
+      "title": {
+        "en": "2.4GHz TX power"
+      },
+      "units": {
+        "en": "dBm"
+      }
+    },
+    "measure_signal_strength.tx_5": {
+      "title": {
+        "en": "5GHz TX power"
+      },
+      "units": {
+        "en": "dBm"
+      }
+    },
+    "measure_signal_strength.noise_2_4": {
+      "title": {
+        "en": "2.4GHz RX noise"
+      },
+      "units": {
+        "en": "dBm"
+      }
+    },
+    "measure_signal_strength.noise_5": {
+      "title": {
+        "en": "5GHz RX noise"
+      },
+      "units": {
+        "en": "dBm"
+      }
+    },
+    "measure_signal_strength.snr_2_4": {
+      "title": {
+        "en": "2.4GHz SNR"
+      },
+      "units": {
+        "en": "dB"
+      }
+    },
+    "measure_signal_strength.snr_5": {
+      "title": {
+        "en": "5GHz SNR"
+      },
+      "units": {
+        "en": "dB"
+      }
+    },
+    "measure_data_rate.2_4": {
+      "title": {
+        "en": "2.4GHz Data Rate"
+      },
+      "units": {
+        "en": "Mb/s"
+      },
+      "decimals": 0
+    },
+    "measure_data_rate.5": {
+      "title": {
+        "en": "5GHz Data Rate"
+      },
+      "units": {
+        "en": "Mb/s"
+      },
+      "decimals": 0
+    },
+    "measure_attached_devices.wifi_2_4": {
+      "title": {
+        "en": "2.4GHz connections"
+      }
+    },
+    "measure_attached_devices.wifi_5": {
+      "title": {
+        "en": "5GHz connections"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+    "pair": [
+    {
+      "id": "router_pair"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

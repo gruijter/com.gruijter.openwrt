@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": {
+    "en": "WAN Upload Speed"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "Mbit/s"
+  },
+  "decimals": 2,
+  "insights": true,
+  "icon": "./assets/upload_speed.svg"
+}

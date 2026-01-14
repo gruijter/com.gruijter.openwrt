@@ -1,0 +1,37 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Link Speed",
+    "nl": "Verbindingsnelheid",
+    "da": "Linkhastighed",
+    "de": "Verbindungsgeschwindigkeit",
+    "es": "Velocidad de enlace",
+    "fr": "Vitesse de liaison",
+    "it": "Velocità di collegamento",
+    "no": "Tilkoblingshastighet",
+    "sv": "Länkhastighet",
+    "pl": "Prędkość łącza",
+    "ru": "Скорость соединения",
+    "ko": "링크 속도",
+    "ar": "سرعة الرابط"
+  },
+  "units": {
+    "en": "Mb/s",
+    "nl": "Mb/s",
+    "da": "Mb/s",
+    "de": "Mb/s",
+    "es": "Mb/s",
+    "fr": "Mb/s",
+    "it": "Mb/s",
+    "no": "Mb/s",
+    "sv": "Mb/s",
+    "pl": "Mb/s",
+    "ru": "Mb/s",
+    "ko": "Mb/s",
+    "ar": "Mb/s"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "./assets/link_speed.svg"
+}

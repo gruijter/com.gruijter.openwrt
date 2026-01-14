@@ -1,0 +1,38 @@
+{
+  "type": "number",
+  "title": {
+    "en": "WAN Download Speed",
+    "nl": "WAN-downloadsnelheid",
+    "da": "WAN-nedlastningshastighed",
+    "de": "WAN-Download-Geschwindigkeit",
+    "es": "Velocidad de descarga WAN",
+    "fr": "Vitesse de téléchargement WAN",
+    "it": "Velocità di download WAN",
+    "no": "WAN nedlastingshastighet",
+    "sv": "WAN nedladdningshastighet",
+    "pl": "Prędkość pobierania WAN",
+    "ru": "Скорость загрузки WAN",
+    "ko": "WAN 다운로드 속도",
+    "ar": "سرعة تنزيل WAN"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "Mbit/s",
+    "nl": "Mbit/s",
+    "da": "Mbit/s",
+    "de": "Mbit/s",
+    "es": "Mbit/s",
+    "fr": "Mbit/s",
+    "it": "Mbit/s",
+    "no": "Mbit/s",
+    "sv": "Mbit/s",
+    "pl": "Mbit/s",
+    "ru": "Мбит/с",
+    "ko": "메가비트/초",
+    "ar": "ميغابت/ث"
+  },
+  "decimals": 2,
+  "insights": true,
+  "icon": "./assets/download_speed.svg"
+}

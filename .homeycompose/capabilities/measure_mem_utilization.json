@@ -1,0 +1,38 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Memory Used",
+    "nl": "Geheugen gebruikt",
+    "da": "Hukommelse i brug",
+    "de": "Speicher verwendet",
+    "es": "Memoria utilizada",
+    "fr": "Mémoire utilisée",
+    "it": "Memoria utilizzata",
+    "no": "Minne i bruk",
+    "sv": "Minnet används",
+    "pl": "Zużyta pamięć",
+    "ru": "Используемая память",
+    "ko": "사용된 메모리",
+    "ar": "الذاكرة المستخدمة"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "%",
+    "da": "%",
+    "de": "%",
+    "es": "%",
+    "fr": "%",
+    "it": "%",
+    "no": "%",
+    "sv": "%",
+    "pl": "%",
+    "ru": "%",
+    "ko": "%",
+    "nl": "%",
+    "ar": "%"
+  },
+  "decimals": 0,
+  "insights": true,
+  "icon": "./assets/mem_utilization.svg"
+}

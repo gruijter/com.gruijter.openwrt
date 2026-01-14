@@ -1,0 +1,275 @@
+{
+  "title": {
+    "en": "A device came online"
+  },
+  "highlight": true,
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=router&capabilities=measure_attached_devices"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "mac",
+      "type": "string",
+      "title": {
+        "en": "mac",
+        "nl": "mac",
+        "de": "MAC",
+        "da": "MAC",
+        "es": "MAC",
+        "fr": "MAC",
+        "it": "MAC",
+        "no": "MAC",
+        "sv": "MAC",
+        "pl": "MAC",
+        "ru": "MAC",
+        "ko": "MAC",
+        "ar": "MAC"
+      },
+      "example": "AA:BB:CC:DD:EE:FF"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "title": {
+        "en": "name",
+        "nl": "naam",
+        "de": "Name",
+        "da": "navn",
+        "es": "nombre",
+        "fr": "nom",
+        "it": "nome",
+        "no": "navn",
+        "sv": "namn",
+        "pl": "nazwa",
+        "ru": "имя",
+        "ko": "이름",
+        "ar": "الاسم"
+      },
+      "example": "iPhone"
+    },
+    {
+      "name": "ip",
+      "type": "string",
+      "title": {
+        "en": "ip",
+        "nl": "ip",
+        "de": "IP",
+        "da": "IP",
+        "es": "IP",
+        "fr": "IP",
+        "it": "IP",
+        "no": "IP",
+        "sv": "IP",
+        "pl": "IP",
+        "ru": "IP",
+        "ko": "IP",
+        "ar": "IP"
+      },
+      "example": "10.0.0.10"
+    },
+    {
+      "name": "routerName",
+      "type": "string",
+      "title": {
+        "en": "router name",
+        "nl": "routernaam",
+        "da": "routernavn",
+        "de": "Routername",
+        "es": "Nombre del router",
+        "fr": "Nom du routeur",
+        "it": "Nome del router",
+        "no": "routernavn",
+        "sv": "Routernamn",
+        "pl": "nazwa routera",
+        "ru": "имя маршрутизатора",
+        "ko": "라우터 이름",
+        "ar": "اسم الراوتر"
+      },
+      "example": "OpenWRT-Router"
+    },
+    {
+      "name": "port",
+      "type": "string",
+      "title": {
+        "en": "port",
+        "nl": "poort",
+        "da": "port",
+        "de": "Port",
+        "es": "Puerto",
+        "fr": "Port",
+        "it": "porta",
+        "no": "port",
+        "sv": "port",
+        "pl": "port",
+        "ru": "порт",
+        "ko": "포트",
+        "ar": "منفذ"
+      },
+      "example": "lan3"
+    },
+    {
+      "name": "linkSpeed",
+      "type": "number",
+      "title": {
+        "en": "Link speed (Mb/s)",
+        "nl": "Link-snelheid (Mb/s)",
+        "da": "Linkhastighed (Mb/s)",
+        "de": "Link-Geschwindigkeit (Mb/s)",
+        "es": "Velocidad de enlace (Mb/s)",
+        "fr": "Vitesse du lien (Mb/s)",
+        "it": "Velocità del link (Mb/s)",
+        "no": "Lenkehastighet (Mb/s)",
+        "sv": "Länkhastighet (Mb/s)",
+        "pl": "Prędkość łącza (Mb/s)",
+        "ru": "Скорость канала (Mb/s)",
+        "ko": "링크 속도 (Mb/s)",
+        "ar": "سرعة الرابط (Mb/s)"
+      },
+      "example": "100"
+    },
+    {
+      "name": "wifiSsid",
+      "type": "string",
+      "title": {
+        "en": "wifi ssid",
+        "nl": "wifi SSID",
+        "de": "WLAN-SSID",
+        "da": "WiFi-SSID",
+        "es": "SSID de WiFi",
+        "fr": "SSID Wi‑Fi",
+        "it": "SSID Wi‑Fi",
+        "no": "WiFi-SSID",
+        "sv": "WiFi-SSID",
+        "pl": "SSID WiFi",
+        "ru": "SSID WiFi",
+        "ko": "와이파이 SSID",
+        "ar": "SSID"
+      },
+      "example": "GUEST_WIFI"
+    },
+    {
+      "name": "wifiSignal",
+      "type": "number",
+      "title": {
+        "en": "wifi signal (dBm)",
+        "nl": "WiFi-signaal (dBm)",
+        "da": "WiFi-signal (dBm)",
+        "de": "WiFi-Signal (dBm)",
+        "es": "Señal WiFi (dBm)",
+        "fr": "Signal Wi‑Fi (dBm)",
+        "it": "Segnale Wi‑Fi (dBm)",
+        "no": "WiFi-signal (dBm)",
+        "sv": "WiFi-signal (dBm)",
+        "pl": "Sygnał WiFi (dBm)",
+        "ru": "Сигнал WiFi (dBm)",
+        "ko": "와이파이 신호 (dBm)",
+        "ar": "إشارة WiFi (dBm)"
+      },
+      "example": -46
+    },
+    {
+      "name": "wifiSnr",
+      "type": "number",
+      "title": {
+        "en": "wifi S/NR (dB)",
+        "nl": "WiFi SNR (dB)",
+        "da": "WiFi-SNR (dB)",
+        "de": "WiFi-SNR (dB)",
+        "es": "SNR de WiFi (dB)",
+        "fr": "SNR Wi‑Fi (dB)",
+        "it": "SNR WiFi (dB)",
+        "no": "WiFi-SNR (dB)",
+        "sv": "WiFi-SNR (dB)",
+        "pl": "SNR WiFi (dB)",
+        "ru": "SNR WiFi (dB)",
+        "ko": "와이파이 SNR (dB)",
+        "ar": "مُعامل الإشارة لشبكة WiFi (dB)"
+      },
+      "example": 27
+    },
+    {
+      "name": "rxBytes",
+      "type": "number",
+      "title": {
+        "en": "Rx traffic (bytes)",
+        "nl": "Rx-verkeer (bytes)",
+        "de": "Rx-Verkehr (Bytes)",
+        "da": "Rx-trafik (bytes)",
+        "es": "Tráfico Rx (bytes)",
+        "fr": "Trafic RX (octets)",
+        "it": "Traffico RX (byte)",
+        "no": "Rx-trafikk (bytes)",
+        "sv": "Rx-trafik (bytes)",
+        "pl": "Ruch Rx (bajtów)",
+        "ru": "Rx-трафик (байты)",
+        "ko": "Rx 트래픽 (바이트)",
+        "ar": "حركة الاستقبال (بايت)"
+      },
+      "example": 1026324
+    },
+    {
+      "name": "txBytes",
+      "type": "number",
+      "title": {
+        "en": "Tx traffic (bytes)",
+        "nl": "Tx-verkeer (bytes)",
+        "de": "Tx-Verkehr (Bytes)",
+        "da": "Tx-trafik (bytes)",
+        "es": "Tráfico Tx (bytes)",
+        "fr": "Trafic TX (octets)",
+        "it": "Traffico TX (byte)",
+        "no": "Tx-trafikk (bytes)",
+        "sv": "Tx-trafik (bytes)",
+        "pl": "Ruch Tx (bajtów)",
+        "ru": "Tx-трафик (байты)",
+        "ko": "Tx 트래픽 (바이트)",
+        "ar": "حركة الإرسال (بايت)"
+      },
+      "example": 827690
+    },
+    {
+      "name": "network",
+      "type": "string",
+      "title": {
+        "en": "network",
+        "nl": "netwerk",
+        "da": "netværk",
+        "de": "Netzwerk",
+        "es": "red",
+        "fr": "réseau",
+        "it": "rete",
+        "no": "nettverk",
+        "sv": "nätverk",
+        "pl": "sieć",
+        "ru": "сеть",
+        "ko": "네트워크",
+        "ar": "الشبكة"
+      },
+      "example": "['GUEST_WIFI']"
+    },
+    {
+      "name": "firewallZones",
+      "type": "string",
+      "title": {
+        "en": "firewall zones",
+        "nl": "firewallzones",
+        "da": "firewall-zoner",
+        "de": "Firewallzonen",
+        "es": "Zonas de firewall",
+        "fr": "Zones de pare-feu",
+        "it": "Zone del firewall",
+        "no": "Brannmursoner",
+        "sv": "Brandväggszoner",
+        "pl": "Strefy zapory",
+        "ru": "Зоны брандмауэра",
+        "ko": "방화벽 영역",
+        "ar": "مناطق جدار الحماية"
+      },
+      "example": "['GUESTS']"
+    }
+  ]
+}

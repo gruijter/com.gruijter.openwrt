@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Connections",
+    "nl": "Verbindingen",
+    "da": "Forbindelser",
+    "de": "Verbindungen",
+    "es": "Conexiones",
+    "fr": "Connexions",
+    "it": "Connessioni",
+    "no": "Forbindelser",
+    "sv": "Anslutningar",
+    "pl": "Połączenia",
+    "ru": "Соединения",
+    "ko": "연결",
+    "ar": "الاتصالات"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "./assets/connections.svg"
+}

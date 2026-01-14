@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "IP Address",
+    "nl": "IP-adres",
+    "da": "IP-adresse",
+    "de": "IP-Adresse",
+    "es": "Dirección IP",
+    "fr": "Adresse IP",
+    "it": "Indirizzo IP",
+    "no": "IP-adresse",
+    "sv": "IP-adress",
+    "pl": "Adres IP",
+    "ru": "IP-адрес",
+    "ko": "IP 주소",
+    "ar": "عنوان IP"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/ip_address.svg"
+}

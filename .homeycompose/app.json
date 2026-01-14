@@ -1,0 +1,67 @@
+{
+  "id": "com.gruijter.openwrt",
+  "version": "1.0.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "OpenWRT",
+    "nl": "OpenWRT",
+    "da": "OpenWRT",
+    "de": "OpenWRT",
+    "es": "OpenWRT",
+    "fr": "OpenWRT",
+    "it": "OpenWRT",
+    "no": "OpenWRT",
+    "sv": "OpenWRT",
+    "pl": "OpenWRT",
+    "ru": "OpenWRT",
+    "ko": "OpenWRT",
+    "ar": "OpenWRT"
+  },
+  "description": {
+    "en": "Presence Detection, Network control, Energy Monitoring",
+    "nl": "Aanwezigheidsdetectie, netwerkcontrole, energiebewaking",
+    "da": "Tilstedeværelsesdetektion, netværksstyring, energiovervågning",
+    "de": "Anwesenheitserkennung, Netzwerkkontrolle, Energieüberwachung",
+    "es": "Detección de presencia, control de red, monitorización de energía",
+    "fr": "Détection de présence, contrôle du réseau, surveillance de l'énergie",
+    "it": "Rilevamento della presenza, controllo della rete, monitoraggio dell'energia",
+    "no": "Tilstedeværelsesdeteksjon, nettverksstyring, energiovervåkning",
+    "sv": "Närvarodetektering, nätverkskontroll, energimonitorering",
+    "pl": "Wykrywanie obecności, sterowanie siecią, monitorowanie energii",
+    "ru": "Определение присутствия, управление сетью, мониторинг энергии",
+    "ko": "존재 감지, 네트워크 제어, 에너지 모니터링",
+    "ar": "كشف التواجد، التحكم بالشبكة، مراقبة الطاقة"
+  },
+  "category": [
+    "internet"
+  ],
+  "permissions": [],
+  "brandColor": "#00B5E2",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Robin de Gruijter",
+    "email": "gruijter@hotmail.com"
+  },
+  "copyright": "Robin de Gruijter (gruijter@hotmail.com)",
+  "license": "GPL-3.0-or-later",
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "gruijter"
+      }
+    }
+  },
+  "homeyCommunityTopicId": 149260,
+  "source": "https://github.com/gruijter/com.gruijter.openwrt",
+  "bugs": {
+    "url": "https://github.com/gruijter/com.gruijter.openwrt/issues"
+  }
+}

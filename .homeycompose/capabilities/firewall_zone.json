@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Firewall Zone",
+    "nl": "Firewallzone",
+    "da": "Firewallzone",
+    "de": "Firewallzone",
+    "es": "Zona de cortafuegos",
+    "fr": "Zone pare-feu",
+    "it": "Zona firewall",
+    "no": "Brannmursonen",
+    "sv": "Brandväggszon",
+    "pl": "Strefa zapory",
+    "ru": "Зона межсетевого экрана",
+    "ko": "방화벽 영역",
+    "ar": "منطقة الجدار الناري"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/firewall_zone.svg"
+}

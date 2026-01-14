@@ -1,0 +1,21 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Port",
+    "nl": "haven",
+    "da": "havn",
+    "de": "Hafen",
+    "es": "Puerto",
+    "fr": "Port",
+    "it": "Porto",
+    "no": "havn",
+    "sv": "hamn",
+    "pl": "port",
+    "ru": "порт",
+    "ko": "항구",
+    "ar": "ميناء"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/port.svg"
+}

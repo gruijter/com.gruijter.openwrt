@@ -1,0 +1,117 @@
+{
+  "title": {
+    "en": "Device metrics changed"
+  },
+  "highlight": true,
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=router&capabilities=measure_attached_devices"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "mac",
+      "type": "string",
+      "title": {
+        "en": "mac",
+        "nl": "mac",
+        "de": "MAC"
+      },
+      "example": "AA:BB:CC:DD:EE:FF"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "title": {
+        "en": "name",
+        "nl": "naam",
+        "de": "Name"
+      },
+      "example": "iPhone"
+    },
+    {
+      "name": "ip",
+      "type": "string",
+      "title": {
+        "en": "ip",
+        "nl": "ip",
+        "de": "IP"
+      },
+      "example": "10.0.0.10"
+    },
+    {
+      "name": "routerName",
+      "type": "string",
+      "title": {
+        "en": "router name"
+      },
+      "example": "OpenWRT-Router"
+    },
+    {
+      "name": "port",
+      "type": "string",
+      "title": {
+        "en": "port"
+      },
+      "example": "lan3"
+    },
+    {
+      "name": "linkSpeed",
+      "type": "string",
+      "title": {
+        "en": "Eth link speed"
+      },
+      "example": "100 Mbit/s"
+    },
+    {
+      "name": "wifiSsid",
+      "type": "string",
+      "title": {
+        "en": "wifi ssid"
+      },
+      "example": "GUEST_WIFI"
+    },
+    {
+      "name": "wifiSignal",
+      "type": "number",
+      "title": {
+        "en": "wifi signal (dBm)"
+      },
+      "example": -46
+    },
+    {
+      "name": "wifiSnr",
+      "type": "number",
+      "title": {
+        "en": "wifi S/NR (dB)"
+      },
+      "example": 27
+    },
+    {
+      "name": "rxBytes",
+      "type": "number",
+      "title": {
+        "en": "Rx traffic (bytes)"
+      },
+      "example": 1026324
+    },
+    {
+      "name": "txBytes",
+      "type": "number",
+      "title": {
+        "en": "Tx traffic (bytes)"
+      },
+      "example": 827690
+    },
+    {
+      "name": "network",
+      "type": "string",
+      "title": {
+        "en": "network"
+      },
+      "example": "['GUEST_WIFI']"
+    }
+  ]
+}

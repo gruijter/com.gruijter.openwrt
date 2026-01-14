@@ -1,0 +1,1883 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.gruijter.openwrt",
+  "version": "1.0.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "OpenWRT",
+    "nl": "OpenWRT",
+    "da": "OpenWRT",
+    "de": "OpenWRT",
+    "es": "OpenWRT",
+    "fr": "OpenWRT",
+    "it": "OpenWRT",
+    "no": "OpenWRT",
+    "sv": "OpenWRT",
+    "pl": "OpenWRT",
+    "ru": "OpenWRT",
+    "ko": "OpenWRT"
+  },
+  "description": {
+    "en": "Presence Detection, Network control, Energy Monitoring",
+    "nl": "Aanwezigheidsdetectie, netwerkcontrole, energiebewaking",
+    "da": "Tilstedeværelsesdetektion, netværksstyring, energiovervågning",
+    "de": "Anwesenheitserkennung, Netzwerkkontrolle, Energieüberwachung",
+    "es": "Detección de presencia, control de red, monitorización de energía",
+    "fr": "Détection de présence, contrôle du réseau, surveillance de l'énergie",
+    "it": "Rilevamento della presenza, controllo della rete, monitoraggio dell'energia",
+    "no": "Tilstedeværelsesdeteksjon, nettverksstyring, energiovervåkning",
+    "sv": "Närvarodetektering, nätverkskontroll, energimonitorering",
+    "pl": "Wykrywanie obecności, sterowanie siecią, monitorowanie energii",
+    "ru": "Определение присутствия, управление сетью, мониторинг энергии",
+    "ko": "존재 감지, 네트워크 제어, 에너지 모니터링"
+  },
+  "category": [
+    "internet"
+  ],
+  "permissions": [],
+  "brandColor": "#00B5E2",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Robin de Gruijter",
+    "email": "gruijter@hotmail.com"
+  },
+  "copyright": "Robin de Gruijter (gruijter@hotmail.com)",
+  "license": "GPL-3.0-or-later",
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "gruijter"
+      }
+    }
+  },
+  "homeyCommunityTopicId": 149260,
+  "source": "https://github.com/gruijter/com.gruijter.openwrt",
+  "bugs": {
+    "url": "https://github.com/gruijter/com.gruijter.openwrt/issues"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "A device came online"
+        },
+        "highlight": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mac",
+            "type": "string",
+            "title": {
+              "en": "mac",
+              "nl": "mac",
+              "de": "MAC",
+              "da": "MAC",
+              "es": "MAC",
+              "fr": "MAC",
+              "it": "MAC",
+              "no": "MAC",
+              "sv": "MAC",
+              "pl": "MAC",
+              "ru": "MAC",
+              "ko": "MAC"
+            },
+            "example": "AA:BB:CC:DD:EE:FF"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "name",
+              "nl": "naam",
+              "de": "Name",
+              "da": "navn",
+              "es": "nombre",
+              "fr": "nom",
+              "it": "nome",
+              "no": "navn",
+              "sv": "namn",
+              "pl": "nazwa",
+              "ru": "имя",
+              "ko": "이름"
+            },
+            "example": "iPhone"
+          },
+          {
+            "name": "ip",
+            "type": "string",
+            "title": {
+              "en": "ip",
+              "nl": "ip",
+              "de": "IP",
+              "da": "IP",
+              "es": "IP",
+              "fr": "IP",
+              "it": "IP",
+              "no": "IP",
+              "sv": "IP",
+              "pl": "IP",
+              "ru": "IP",
+              "ko": "IP"
+            },
+            "example": "10.0.0.10"
+          },
+          {
+            "name": "routerName",
+            "type": "string",
+            "title": {
+              "en": "router name",
+              "nl": "routernaam",
+              "da": "routernavn",
+              "de": "Routername",
+              "es": "Nombre del router",
+              "fr": "Nom du routeur",
+              "it": "Nome del router",
+              "no": "routernavn",
+              "sv": "Routernamn",
+              "pl": "nazwa routera",
+              "ru": "имя маршрутизатора",
+              "ko": "라우터 이름"
+            },
+            "example": "OpenWRT-Router"
+          },
+          {
+            "name": "port",
+            "type": "string",
+            "title": {
+              "en": "port",
+              "nl": "poort",
+              "da": "port",
+              "de": "Port",
+              "es": "Puerto",
+              "fr": "Port",
+              "it": "porta",
+              "no": "port",
+              "sv": "port",
+              "pl": "port",
+              "ru": "порт",
+              "ko": "포트"
+            },
+            "example": "lan3"
+          },
+          {
+            "name": "linkSpeed",
+            "type": "number",
+            "title": {
+              "en": "Link speed (Mb/s)",
+              "nl": "Link-snelheid (Mb/s)",
+              "da": "Linkhastighed (Mb/s)",
+              "de": "Link-Geschwindigkeit (Mb/s)",
+              "es": "Velocidad de enlace (Mb/s)",
+              "fr": "Vitesse du lien (Mb/s)",
+              "it": "Velocità del link (Mb/s)",
+              "no": "Lenkehastighet (Mb/s)",
+              "sv": "Länkhastighet (Mb/s)",
+              "pl": "Prędkość łącza (Mb/s)",
+              "ru": "Скорость канала (Mb/s)",
+              "ko": "링크 속도 (Mb/s)"
+            },
+            "example": "100"
+          },
+          {
+            "name": "wifiSsid",
+            "type": "string",
+            "title": {
+              "en": "wifi ssid",
+              "nl": "wifi SSID",
+              "de": "WLAN-SSID",
+              "da": "WiFi-SSID",
+              "es": "SSID de WiFi",
+              "fr": "SSID Wi‑Fi",
+              "it": "SSID Wi‑Fi",
+              "no": "WiFi-SSID",
+              "sv": "WiFi-SSID",
+              "pl": "SSID WiFi",
+              "ru": "SSID WiFi",
+              "ko": "와이파이 SSID"
+            },
+            "example": "GUEST_WIFI"
+          },
+          {
+            "name": "wifiSignal",
+            "type": "number",
+            "title": {
+              "en": "wifi signal (dBm)",
+              "nl": "WiFi-signaal (dBm)",
+              "da": "WiFi-signal (dBm)",
+              "de": "WiFi-Signal (dBm)",
+              "es": "Señal WiFi (dBm)",
+              "fr": "Signal Wi‑Fi (dBm)",
+              "it": "Segnale Wi‑Fi (dBm)",
+              "no": "WiFi-signal (dBm)",
+              "sv": "WiFi-signal (dBm)",
+              "pl": "Sygnał WiFi (dBm)",
+              "ru": "Сигнал WiFi (dBm)",
+              "ko": "와이파이 신호 (dBm)"
+            },
+            "example": -46
+          },
+          {
+            "name": "wifiSnr",
+            "type": "number",
+            "title": {
+              "en": "wifi S/NR (dB)",
+              "nl": "WiFi SNR (dB)",
+              "da": "WiFi-SNR (dB)",
+              "de": "WiFi-SNR (dB)",
+              "es": "SNR de WiFi (dB)",
+              "fr": "SNR Wi‑Fi (dB)",
+              "it": "SNR WiFi (dB)",
+              "no": "WiFi-SNR (dB)",
+              "sv": "WiFi-SNR (dB)",
+              "pl": "SNR WiFi (dB)",
+              "ru": "SNR WiFi (dB)",
+              "ko": "와이파이 SNR (dB)"
+            },
+            "example": 27
+          },
+          {
+            "name": "rxBytes",
+            "type": "number",
+            "title": {
+              "en": "Rx traffic (bytes)",
+              "nl": "Rx-verkeer (bytes)",
+              "de": "Rx-Verkehr (Bytes)",
+              "da": "Rx-trafik (bytes)",
+              "es": "Tráfico Rx (bytes)",
+              "fr": "Trafic RX (octets)",
+              "it": "Traffico RX (byte)",
+              "no": "Rx-trafikk (bytes)",
+              "sv": "Rx-trafik (bytes)",
+              "pl": "Ruch Rx (bajtów)",
+              "ru": "Rx-трафик (байты)",
+              "ko": "Rx 트래픽 (바이트)"
+            },
+            "example": 1026324
+          },
+          {
+            "name": "txBytes",
+            "type": "number",
+            "title": {
+              "en": "Tx traffic (bytes)",
+              "nl": "Tx-verkeer (bytes)",
+              "de": "Tx-Verkehr (Bytes)",
+              "da": "Tx-trafik (bytes)",
+              "es": "Tráfico Tx (bytes)",
+              "fr": "Trafic TX (octets)",
+              "it": "Traffico TX (byte)",
+              "no": "Tx-trafikk (bytes)",
+              "sv": "Tx-trafik (bytes)",
+              "pl": "Ruch Tx (bajtów)",
+              "ru": "Tx-трафик (байты)",
+              "ko": "Tx 트래픽 (바이트)"
+            },
+            "example": 827690
+          },
+          {
+            "name": "network",
+            "type": "string",
+            "title": {
+              "en": "network",
+              "nl": "netwerk",
+              "da": "netværk",
+              "de": "Netzwerk",
+              "es": "red",
+              "fr": "réseau",
+              "it": "rete",
+              "no": "nettverk",
+              "sv": "nätverk",
+              "pl": "sieć",
+              "ru": "сеть",
+              "ko": "네트워크"
+            },
+            "example": "['GUEST_WIFI']"
+          },
+          {
+            "name": "firewallZones",
+            "type": "string",
+            "title": {
+              "en": "firewall zones",
+              "nl": "firewallzones",
+              "da": "firewall-zoner",
+              "de": "Firewallzonen",
+              "es": "Zonas de firewall",
+              "fr": "Zones de pare-feu",
+              "it": "Zone del firewall",
+              "no": "Brannmursoner",
+              "sv": "Brandväggszoner",
+              "pl": "Strefy zapory",
+              "ru": "Зоны брандмауэра",
+              "ko": "방화벽 영역"
+            },
+            "example": "['GUESTS']"
+          }
+        ],
+        "id": "device_came_online"
+      },
+      {
+        "title": {
+          "en": "Device metrics changed"
+        },
+        "highlight": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mac",
+            "type": "string",
+            "title": {
+              "en": "mac",
+              "nl": "mac",
+              "de": "MAC"
+            },
+            "example": "AA:BB:CC:DD:EE:FF"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "name",
+              "nl": "naam",
+              "de": "Name"
+            },
+            "example": "iPhone"
+          },
+          {
+            "name": "ip",
+            "type": "string",
+            "title": {
+              "en": "ip",
+              "nl": "ip",
+              "de": "IP"
+            },
+            "example": "10.0.0.10"
+          },
+          {
+            "name": "routerName",
+            "type": "string",
+            "title": {
+              "en": "router name"
+            },
+            "example": "OpenWRT-Router"
+          },
+          {
+            "name": "port",
+            "type": "string",
+            "title": {
+              "en": "port"
+            },
+            "example": "lan3"
+          },
+          {
+            "name": "linkSpeed",
+            "type": "string",
+            "title": {
+              "en": "Eth link speed"
+            },
+            "example": "100 Mbit/s"
+          },
+          {
+            "name": "wifiSsid",
+            "type": "string",
+            "title": {
+              "en": "wifi ssid"
+            },
+            "example": "GUEST_WIFI"
+          },
+          {
+            "name": "wifiSignal",
+            "type": "number",
+            "title": {
+              "en": "wifi signal (dBm)"
+            },
+            "example": -46
+          },
+          {
+            "name": "wifiSnr",
+            "type": "number",
+            "title": {
+              "en": "wifi S/NR (dB)"
+            },
+            "example": 27
+          },
+          {
+            "name": "rxBytes",
+            "type": "number",
+            "title": {
+              "en": "Rx traffic (bytes)"
+            },
+            "example": 1026324
+          },
+          {
+            "name": "txBytes",
+            "type": "number",
+            "title": {
+              "en": "Tx traffic (bytes)"
+            },
+            "example": 827690
+          },
+          {
+            "name": "network",
+            "type": "string",
+            "title": {
+              "en": "network"
+            },
+            "example": "['GUEST_WIFI']"
+          }
+        ],
+        "id": "device_metrics_changed"
+      },
+      {
+        "title": {
+          "en": "New connected device"
+        },
+        "highlight": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mac",
+            "type": "string",
+            "title": {
+              "en": "mac",
+              "nl": "mac",
+              "de": "MAC"
+            },
+            "example": "AA:BB:CC:DD:EE:FF"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "name",
+              "nl": "naam",
+              "de": "Name"
+            },
+            "example": "iPhone"
+          },
+          {
+            "name": "ip",
+            "type": "string",
+            "title": {
+              "en": "ip",
+              "nl": "ip",
+              "de": "IP"
+            },
+            "example": "10.0.0.10"
+          },
+          {
+            "name": "routerName",
+            "type": "string",
+            "title": {
+              "en": "router name"
+            },
+            "example": "OpenWRT-Router"
+          },
+          {
+            "name": "port",
+            "type": "string",
+            "title": {
+              "en": "port"
+            },
+            "example": "lan3"
+          },
+          {
+            "name": "linkSpeed",
+            "type": "number",
+            "title": {
+              "en": "Link speed (Mb/s)"
+            },
+            "example": "100"
+          },
+          {
+            "name": "wifiSsid",
+            "type": "string",
+            "title": {
+              "en": "wifi ssid"
+            },
+            "example": "GUEST_WIFI"
+          },
+          {
+            "name": "wifiSignal",
+            "type": "number",
+            "title": {
+              "en": "wifi signal (dBm)"
+            },
+            "example": -46
+          },
+          {
+            "name": "wifiSnr",
+            "type": "number",
+            "title": {
+              "en": "wifi S/NR (dB)"
+            },
+            "example": 27
+          },
+          {
+            "name": "rxBytes",
+            "type": "number",
+            "title": {
+              "en": "Rx traffic (bytes)"
+            },
+            "example": 1026324
+          },
+          {
+            "name": "txBytes",
+            "type": "number",
+            "title": {
+              "en": "Tx traffic (bytes)"
+            },
+            "example": 827690
+          },
+          {
+            "name": "network",
+            "type": "string",
+            "title": {
+              "en": "network"
+            },
+            "example": "['GUEST_WIFI']"
+          },
+          {
+            "name": "firewallZones",
+            "type": "string",
+            "title": {
+              "en": "firewall zones"
+            },
+            "example": "['GUESTS']"
+          }
+        ],
+        "id": "device_new_detected"
+      },
+      {
+        "title": {
+          "en": "A device went offline"
+        },
+        "highlight": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mac",
+            "type": "string",
+            "title": {
+              "en": "mac",
+              "nl": "mac",
+              "de": "MAC"
+            },
+            "example": "AA:BB:CC:DD:EE:FF"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": {
+              "en": "name",
+              "nl": "naam",
+              "de": "Name"
+            },
+            "example": "iPhone"
+          },
+          {
+            "name": "ip",
+            "type": "string",
+            "title": {
+              "en": "ip",
+              "nl": "ip",
+              "de": "IP"
+            },
+            "example": "10.0.0.10"
+          },
+          {
+            "name": "routerName",
+            "type": "string",
+            "title": {
+              "en": "router name"
+            },
+            "example": "OpenWRT-Router"
+          },
+          {
+            "name": "port",
+            "type": "string",
+            "title": {
+              "en": "port"
+            },
+            "example": "lan3"
+          },
+          {
+            "name": "linkSpeed",
+            "type": "number",
+            "title": {
+              "en": "Link speed (Mb/s)"
+            },
+            "example": "100"
+          },
+          {
+            "name": "wifiSsid",
+            "type": "string",
+            "title": {
+              "en": "wifi ssid"
+            },
+            "example": "GUEST_WIFI"
+          },
+          {
+            "name": "wifiSignal",
+            "type": "number",
+            "title": {
+              "en": "wifi signal (dBm)"
+            },
+            "example": -46
+          },
+          {
+            "name": "wifiSnr",
+            "type": "number",
+            "title": {
+              "en": "wifi S/NR (dB)"
+            },
+            "example": 27
+          },
+          {
+            "name": "rxBytes",
+            "type": "number",
+            "title": {
+              "en": "Rx traffic (bytes)"
+            },
+            "example": 1026324
+          },
+          {
+            "name": "txBytes",
+            "type": "number",
+            "title": {
+              "en": "Tx traffic (bytes)"
+            },
+            "example": 827690
+          },
+          {
+            "name": "network",
+            "type": "string",
+            "title": {
+              "en": "network"
+            },
+            "example": "['GUEST_WIFI']"
+          },
+          {
+            "name": "firewallZones",
+            "type": "string",
+            "title": {
+              "en": "firewall zones"
+            },
+            "example": "['GUESTS']"
+          }
+        ],
+        "id": "device_went_offline"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Device"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "device_connected",
+        "ip_address",
+        "name_in_router",
+        "router_name",
+        "port",
+        "measure_link_speed",
+        "firewall_zone",
+        "measure_connections",
+        "measure_signal_strength",
+        "measure_signal_strength.snr",
+        "measure_download_speed",
+        "measure_upload_speed",
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "measure_signal_strength.snr": {
+          "title": {
+            "en": "SNR"
+          },
+          "units": {
+            "en": "dB"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/device/assets/images/small.png",
+        "large": "/drivers/device/assets/images/large.png",
+        "xlarge": "/drivers/device/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "device",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device information"
+          },
+          "children": [
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
+              },
+              "value": ""
+            },
+            {
+              "id": "name",
+              "type": "label",
+              "label": {
+                "en": "Device name"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Aliases"
+          },
+          "children": [
+            {
+              "id": "alias1",
+              "type": "text",
+              "label": {
+                "en": "Alias MAC 1"
+              },
+              "hint": {
+                "en": "Additional MAC address of the same device."
+              },
+              "value": ""
+            },
+            {
+              "id": "alias2",
+              "type": "text",
+              "label": {
+                "en": "Alias MAC 2"
+              },
+              "hint": {
+                "en": "Additional MAC address of the same device."
+              },
+              "value": ""
+            },
+            {
+              "id": "alias3",
+              "type": "text",
+              "label": {
+                "en": "Alias MAC 3"
+              },
+              "hint": {
+                "en": "Additional MAC address of the same device."
+              },
+              "value": ""
+            },
+            {
+              "id": "alias4",
+              "type": "text",
+              "label": {
+                "en": "Alias MAC 4"
+              },
+              "hint": {
+                "en": "Additional MAC address of the same device."
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Presence settings"
+          },
+          "children": [
+            {
+              "id": "offline_after",
+              "type": "number",
+              "label": {
+                "en": "Offline after (seconds)"
+              },
+              "hint": {
+                "en": "If you have false disconnect reports, increase this value."
+              },
+              "attr": {
+                "min": 30
+              },
+              "value": 120
+            },
+            {
+              "id": "knownDevicesCacheTTL",
+              "type": "number",
+              "label": {
+                "en": "Known devices cache (days)"
+              },
+              "hint": {
+                "en": "Time to keep known devices in cache. When offline for longer than this value, they will be detected as new unknown device on next connection."
+              },
+              "attr": {
+                "min": 1,
+                "max": 365
+              },
+              "value": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Router"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "uptime",
+        "alarm_connectivity",
+        "measure_download_speed",
+        "measure_upload_speed",
+        "measure_attached_devices",
+        "measure_signal_strength",
+        "measure_cpu_utilization",
+        "measure_mem_utilization",
+        "measure_temperature",
+        "measure_attached_devices.wifi_2_4",
+        "measure_data_rate.2_4",
+        "measure_signal_strength.tx_2_4",
+        "measure_signal_strength.noise_2_4",
+        "measure_signal_strength.snr_2_4",
+        "measure_attached_devices.wifi_5",
+        "measure_data_rate.5",
+        "measure_signal_strength.tx_5",
+        "measure_signal_strength.noise_5",
+        "measure_signal_strength.snr_5"
+      ],
+      "capabilitiesOptions": {
+        "measure_signal_strength.tx_2_4": {
+          "title": {
+            "en": "2.4GHz TX power"
+          },
+          "units": {
+            "en": "dBm"
+          }
+        },
+        "measure_signal_strength.tx_5": {
+          "title": {
+            "en": "5GHz TX power"
+          },
+          "units": {
+            "en": "dBm"
+          }
+        },
+        "measure_signal_strength.noise_2_4": {
+          "title": {
+            "en": "2.4GHz RX noise"
+          },
+          "units": {
+            "en": "dBm"
+          }
+        },
+        "measure_signal_strength.noise_5": {
+          "title": {
+            "en": "5GHz RX noise"
+          },
+          "units": {
+            "en": "dBm"
+          }
+        },
+        "measure_signal_strength.snr_2_4": {
+          "title": {
+            "en": "2.4GHz SNR"
+          },
+          "units": {
+            "en": "dB"
+          }
+        },
+        "measure_signal_strength.snr_5": {
+          "title": {
+            "en": "5GHz SNR"
+          },
+          "units": {
+            "en": "dB"
+          }
+        },
+        "measure_data_rate.2_4": {
+          "title": {
+            "en": "2.4GHz Data Rate"
+          },
+          "units": {
+            "en": "Mb/s"
+          },
+          "decimals": 0
+        },
+        "measure_data_rate.5": {
+          "title": {
+            "en": "5GHz Data Rate"
+          },
+          "units": {
+            "en": "Mb/s"
+          },
+          "decimals": 0
+        },
+        "measure_attached_devices.wifi_2_4": {
+          "title": {
+            "en": "2.4GHz connections"
+          }
+        },
+        "measure_attached_devices.wifi_5": {
+          "title": {
+            "en": "5GHz connections"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/router/assets/images/small.png",
+        "large": "/drivers/router/assets/images/large.png",
+        "xlarge": "/drivers/router/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "router_pair"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "router",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Router information",
+            "nl": "Routerinformatie",
+            "da": "Routeroplysninger",
+            "de": "Routerinformationen",
+            "es": "Información del router",
+            "fr": "Informations du routeur",
+            "it": "Informazioni sul router",
+            "no": "Ruterinformasjon",
+            "sv": "Rutterinformation",
+            "pl": "Informacje o routerze",
+            "ru": "Информация о маршрутизаторе",
+            "ko": "라우터 정보"
+          },
+          "children": [
+            {
+              "id": "id",
+              "type": "label",
+              "label": {
+                "en": "ID",
+                "nl": "Identificatie",
+                "da": "ID",
+                "de": "Identifikator",
+                "es": "Identificación",
+                "fr": "Identifiant",
+                "it": "Identificativo",
+                "no": "ID",
+                "sv": "ID",
+                "pl": "ID",
+                "ru": "Идентификатор",
+                "ko": "식별자"
+              },
+              "value": ""
+            },
+            {
+              "id": "name",
+              "type": "label",
+              "label": {
+                "en": "Host name",
+                "nl": "Hostnaam",
+                "da": "Vertsnavn",
+                "de": "Hostname",
+                "es": "Nombre de host",
+                "fr": "Nom d'hôte",
+                "it": "Nome host",
+                "no": "Vertsnavn",
+                "sv": "Värdnamn",
+                "pl": "Nazwa hosta",
+                "ru": "Имя хоста",
+                "ko": "호스트 이름"
+              },
+              "value": ""
+            },
+            {
+              "id": "firmwareVersion",
+              "type": "label",
+              "label": {
+                "en": "OpenWRT version",
+                "nl": "OpenWRT-versie",
+                "da": "OpenWRT-version",
+                "de": "OpenWRT-Version",
+                "es": "Versión de OpenWRT",
+                "fr": "Version OpenWRT",
+                "it": "Versione OpenWRT",
+                "no": "OpenWRT-versjon",
+                "sv": "OpenWRT-version",
+                "pl": "Wersja OpenWRT",
+                "ru": "Версия OpenWRT",
+                "ko": "OpenWRT 버전"
+              },
+              "value": ""
+            },
+            {
+              "id": "luciVersion",
+              "type": "label",
+              "label": {
+                "en": "Luci version",
+                "nl": "LuCI-versie",
+                "da": "LuCI-version",
+                "de": "LuCI-Version",
+                "es": "Versión LuCI",
+                "fr": "Version LuCI",
+                "it": "Versione LuCI",
+                "no": "LuCI-versjon",
+                "sv": "LuCI-version",
+                "pl": "Wersja LuCI",
+                "ru": "Версия LuCI",
+                "ko": "LuCI 버전"
+              },
+              "value": ""
+            },
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Hardware model",
+                "nl": "Hardwaremodel",
+                "da": "Hardwaremodel",
+                "de": "Hardwaremodell",
+                "es": "Modelo de hardware",
+                "fr": "Modèle matériel",
+                "it": "Modello hardware",
+                "no": "Maskinvaremodell",
+                "sv": "Hårdvarumodell",
+                "pl": "Model sprzętu",
+                "ru": "Аппаратная модель",
+                "ko": "하드웨어 모델"
+              },
+              "value": ""
+            },
+            {
+              "id": "architecture",
+              "type": "label",
+              "label": {
+                "en": "CPU architecture",
+                "nl": "CPU-architectuur",
+                "da": "CPU-arkitektur",
+                "de": "CPU-Architektur",
+                "es": "Arquitectura CPU",
+                "fr": "Architecture CPU",
+                "it": "Architettura CPU",
+                "no": "CPU-arkitektur",
+                "sv": "CPU-arkitektur",
+                "pl": "Architektura CPU",
+                "ru": "Архитектура CPU",
+                "ko": "CPU 아키텍처"
+              },
+              "value": ""
+            },
+            {
+              "id": "totalMemoryMB",
+              "type": "label",
+              "label": {
+                "en": "Total memory (MB)",
+                "nl": "Totaal geheugen (MB)",
+                "da": "Total hukommelse (MB)",
+                "de": "Gesamtspeicher (MB)",
+                "es": "Memoria total (MB)",
+                "fr": "Mémoire totale (MB)",
+                "it": "Totale memoria (MB)",
+                "no": "Totalt minne (MB)",
+                "sv": "Totalt minne (MB)",
+                "pl": "Całkowita pamięć (MB)",
+                "ru": "Объем памяти (МБ)",
+                "ko": "총 메모리(MB)"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "SSH connection settings",
+            "nl": "SSH-verbindinginstellingen",
+            "da": "SSH- forbindelseindstillinger",
+            "de": "SSH-Verbindungseinstellungen",
+            "es": "Configuración de la conexión SSH",
+            "fr": "Paramètres de la connexion SSH",
+            "it": "Impostazioni connessione SSH",
+            "no": "SSH-tilkoblingsinnstillinger",
+            "sv": "SSH-anslutningsinställningar",
+            "pl": "Ustawienia połączenia SSH",
+            "ru": "Настройки подключения SSH",
+            "ko": "SSH 연결 설정"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "label": {
+                "en": "IP address",
+                "nl": "IP-adres",
+                "da": "IP-adresse",
+                "de": "IP-Adresse",
+                "es": "Dirección IP",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "no": "IP-adresse",
+                "sv": "IP-adress",
+                "pl": "Adres IP",
+                "ru": "IP-адрес",
+                "ko": "IP 주소"
+              },
+              "value": ""
+            },
+            {
+              "id": "sshPort",
+              "type": "number",
+              "label": {
+                "en": "SSH Port",
+                "nl": "SSH-poort",
+                "da": "SSH-port",
+                "de": "SSH-Port",
+                "es": "Puerto SSH",
+                "fr": "Port SSH",
+                "it": "Porta SSH",
+                "no": "SSH-port",
+                "sv": "SSH-port",
+                "pl": "Porta SSH",
+                "ru": "Порт SSH",
+                "ko": "SSH 포트"
+              },
+              "value": 22
+            },
+            {
+              "id": "username",
+              "type": "text",
+              "label": {
+                "en": "Username",
+                "nl": "Gebruikersnaam",
+                "da": "Brugernavn",
+                "de": "Benutzername",
+                "es": "Nombre de usuario",
+                "fr": "Nom d'utilisateur",
+                "it": "Nome utente",
+                "no": "Brukernavn",
+                "sv": "Användarnamn",
+                "pl": "Nazwa użytkownika",
+                "ru": "Имя пользователя",
+                "ko": "사용자 이름"
+              },
+              "value": "root"
+            },
+            {
+              "id": "password",
+              "type": "password",
+              "label": {
+                "en": "Password",
+                "nl": "Wachtwoord",
+                "da": "Adgangskode",
+                "de": "Passwort",
+                "es": "Contraseña",
+                "fr": "Mot de passe",
+                "it": "Password",
+                "no": "Passord",
+                "sv": "Lösenord",
+                "pl": "Hasło",
+                "ru": "Пароль",
+                "ko": "비밀번호"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Router settings",
+            "nl": "Routerinstellingen",
+            "da": "Routerindstillinger",
+            "de": "Routereinstellungen",
+            "es": "Configuración del router",
+            "fr": "Paramètres du routeur",
+            "it": "Impostazioni del router",
+            "no": "Ruterinnstillinger",
+            "sv": "Ruterinställningar",
+            "pl": "Ustawienia routera",
+            "ru": "Настройки маршрутизатора",
+            "ko": "라우터 설정"
+          },
+          "children": [
+            {
+              "id": "pollingInterval",
+              "type": "number",
+              "label": {
+                "en": "Poll interval (seconds)",
+                "nl": "Pollinterval (seconden)",
+                "da": "Pollinginterval (sekunder)",
+                "de": "Poll-Intervall (Sekunden)",
+                "es": "Intervalo de sondeo (segundos)",
+                "fr": "Intervalle de sondage (secondes)",
+                "it": "Intervallo di polling (secondi)",
+                "no": "Pollingintervall (sekunder)",
+                "sv": "Pollinterval (sekunder)",
+                "pl": "Okres sondowania (sekund)",
+                "ru": "Период опроса (секунд)",
+                "ko": "폴링 간격(초)"
+              },
+              "hint": {
+                "en": "Interval to poll the router. Lower values increase presence responsiveness, but also increase load on the router.",
+                "nl": "Interval om de router te controleren. Lagere waarden verhogen de aanwezigheid en responsiviteit, maar vergroten ook de belasting op de router.",
+                "da": "Interval til polling af routeren. Lavere værdier øger tilgængeligheden og responstiden, men øger også belastningen på routeren.",
+                "de": "Intervall zum Abfragen des Routers. Niedrigere Werte erhöhen die Reaktionsfähigkeit, erhöhen aber auch die Last des Routers.",
+                "es": "Intervalo de sondeo del router. Valores más bajos aumentan la capacidad de respuesta, pero también la carga en el router.",
+                "fr": "Intervalle de sondage du routeur. Des valeurs plus basses augmentent la réactivité, mais augmentent aussi la charge sur le routeur.",
+                "it": "Intervallo di polling del router. Valori più bassi aumentano la reattività, ma aumentano anche il carico sul router.",
+                "no": "Intervallet for å polle ruteren. Lavere verdier øker responsiviteten, men øker også belastningen på ruteren.",
+                "sv": "Intervall för routens polling. Lägre värden ökar responsiviteten men ökar också belastningen på routern.",
+                "pl": "Okres sondowania (sekund)",
+                "ru": "Интервал опроса маршрутизатора. Меньшие значения повышают отзывчивость, но также увеличивают нагрузку на маршрутизатор.",
+                "ko": "라우터를 폴링하는 간격입니다. 값이 작아지면 응답성이 향상되지만 라우터의 부하도 증가합니다."
+              },
+              "min": 5,
+              "max": 60,
+              "value": 15
+            },
+            {
+              "id": "pingCheck",
+              "type": "checkbox",
+              "label": {
+                "en": "Fast offline devices detection",
+                "nl": "Snelle detectie van offline apparaten",
+                "da": "Hurtig opdagelse af offline-enheder",
+                "de": "Schnelle Erkennung von Offline-Geräten",
+                "es": "Detección rápida de dispositivos fuera de línea",
+                "fr": "Détection rapide des appareils hors ligne",
+                "it": "Rilevamento rapido dei dispositivi offline",
+                "no": "Rask oppdagelse av frakoblede enheter",
+                "sv": "Snabb upptäckt av offline-enheter",
+                "pl": "Szybkie wykrywanie urządzeń offline",
+                "ru": "Быстрое обнаружение офлайн-устройств",
+                "ko": "오프라인 장치의 빠른 탐지"
+              },
+              "hint": {
+                "en": "When enabled, the router will actively ping devices to doublecheck its presence. This speeds up offline detection, but increases load on the router.",
+                "nl": "Wanneer ingeschakeld, zal de router actief apparaten pingen om hun aanwezigheid te verifiëren. Dit versnelt de detectie van offline apparaten, maar verhoogt de belasting van de router.",
+                "da": "Når aktiveret vil routeren aktivt pinge enheder for at dobbelttjekke deres tilstedeværelse. Dette fremskynder detektion af offline-enheder, men øger belastningen på routeren.",
+                "de": "Wenn aktiviert, pingt der Router aktiv Geräte, um deren Präsenz zu überprüfen. Dies beschleunigt die Erkennung von Offline-Geräten, erhöht jedoch die Last des Routers.",
+                "es": "Cuando está activado, el enrutador realizará pings activos a los dispositivos para verificar su presencia. Esto acelera la detección de dispositivos fuera de línea, pero aumenta la carga en el enrutador.",
+                "fr": "Lorsque activée, le routeur pingera activement les appareils pour vérifier leur présence. Cela accélère la détection hors ligne, mais augmente la charge sur le routeur.",
+                "it": "Quando abilitato, il router effettuerà ping attivi ai dispositivi per ricontrollare la loro presenza. Ciò accelera il rilevamento offline, ma aumenta il carico sul router.",
+                "no": "Når dette er aktivert, vil ruteren aktivt pinge enheter for å dobbeltsjekke deres tilstedeværelse. Dette fremskynder deteksjon av frakoblede enheter, men øker belastningen på ruteren.",
+                "sv": "När den är aktiverad kommer routern aktivt pinga enheter för att dubbelkolla deras närvaro. Detta ökar hastigheten på offline-detektion, men ökar belastningen på routern.",
+                "pl": "Po włączeniu, router aktywnie wywołuje ping do urządzeń, aby potwierdzić ich obecność. Szybciej wykrywa urządzenia offline, ale zwiększa obciążenie routera.",
+                "ru": "При включении маршрутизатор будет активно отправлять пинги устройствам, чтобы дважды проверить их присутствие. Это ускоряет обнаружение офлайн-устройств, но увеличивает нагрузку на маршрутизатор.",
+                "ko": "활성화되면 라우터가 장치를 적극적으로 핑하여 존재를 재확인합니다. 이로 인해 오프라인 탐지가 빨라지지만 라우터의 부하가 증가합니다."
+              },
+              "value": false
+            },
+            {
+              "id": "isInternetRouter",
+              "type": "checkbox",
+              "label": {
+                "en": "This is the Internet Router",
+                "nl": "Dit is de Internet-router",
+                "da": "Dette er internetrouteren",
+                "de": "Dies ist der Internet-Router",
+                "es": "Este es el router de Internet",
+                "fr": "Ceci est le routeur Internet",
+                "it": "Questo è il router Internet",
+                "no": "Dette er Internet-ruteren",
+                "sv": "Detta är Internetroutern",
+                "pl": "To jest router internetowy",
+                "ru": "Это интернет-маршрутизатор",
+                "ko": "이것은 인터넷 라우터입니다"
+              },
+              "hint": {
+                "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
+                "nl": "Dit wordt automatisch gedetecteerd. Handmatig deze instelling wijzigen kan leiden tot ongewenst gedrag.",
+                "da": "Dette opdages automatisk. Manuel ændring af denne indstilling kan føre til uventet adfærd.",
+                "de": "Dies wird automatisch erkannt. Manuelles Ändern dieser Einstellung kann zu unerwartetem Verhalten führen.",
+                "es": "Esto se detecta automáticamente. Cambiar manualmente esta opción puede provocar un comportamiento inesperado.",
+                "fr": "Cela est détecté automatiquement. Modifier manuellement ce paramètre peut entraîner un comportement inattendu.",
+                "it": "Questo viene rilevato automaticamente. Modificare manualmente questa impostazione potrebbe causare comportamenti inaspettati.",
+                "no": "Dette oppdages automatisk. Manuell endring av denne innstillingen kan føre til uventet oppførsel.",
+                "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oförutsägbart beteende.",
+                "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
+                "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+              },
+              "value": false
+            },
+            {
+              "id": "isDhcpServer",
+              "type": "checkbox",
+              "label": {
+                "en": "This is the DHCP server",
+                "nl": "Dit is de DHCP-server",
+                "da": "Dette er DHCP-serveren",
+                "de": "Dies ist der DHCP-Server",
+                "es": "Este es el servidor DHCP",
+                "fr": "Ceci est le serveur DHCP",
+                "it": "Questo è il server DHCP",
+                "no": "Dette er DHCP-serveren",
+                "sv": "Detta är DHCP-servern",
+                "pl": "To jest serwer DHCP",
+                "ru": "Это DHCP-сервер",
+                "ko": "이것은 DHCP 서버입니다"
+              },
+              "hint": {
+                "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
+                "nl": "Dit wordt automatisch gedetecteerd. Handmatig deze instelling wijzigen kan leiden tot ongewenst gedrag.",
+                "da": "Dette opdages automatisk. Manuel ændring af denne indstilling kan føre til uventet adfærd.",
+                "de": "Dies wird automatisch erkannt. Manuelles Ändern dieser Einstellung kann zu unerwartetem Verhalten führen.",
+                "es": "Esto se detecta automáticamente. Cambiar manualmente esta opción puede provocar un comportamiento inesperado.",
+                "fr": "Cela est détecté automatiquement. Modifier manuellement ce paramètre peut entraîner un comportement inattendu.",
+                "it": "Questo viene rilevato automaticamente. Modificare manualmente questa impostazione potrebbe causare comportamenti inaspettati.",
+                "no": "Dette er automatisk oppdaget. Manuell endring av denne innstillingen kan føre til uventet oppførsel.",
+                "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oönskat beteende.",
+                "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
+                "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+              },
+              "value": false
+            },
+            {
+              "id": "isDhcpServer",
+              "type": "checkbox",
+              "label": {
+                "en": "This is the DHCP server",
+                "nl": "Dit is de DHCP-server",
+                "da": "Dette er DHCP-serveren",
+                "de": "Dies ist der DHCP-Server",
+                "es": "Este es el servidor DHCP",
+                "fr": "Ceci est le serveur DHCP",
+                "it": "Questo è il server DHCP",
+                "no": "Dette er DHCP-serveren",
+                "sv": "Detta är DHCP-servern",
+                "pl": "To jest serwer DHCP",
+                "ru": "Это DHCP-сервер",
+                "ko": "이것은 DHCP 서버입니다"
+              },
+              "hint": {
+                "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
+                "nl": "Dit wordt automatisch gedetecteerd. Handmatig deze instelling wijzigen kan leiden tot ongewenst gedrag.",
+                "da": "Dette opdages automatisk. Manuel ændring af denne indstilling kan føre til uventet adfærd.",
+                "de": "Dies wird automatisch erkannt. Manuelles Ändern dieser Einstellung kann zu unerwartetem Verhalten führen.",
+                "es": "Esto se detecta automáticamente. Cambiar manualmente esta opción puede provocar un comportamiento inesperado.",
+                "fr": "Cela est détecté automatiquement. Modifier manuellement ce paramètre peut entraîner un comportement inattendu.",
+                "it": "Questo viene rilevato automaticamente. Modificare manualmente questa impostazione potrebbe causare comportamenti inaspettati.",
+                "no": "Dette er automatisk oppdaget. Manuell endring av denne innstillingen kan føre til uventet oppførsel.",
+                "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oönskat beteende.",
+                "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
+                "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+              },
+              "value": false
+            },
+            {
+              "id": "isFirewall",
+              "type": "checkbox",
+              "label": {
+                "en": "This is a Firewall",
+                "nl": "Dit is een Firewall",
+                "da": "Dette er en firewall",
+                "de": "Dies ist eine Firewall",
+                "es": "Este es un firewall",
+                "fr": "Ceci est un pare-feu",
+                "it": "Questo è un firewall",
+                "no": "Dette er en brannmur",
+                "sv": "Detta är en brandvägg",
+                "pl": "To jest firewall",
+                "ru": "Это брандмауэр",
+                "ko": "이것은 방화벽입니다"
+              },
+              "hint": {
+                "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
+                "nl": "Dit wordt automatisch gedetecteerd. Handmatig deze instelling wijzigen kan leiden tot ongewenst gedrag.",
+                "da": "Dette opdages automatisk. Manuel ændring af denne indstilling kan føre til uventet adfærd.",
+                "de": "Dies wird automatisch erkannt. Manuelles Ändern dieser Einstellung kann zu unerwartetem Verhalten führen.",
+                "es": "Esto se detecta automáticamente. Cambiar manualmente esta opción puede provocar un comportamiento inesperado.",
+                "fr": "Cela est détecté automatiquement. Modifier manuellement ce paramètre peut entraîner un comportement inattendu.",
+                "it": "Questo viene rilevato automaticamente. Modificare manualmente questa impostazione potrebbe causare comportamenti inaspettati.",
+                "no": "Dette er automatisk oppdaget. Manuell endring av denne innstillingen kan føre til uventet oppførsel.",
+                "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oönskat beteende.",
+                "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
+                "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+              },
+              "value": false
+            },
+            {
+              "id": "isAp",
+              "type": "checkbox",
+              "label": {
+                "en": "This is a Wifi Access Point",
+                "nl": "Dit is een wifi-toegangspunt",
+                "da": "Dette er et wifi-tilgangspunkt",
+                "de": "Dies ist ein WLAN-Zugangspunkt",
+                "es": "Este es un punto de acceso Wi‑Fi",
+                "fr": "Ceci est un point d'accès Wi‑Fi",
+                "it": "Questo è un punto di accesso Wi-Fi",
+                "no": "Dette er et Wi-Fi-tilgangspunkt",
+                "sv": "Detta är en Wi‑Fi-åtkomstpunkt",
+                "pl": "To jest punkt dostępu Wi-Fi",
+                "ru": "Это точка доступа Wi-Fi",
+                "ko": "이것은 Wi-Fi 접근 지점입니다"
+              },
+              "hint": {
+                "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
+                "nl": "Dit wordt automatisch gedetecteerd. Handmatig deze instelling wijzigen kan leiden tot ongewenst gedrag.",
+                "da": "Dette opdages automatisk. Manuel ændring af denne indstilling kan føre til uventet adfærd.",
+                "de": "Dies wird automatisch erkannt. Manuelles Ändern dieser Einstellung kann zu unerwartetem Verhalten führen.",
+                "es": "Esto se detecta automáticamente. Cambiar manualmente esta opción puede provocar un comportamiento inesperado.",
+                "fr": "Cela est détecté automatiquement. Modifier manuellement ce paramètre peut entraîner un comportement inattendu.",
+                "it": "Questo viene rilevato automaticamente. Modificare manualmente questa impostazione potrebbe causare comportamenti inaspettati.",
+                "no": "Dette er automatisk oppdaget. Manuell endring av denne innstillingen kan føre til uventet oppførsel.",
+                "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oönskat beteende.",
+                "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
+                "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+              },
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "device_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Device Connected",
+        "nl": "Apparaat verbonden",
+        "da": "Enhed tilsluttet",
+        "de": "Gerät verbunden",
+        "es": "Dispositivo conectado",
+        "fr": "Appareil connecté",
+        "it": "Dispositivo connesso",
+        "no": "Enhet tilkoblet",
+        "sv": "Enhet ansluten",
+        "pl": "Urządzenie podłączone",
+        "ru": "Устройство подключено",
+        "ko": "장치 연결됨"
+      },
+      "insightsTitleTrue": {
+        "en": "Connected",
+        "nl": "Verbonden",
+        "da": "Forbundet",
+        "de": "Verbunden",
+        "es": "Conectado",
+        "fr": "Connecté",
+        "it": "Connesso",
+        "no": "Tilkoblet",
+        "sv": "Ansluten",
+        "pl": "Podłączone",
+        "ru": "Подключено",
+        "ko": "연결됨"
+      },
+      "insightsTitleFalse": {
+        "en": "Disconnected",
+        "nl": "Geen verbinding",
+        "da": "Ikke tilsluttet",
+        "de": "Keine Verbindung",
+        "es": "Sin conexión",
+        "fr": "Déconnecté",
+        "it": "Disconnesso",
+        "no": "Frakoblet",
+        "sv": "Ej ansluten",
+        "pl": "Brak połączenia",
+        "ru": "Отключено",
+        "ko": "연결 해제됨"
+      },
+      "uiComponent": "sensor",
+      "uiQuickAction": true,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "./assets/device_connected.svg"
+    },
+    "firewall_zone": {
+      "type": "string",
+      "title": {
+        "en": "Firewall Zone",
+        "nl": "Firewallzone",
+        "da": "Firewallzone",
+        "de": "Firewallzone",
+        "es": "Zona de cortafuegos",
+        "fr": "Zone pare-feu",
+        "it": "Zona firewall",
+        "no": "Brannmursonen",
+        "sv": "Brandväggszon",
+        "pl": "Strefa zapory",
+        "ru": "Зона межсетевого экрана",
+        "ko": "방화벽 영역"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/firewall_zone.svg"
+    },
+    "ip_address": {
+      "type": "string",
+      "title": {
+        "en": "IP Address",
+        "nl": "IP-adres",
+        "da": "IP-adresse",
+        "de": "IP-Adresse",
+        "es": "Dirección IP",
+        "fr": "Adresse IP",
+        "it": "Indirizzo IP",
+        "no": "IP-adresse",
+        "sv": "IP-adress",
+        "pl": "Adres IP",
+        "ru": "IP-адрес",
+        "ko": "IP 주소"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/ip_address.svg"
+    },
+    "measure_attached_devices": {
+      "type": "number",
+      "title": {
+        "en": "Attached Devices",
+        "nl": "Gekoppelde apparaten",
+        "da": "Tilsluttede enheder",
+        "de": "Angeschlossene Geräte",
+        "es": "Dispositivos conectados",
+        "fr": "Périphériques connectés",
+        "it": "Dispositivi collegati",
+        "no": "Tilkoblede enheter",
+        "sv": "Anslutna enheter",
+        "pl": "Podłączone urządzenia",
+        "ru": "Подключенные устройства",
+        "ko": "연결된 장치들"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "./assets/attached_devices.svg"
+    },
+    "measure_connections": {
+      "type": "number",
+      "title": {
+        "en": "Connections",
+        "nl": "Verbindingen",
+        "da": "Forbindelser",
+        "de": "Verbindungen",
+        "es": "Conexiones",
+        "fr": "Connexions",
+        "it": "Connessioni",
+        "no": "Forbindelser",
+        "sv": "Anslutningar",
+        "pl": "Połączenia",
+        "ru": "Соединения",
+        "ko": "연결"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "./assets/connections.svg"
+    },
+    "measure_cpu_utilization": {
+      "type": "number",
+      "title": {
+        "en": "CPU Used",
+        "nl": "CPU-gebruik",
+        "da": "CPU-forbrug",
+        "de": "CPU-Auslastung",
+        "es": "Uso de CPU",
+        "fr": "Utilisation du CPU",
+        "it": "Utilizzo della CPU",
+        "no": "CPU-bruk",
+        "sv": "CPU-användning",
+        "pl": "Zużycie CPU",
+        "ru": "Использование CPU",
+        "ko": "CPU 사용량"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%",
+        "nl": "%"
+      },
+      "decimals": 0,
+      "insights": true,
+      "icon": "./assets/cpu_utilization.svg"
+    },
+    "measure_download_speed": {
+      "type": "number",
+      "title": {
+        "en": "WAN Download Speed",
+        "nl": "WAN-downloadsnelheid",
+        "da": "WAN-nedlastningshastighed",
+        "de": "WAN-Download-Geschwindigkeit",
+        "es": "Velocidad de descarga WAN",
+        "fr": "Vitesse de téléchargement WAN",
+        "it": "Velocità di download WAN",
+        "no": "WAN nedlastingshastighet",
+        "sv": "WAN nedladdningshastighet",
+        "pl": "Prędkość pobierania WAN",
+        "ru": "Скорость загрузки WAN",
+        "ko": "WAN 다운로드 속도"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "Mbit/s",
+        "nl": "Mbit/s",
+        "da": "Mbit/s",
+        "de": "Mbit/s",
+        "es": "Mbit/s",
+        "fr": "Mbit/s",
+        "it": "Mbit/s",
+        "no": "Mbit/s",
+        "sv": "Mbit/s",
+        "pl": "Mbit/s",
+        "ru": "Мбит/с",
+        "ko": "메가비트/초"
+      },
+      "decimals": 2,
+      "insights": true,
+      "icon": "./assets/download_speed.svg"
+    },
+    "measure_link_speed": {
+      "type": "number",
+      "title": {
+        "en": "Link Speed",
+        "nl": "Verbindingsnelheid",
+        "da": "Linkhastighed",
+        "de": "Verbindungsgeschwindigkeit",
+        "es": "Velocidad de enlace",
+        "fr": "Vitesse de liaison",
+        "it": "Velocità di collegamento",
+        "no": "Tilkoblingshastighet",
+        "sv": "Länkhastighet",
+        "pl": "Prędkość łącza",
+        "ru": "Скорость соединения",
+        "ko": "링크 속도"
+      },
+      "units": {
+        "en": "Mb/s",
+        "nl": "Mb/s",
+        "da": "Mb/s",
+        "de": "Mb/s",
+        "es": "Mb/s",
+        "fr": "Mb/s",
+        "it": "Mb/s",
+        "no": "Mb/s",
+        "sv": "Mb/s",
+        "pl": "Mb/s",
+        "ru": "Mb/s",
+        "ko": "Mb/s"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "./assets/link_speed.svg"
+    },
+    "measure_mem_utilization": {
+      "type": "number",
+      "title": {
+        "en": "Memory Used",
+        "nl": "Geheugen gebruikt",
+        "da": "Hukommelse i brug",
+        "de": "Speicher verwendet",
+        "es": "Memoria utilizada",
+        "fr": "Mémoire utilisée",
+        "it": "Memoria utilizzata",
+        "no": "Minne i bruk",
+        "sv": "Minnet används",
+        "pl": "Zużyta pamięć",
+        "ru": "Используемая память",
+        "ko": "사용된 메모리"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%",
+        "nl": "%"
+      },
+      "decimals": 0,
+      "insights": true,
+      "icon": "./assets/mem_utilization.svg"
+    },
+    "measure_upload_speed": {
+      "type": "number",
+      "title": {
+        "en": "WAN Upload Speed"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "Mbit/s"
+      },
+      "decimals": 2,
+      "insights": true,
+      "icon": "./assets/upload_speed.svg"
+    },
+    "name_in_router": {
+      "type": "string",
+      "title": {
+        "en": "Name in Router",
+        "nl": "Naam in de router",
+        "da": "Navn i routeren",
+        "de": "Name im Router",
+        "es": "Nombre en el router",
+        "fr": "Nom dans le routeur",
+        "it": "Nome nel router",
+        "no": "Navn i ruteren",
+        "sv": "Namn i routern",
+        "pl": "Nazwa w routerze",
+        "ru": "Имя в маршрутизаторе",
+        "ko": "라우터 내 이름"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/name_in_router.svg"
+    },
+    "onoff": {
+      "type": "boolean",
+      "uiComponent": null,
+      "uiQuickAction": null,
+      "getable": true,
+      "setable": true,
+      "insights": false,
+      "title": {
+        "en": "Present",
+        "nl": "Aanwezig",
+        "da": "Tilstede",
+        "de": "Anwesend",
+        "es": "Presente",
+        "fr": "Présent",
+        "it": "Presente",
+        "no": "Til stede",
+        "sv": "Närvarande",
+        "pl": "Obecny",
+        "ru": "Присутствует",
+        "ko": "재실"
+      }
+    },
+    "port": {
+      "type": "string",
+      "title": {
+        "en": "Port",
+        "nl": "poort",
+        "da": "port",
+        "de": "Port",
+        "es": "Puerto",
+        "fr": "Port",
+        "it": "Porta",
+        "no": "port",
+        "sv": "port",
+        "pl": "port",
+        "ru": "порт",
+        "ko": "포트"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/port.svg"
+    },
+    "router_name": {
+      "type": "string",
+      "title": {
+        "en": "Connected Router"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/router_name.svg"
+    },
+    "uptime": {
+      "type": "string",
+      "title": {
+        "en": "Uptime"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "./assets/uptime.svg"
+    }
+  }
+}

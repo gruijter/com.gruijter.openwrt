@@ -1,0 +1,9 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Connected Router"
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/router_name.svg"
+}
