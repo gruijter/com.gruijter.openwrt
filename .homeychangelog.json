@@ -1,4 +1,7 @@
 {
+  "1.1.0": {
+    "en": "Added Router Reboot flow card. Fixed ul/dl speed monitoring. Improved phone presence detection. Improved translations."
+  },
   "1.0.0": {
     "en": "First version!"
   }
