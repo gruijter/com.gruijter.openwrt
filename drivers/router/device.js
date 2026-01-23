@@ -470,6 +470,12 @@ class RouterDevice extends Device {
     }
   }
 
+  // flow action handler from app.js
+  async handleFlowAction({ action, val }) {
+    if (this[action]) return this[action](val, 'flow');
+    return Promise.reject(Error('action not found'));
+  }
+
   // homey device listeners
   /**
    * Registers capability listeners.

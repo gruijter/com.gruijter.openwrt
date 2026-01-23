@@ -34,7 +34,7 @@ module.exports = class MyApp extends Homey.App {
   }
 
   registerFlowListeners() {
-    // custom trigger cards
+    // custom device trigger cards
     const triggerList = Homey.manifest.flow.triggers;
     triggerList.forEach((trigger, index) => {
       this.log('setting up flow trigger method', trigger.id);
@@ -47,28 +47,21 @@ module.exports = class MyApp extends Homey.App {
       };
     });
 
-    // custom action cards
-    // const actionListeners = [];
-    // const actionList = Homey.manifest.flow.actions;
-    // actionList.forEach((action, index) => {
-    //   this.log('setting up flow action listener', action.id);
-    //   actionListeners[index] = this.homey.flow.getActionCard(action.id);
-    //   actionListeners[index].registerRunListener(async (args) => {
-    //     try {
-    //       // special case for force poll
-    //       if (action.id === 'force_poll') {
-    //         args.device.log(`Flow action ${action.id} called.`);
-    //         this.everyXminutesHandler().catch(this.error);
-    //         return;
-    //       }
-    //       // all other actions
-    //       args.device.log(`Flow action ${action.id} called with value ${args.val}`);
-    //       await args.device.handleFlowAction({ action: action.id, val: args.val });
-    //     } catch (error) {
-    //       this.error(error);
-    //     }
-    //   });
-    // });
+    // custom device action cards
+    const actionListeners = [];
+    const actionList = Homey.manifest.flow.actions;
+    actionList.forEach((action, index) => {
+      this.log('setting up flow action listener', action.id);
+      actionListeners[index] = this.homey.flow.getActionCard(action.id);
+      actionListeners[index].registerRunListener(async (args) => {
+        try {
+          args.device.log(`Flow action ${action.id} called with value ${args.val}`);
+          await args.device.handleFlowAction({ action: action.id, val: args.val });
+        } catch (error) {
+          this.error(error);
+        }
+      });
+    });
   }
 
 };

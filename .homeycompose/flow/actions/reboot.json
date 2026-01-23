@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Reboot",
+    "nl": "Herstart",
+    "da": "Genstart",
+    "de": "Neustart",
+    "es": "Reiniciar",
+    "fr": "Redémarrer",
+    "it": "Riavvia",
+    "no": "Start på nytt",
+    "sv": "Starta om",
+    "pl": "Uruchom ponownie",
+    "ru": "Перезагрузить",
+    "ko": "재부팅"
+  },
+  "highlight": true,
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=router"
+    }
+  ]
+}

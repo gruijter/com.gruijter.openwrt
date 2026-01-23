@@ -38,101 +38,6 @@ module.exports = class MyDevice extends Homey.Device {
     this.unregisterListeners();
   }
 
-  unregisterListeners() {
-    if (this.onKnownDevicesChanged) {
-      const routerDriver = this.homey.drivers.getDriver('router');
-      if (routerDriver) {
-        routerDriver.removeListener('knownDevices', this.onKnownDevicesChanged);
-      }
-    }
-  }
-
-  registerListeners() {
-    this.unregisterListeners();
-    this.onKnownDevicesChanged = (knownDevices) => {
-      const mac = this.getData().id;
-      const settings = this.getSettings();
-      const macs = new Set([mac]);
-      if (settings.alias1) macs.add(settings.alias1.trim().toUpperCase());
-      if (settings.alias2) macs.add(settings.alias2.trim().toUpperCase());
-      if (settings.alias3) macs.add(settings.alias3.trim().toUpperCase());
-      if (settings.alias4) macs.add(settings.alias4.trim().toUpperCase());
-
-      let foundDevices = [];
-      if (Array.isArray(knownDevices)) {
-        foundDevices = knownDevices.filter((d) => macs.has(d.mac));
-      } else {
-        for (const m of macs) {
-          if (knownDevices[m]) foundDevices.push(knownDevices[m]);
-        }
-      }
-
-      if (foundDevices.length > 0) {
-        const merged = { ...foundDevices[0] };
-        merged.connected = false;
-        merged.traffic = { rxBytes: 0, txBytes: 0, connections: { total: 0 } };
-        let maxLinkSpeed = 0;
-        let maxLastSeen = 0;
-
-        for (const d of foundDevices) {
-          if (d.connected) merged.connected = true;
-          if (d.lastSeen > maxLastSeen) maxLastSeen = d.lastSeen;
-
-          if (d.traffic) {
-            merged.traffic.rxBytes += (d.traffic.rxBytes || 0);
-            merged.traffic.txBytes += (d.traffic.txBytes || 0);
-            if (d.traffic.connections) {
-              merged.traffic.connections.total += (d.traffic.connections.total || 0);
-            }
-          }
-
-          const speed = parseInt(d.linkSpeed, 10) || 0;
-          if (speed > maxLinkSpeed) maxLinkSpeed = speed;
-        }
-
-        merged.lastSeen = maxLastSeen;
-        merged.linkSpeed = maxLinkSpeed;
-
-        if (!merged.wifi) {
-          const wifiDev = foundDevices.find((d) => d.wifi);
-          if (wifiDev) {
-            merged.wifi = wifiDev.wifi;
-          }
-        }
-
-        if (!merged.firewallZone) {
-          const fwDev = foundDevices.find((d) => d.firewallZone);
-          if (fwDev) {
-            merged.firewallZone = fwDev.firewallZone;
-          }
-        }
-
-        // Check offline_after setting
-        const offlineAfter = this.getSettings().offline_after;
-
-        // Push setting to router
-        if (merged.routerId && (this.lastRouterId !== merged.routerId || this.lastOfflineAfter !== offlineAfter)) {
-          this.lastRouterId = merged.routerId;
-          this.lastOfflineAfter = offlineAfter;
-          const routerDriver = this.homey.drivers.getDriver('router');
-          if (routerDriver) {
-            const routerDevice = routerDriver.getDevices().find((d) => d.getData().id === merged.routerId);
-            if (routerDevice && routerDevice.setDeviceTTL) {
-              routerDevice.setDeviceTTL(this.getData().id, offlineAfter).catch(() => {});
-            }
-          }
-        }
-
-        this.updateHomeyDeviceState(merged).catch(this.error);
-      }
-    };
-    const routerDriver = this.homey.drivers.getDriver('router');
-    if (routerDriver) {
-      routerDriver.on('knownDevices', this.onKnownDevicesChanged);
-      if (routerDriver.knownDevices) this.onKnownDevicesChanged(routerDriver.knownDevices);
-    }
-  }
-
   wait(ms) {
     return new Promise((resolve) => {
       this.homey.setTimeout(resolve, ms);
@@ -313,6 +218,122 @@ module.exports = class MyDevice extends Homey.Device {
     } catch (error) {
       this.error(error);
     }
+  }
+
+  getMonitoredMacs() {
+    const mac = this.getData().id;
+    const settings = this.getSettings();
+    const macs = new Set([mac]);
+    if (settings.alias1) macs.add(settings.alias1.trim().toUpperCase());
+    if (settings.alias2) macs.add(settings.alias2.trim().toUpperCase());
+    if (settings.alias3) macs.add(settings.alias3.trim().toUpperCase());
+    if (settings.alias4) macs.add(settings.alias4.trim().toUpperCase());
+    return macs;
+  }
+
+  findDevices(knownDevices, macs) {
+    if (Array.isArray(knownDevices)) {
+      return knownDevices.filter((d) => macs.has(d.mac));
+    }
+    const foundDevices = [];
+    for (const m of macs) {
+      if (knownDevices[m]) foundDevices.push(knownDevices[m]);
+    }
+    return foundDevices;
+  }
+
+  mergeDeviceData(foundDevices) {
+    const merged = { ...foundDevices[0] };
+    merged.connected = false;
+    merged.traffic = { rxBytes: 0, txBytes: 0, connections: { total: 0 } };
+    let maxLinkSpeed = 0;
+    let maxLastSeen = 0;
+
+    for (const d of foundDevices) {
+      if (d.connected) merged.connected = true;
+      if (d.lastSeen > maxLastSeen) maxLastSeen = d.lastSeen;
+
+      if (d.traffic) {
+        merged.traffic.rxBytes += (d.traffic.rxBytes || 0);
+        merged.traffic.txBytes += (d.traffic.txBytes || 0);
+        if (d.traffic.connections) {
+          merged.traffic.connections.total += (d.traffic.connections.total || 0);
+        }
+      }
+
+      const speed = parseInt(d.linkSpeed, 10) || 0;
+      if (speed > maxLinkSpeed) maxLinkSpeed = speed;
+    }
+
+    merged.lastSeen = maxLastSeen;
+    merged.linkSpeed = maxLinkSpeed;
+
+    if (!merged.wifi) {
+      const wifiDev = foundDevices.find((d) => d.wifi);
+      if (wifiDev) {
+        merged.wifi = wifiDev.wifi;
+      }
+    }
+
+    if (!merged.firewallZone) {
+      const fwDev = foundDevices.find((d) => d.firewallZone);
+      if (fwDev) {
+        merged.firewallZone = fwDev.firewallZone;
+      }
+    }
+    return merged;
+  }
+
+  updateRouterTTL(merged) {
+    // Check offline_after setting
+    const offlineAfter = this.getSettings().offline_after;
+
+    // Push setting to router
+    if (merged.routerId && (this.lastRouterId !== merged.routerId || this.lastOfflineAfter !== offlineAfter)) {
+      this.lastRouterId = merged.routerId;
+      this.lastOfflineAfter = offlineAfter;
+      const routerDriver = this.homey.drivers.getDriver('router');
+      if (routerDriver) {
+        const routerDevice = routerDriver.getDevices().find((d) => d.getData().id === merged.routerId);
+        if (routerDevice && routerDevice.setDeviceTTL) {
+          routerDevice.setDeviceTTL(this.getData().id, offlineAfter).catch(() => {});
+        }
+      }
+    }
+  }
+
+  unregisterListeners() {
+    if (this.onKnownDevicesChanged) {
+      const routerDriver = this.homey.drivers.getDriver('router');
+      if (routerDriver) {
+        routerDriver.removeListener('knownDevices', this.onKnownDevicesChanged);
+      }
+    }
+  }
+
+  registerListeners() {
+    this.unregisterListeners();
+    this.onKnownDevicesChanged = (knownDevices) => {
+      const macs = this.getMonitoredMacs();
+      const foundDevices = this.findDevices(knownDevices, macs);
+
+      if (foundDevices.length > 0) {
+        const merged = this.mergeDeviceData(foundDevices);
+        this.updateRouterTTL(merged);
+        this.updateHomeyDeviceState(merged).catch(this.error);
+      }
+    };
+    const routerDriver = this.homey.drivers.getDriver('router');
+    if (routerDriver) {
+      routerDriver.on('knownDevices', this.onKnownDevicesChanged);
+      if (routerDriver.knownDevices) this.onKnownDevicesChanged(routerDriver.knownDevices);
+    }
+  }
+
+  // flow action handler from app.js
+  async handleFlowAction({ action, val }) {
+    if (this[action]) return this[action](val, 'flow');
+    return Promise.reject(Error('action not found'));
   }
 
 };
