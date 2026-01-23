@@ -399,8 +399,8 @@ class RouterDevice extends Device {
       const speeds = this.calculateSpeed(routerInfo, oldStat);
       const routerStates = {
         alarm_connectivity: !routerInfo?.wan?.up,
-        measure_download_speed: speeds.wanUs || 0,
-        measure_upload_speed: speeds.wanDs || 0,
+        measure_download_speed: speeds.wanDs || 0,
+        measure_upload_speed: speeds.wanUs || 0,
       };
       const wifi24 = routerInfo.wifi.find((wifi) => wifi.frequency < 2500);
       const wifiStates24 = {
