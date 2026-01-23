@@ -1183,18 +1183,18 @@
             "type": "autocomplete",
             "name": "mac",
             "title": {
-              "en": "MAC address",
-              "nl": "MAC-adres",
-              "de": "MAC-Adresse",
-              "da": "MAC-adresse",
-              "es": "Dirección MAC",
-              "fr": "Adresse MAC",
-              "it": "Indirizzo MAC",
-              "no": "MAC-adresse",
-              "sv": "MAC-adress",
-              "pl": "Adres MAC",
-              "ru": "MAC-адрес",
-              "ko": "MAC 주소"
+              "en": "Device",
+              "nl": "Apparaat",
+              "de": "Gerät",
+              "fr": "Appareil",
+              "it": "Dispositivo",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Dispositivo",
+              "da": "Enhed",
+              "pl": "Urządzenie",
+              "ru": "Устройство",
+              "ko": "장치"
             },
             "placeholder": {
               "en": "AA:BB:CC:DD:EE:FF"
