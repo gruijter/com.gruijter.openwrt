@@ -1,0 +1,44 @@
+{
+  "title": {
+    "en": "Enable or disable wifi"
+  },
+  "titleFormatted": {
+    "en": "Turn [[ssid]] wifi [[enabled]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=router"
+    },
+    {
+      "type": "autocomplete",
+      "name": "ssid",
+      "title": {
+        "en": "SSID"
+      }
+    },
+    {
+      "type": "dropdown",
+      "name": "enabled",
+      "values": [
+        {
+          "id": "on",
+          "label": {
+            "en": "On",
+            "nl": "Aan",
+            "de": "An"
+          }
+        },
+        {
+          "id": "off",
+          "label": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        }
+      ]
+    }
+  ]
+}

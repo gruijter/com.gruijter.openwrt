@@ -20,10 +20,10 @@ Act on:
 - change of internet up/download speed
 
 Do:
-- send WakeOnLan (WOL) to a MAC address*
+- send WakeOnLan (WOL) to a MAC address
 - block and allow an attached device by MAC address*
 - enable and disable Guest Wifi*
-- reboot the router*
+- reboot the router
 
 * Work In Progress
 

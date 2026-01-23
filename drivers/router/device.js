@@ -398,6 +398,32 @@ class RouterDevice extends Device {
         return now - t < 60000;
       });
 
+      // Store SSIDs for use in flow card autocomplete
+      if (routerInfo.wifi) {
+        const interfaces = [];
+        for (const radio of routerInfo.wifi) {
+          let band = 'Unknown';
+          if (radio.frequency) {
+            if (radio.frequency < 3000) band = '2.4GHz';
+            else if (radio.frequency < 6000) band = '5GHz';
+            else band = '6GHz';
+          }
+          if (radio.interfaces) {
+            for (const iface of radio.interfaces) {
+              if (iface.ssid) {
+                interfaces.push({
+                  name: `${iface.ssid} (${band})`,
+                  ssid: iface.ssid,
+                  device: radio.radio,
+                  band,
+                });
+              }
+            }
+          }
+        }
+        this.wifiInterfaces = interfaces.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
       const commonStates = {
         uptime: this.parseUptime(routerInfo?.uptime),
         measure_temperature: routerInfo?.temperature || null,
@@ -493,6 +519,32 @@ class RouterDevice extends Device {
       const mac = args.mac && args.mac.name ? args.mac.name : args.mac;
       this.log(`${this.getName()} WOL command sent to ${mac} by ${source}`);
       await this.router.wakeOnLan(mac, args.password);
+      return true;
+    } catch (error) {
+      this.error(`${this.getName()}`, error && error.message);
+      return Promise.reject(error);
+    }
+  }
+
+  /**
+   * Enables or disables a WiFi network.
+   * @param {object} args - Flow arguments.
+   * @param {object} source - Source of the command.
+   * @returns {Promise<boolean>} True if command sent.
+   */
+  async setWifi(args, source) {
+    try {
+      if (!this.router) throw Error('Router not ready');
+      let { ssid } = args;
+      let radioDevice = null;
+      if (args.ssid && typeof args.ssid === 'object') {
+        ssid = args.ssid.ssid || args.ssid.name;
+        radioDevice = args.ssid.device;
+      }
+      const { enabled } = args;
+      const deviceLog = radioDevice ? ` on ${radioDevice}` : '';
+      this.log(`${this.getName()} setWifi ${ssid}${deviceLog} to ${enabled} by ${source}`);
+      await this.router.setWifiState(ssid, enabled === 'on' || enabled === true, radioDevice);
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);

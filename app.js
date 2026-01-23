@@ -59,6 +59,20 @@ module.exports = class MyApp extends Homey.App {
       }
     };
 
+    // autocomplete function ssid
+    const autoCompleteSsid = (query, args) => {
+      const interfaces = args.device.wifiInterfaces || [];
+      const results = interfaces
+        .filter((iface) => iface.name.toLowerCase().includes(query.toLowerCase()))
+        .map((iface) => ({
+          name: iface.name,
+          description: `Radio: ${iface.device}`,
+          ssid: iface.ssid,
+          device: iface.device,
+        }));
+      return Promise.resolve(results);
+    };
+
     // custom device trigger cards
     const triggerList = Homey.manifest.flow.triggers;
     triggerList.forEach((trigger, index) => {
@@ -78,8 +92,13 @@ module.exports = class MyApp extends Homey.App {
     actionList.forEach((action, index) => {
       this.log('setting up flow action listener', action.id);
       actionListeners[index] = this.homey.flow.getActionCard(action.id);
-      if (action.args && action.args.some((arg) => arg.type === 'autocomplete')) {
-        actionListeners[index].registerArgumentAutocompleteListener('mac', autoCompleteMac);
+      if (action.args) {
+        action.args.forEach((arg) => {
+          if (arg.type === 'autocomplete') {
+            if (arg.name === 'mac') actionListeners[index].registerArgumentAutocompleteListener('mac', autoCompleteMac);
+            if (arg.name === 'ssid') actionListeners[index].registerArgumentAutocompleteListener('ssid', autoCompleteSsid);
+          }
+        });
       }
       actionListeners[index].registerRunListener(async (args) => {
         try {

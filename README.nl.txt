@@ -20,10 +20,10 @@ Reageer op:
 - verandering van internet upload-/downloadsnelheid
 
 Doe:
-- stuur WakeOnLan (WOL) naar een MAC-adres*
+- stuur WakeOnLan (WOL) naar een MAC-adres
 - blokkeer en sta een aangesloten apparaat toe op basis van MAC-adres*
 - schakel Gast-WiFi in en uit*
-- herstart de router*
+- herstart de router
 
 * Werk in uitvoering
 
