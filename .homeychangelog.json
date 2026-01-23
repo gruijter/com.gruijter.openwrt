@@ -1,4 +1,7 @@
 {
+  "1.2.0": {
+    "en": "Added WOL, SSID on/off, radio on/off, block/allow device and deviceIsOnline flow cards. Fixed etherwake installed check. Updated readme. Code fixes and improvements."
+  },
   "1.1.0": {
     "en": "Added Router Reboot flow card. Fixed ul/dl speed monitoring. Improved phone presence detection. Improved translations."
   },
