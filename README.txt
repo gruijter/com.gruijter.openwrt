@@ -1,7 +1,7 @@
 Presence Detection, Network control, Energy Monitoring
 
 - Presence detection based on smartphone WiFi or ethernet connection
-- Monitor and control* your wifi network(s) and its connected devices
+- Monitor and control your wifi network(s) and its connected devices
 - Block the WiFi of your kids after dinner
 - Monitor the energy usage of your network devices, e.g. the T.V.
 
@@ -21,11 +21,10 @@ Act on:
 
 Do:
 - send WakeOnLan (WOL) to a MAC address
-- block and allow an attached device by MAC address*
+- block and allow an attached device by MAC address
 - enable and disable Guest Wifi
 - reboot the router
 
-* Work In Progress
 
 Router device setup in Homey:
 The app is intended for OpenWRT routers that work in Router mode. You can add OpenWRT routers that are configured in Access Point (AP) mode for better/faster detection of wifi devices throughout your house.Your Homey should be connected inside the LAN part of the router, not from outside (WAN). On app startup, Homey will try to automatically enable traffic statistics (up/download speed) by installing the nlbwmon package.

@@ -1,7 +1,7 @@
 Närvarodetektering, nätverkskontroll, energimonitorering
 
 - Närvarodetektering baserad på smartphone WiFi eller ethernet-anslutning
-- Övervaka och kontrollera* ditt/dina wifi-nätverk och dess anslutna enheter
+- Övervaka och kontrollera ditt/dina wifi-nätverk och dess anslutna enheter
 - Blockera barnens WiFi efter middagen
 - Övervaka energianvändningen för dina nätverksenheter, t.ex. TV:n.
 
@@ -20,12 +20,10 @@ Agera på:
 - ändring av internet upp/nedladdningshastighet
 
 Gör:
-- skicka WakeOnLan* (WOL) till en MAC-adress
+- skicka WakeOnLan (WOL) till en MAC-adress
 - blockera och tillåt en ansluten enhet via MAC-adress
-- aktivera och inaktivera Gäst-WiFi*
-- starta om routern*
-
-* Arbete pågår
+- aktivera och inaktivera Gäst-WiFi
+- starta om routern
 
 Routerenhetsinställning i Homey:
 Appen är avsedd för OpenWRT-routrar som fungerar i Router-läge. Du kan lägga till OpenWRT-routrar som är konfigurerade i Access Point (AP)-läge för bättre/snabbare detektering av wifi-enheter i hela huset. Din Homey bör vara ansluten inom LAN-delen av routern, inte från utsidan (WAN). Vid appstart kommer Homey att försöka aktivera trafikstatistik (upp/nedladdningshastighet) automatiskt genom att installera nlbwmon-paketet.

@@ -1,7 +1,7 @@
 Rilevamento della presenza, controllo della rete, monitoraggio dell'energia
 
 - Rilevamento della presenza basato su connessione WiFi o ethernet dello smartphone
-- Monitora e controlla* la tua rete wifi e i dispositivi connessi
+- Monitora e controlla la tua rete wifi e i dispositivi connessi
 - Blocca il WiFi dei tuoi figli dopo cena
 - Monitora il consumo energetico dei tuoi dispositivi di rete, ad es. la TV.
 
@@ -20,12 +20,10 @@ Agisci su:
 - cambio della velocità di upload/download internet
 
 Fai:
-- invia WakeOnLan* (WOL) a un indirizzo MAC
+- invia WakeOnLan (WOL) a un indirizzo MAC
 - blocca e consenti un dispositivo collegato tramite indirizzo MAC
-- abilita e disabilita WiFi Ospiti*
-- riavvia il router*
-
-* Lavori in corso
+- abilita e disabilita WiFi Ospiti
+- riavvia il router
 
 Configurazione del dispositivo router in Homey:
 L'app è destinata ai router OpenWRT che funzionano in modalità Router. Puoi aggiungere router OpenWRT configurati in modalità Access Point (AP) per un rilevamento migliore/più veloce dei dispositivi wifi in tutta la casa. Il tuo Homey dovrebbe essere collegato all'interno della parte LAN del router, non dall'esterno (WAN). All'avvio dell'app, Homey proverà ad abilitare automaticamente le statistiche del traffico (velocità di upload/download) installando il pacchetto nlbwmon.

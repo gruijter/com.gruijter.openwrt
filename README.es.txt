@@ -1,7 +1,7 @@
 Detección de presencia, control de red, monitorización de energía
 
 - Detección de presencia basada en conexión WiFi o ethernet de smartphone
-- Supervise y controle* su(s) red(es) wifi y sus dispositivos conectados
+- Supervise y controle su(s) red(es) wifi y sus dispositivos conectados
 - Bloquee el WiFi de sus hijos después de la cena
 - Supervise el uso de energía de sus dispositivos de red, p. ej., la TV.
 
@@ -20,12 +20,10 @@ Actuar sobre:
 - cambio de velocidad de subida/bajada de internet
 
 Hacer:
-- enviar WakeOnLan* (WOL) a una dirección MAC
+- enviar WakeOnLan (WOL) a una dirección MAC
 - bloquear y permitir un dispositivo conectado por dirección MAC
-- habilitar y deshabilitar WiFi de invitados*
-- reiniciar el router*
-
-* Trabajo en progreso
+- habilitar y deshabilitar WiFi de invitados
+- reiniciar el router
 
 Configuración del dispositivo router en Homey:
 La aplicación está destinada a routers OpenWRT que funcionan en modo Router. Puede agregar routers OpenWRT configurados en modo Punto de Acceso (AP) para una mejor/más rápida detección de dispositivos wifi en toda su casa. Su Homey debe estar conectado dentro de la parte LAN del router, no desde fuera (WAN). Al iniciar la aplicación, Homey intentará habilitar automáticamente las estadísticas de tráfico (velocidad de subida/bajada) instalando el paquete nlbwmon.

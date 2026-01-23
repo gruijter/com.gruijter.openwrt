@@ -1,7 +1,7 @@
 Wykrywanie obecności, sterowanie siecią, monitorowanie energii
 
 - Wykrywanie obecności na podstawie połączenia WiFi smartfona lub ethernet
-- Monitoruj i steruj* swoją siecią (sieciami) wifi i podłączonymi urządzeniami
+- Monitoruj i steruj swoją siecią (sieciami) wifi i podłączonymi urządzeniami
 - Zablokuj WiFi dzieciom po kolacji
 - Monitoruj zużycie energii przez urządzenia sieciowe, np. telewizor.
 
@@ -20,12 +20,10 @@ Reaguj na:
 - zmianę prędkości wysyłania/pobierania danych z internetu
 
 Wykonaj:
-- wyślij WakeOnLan* (WOL) na adres MAC
+- wyślij WakeOnLan (WOL) na adres MAC
 - zablokuj i zezwól na podłączone urządzenie według adresu MAC
-- włącz i wyłącz WiFi dla gości*
-- zrestartuj router*
-
-* Prace w toku
+- włącz i wyłącz WiFi dla gości
+- zrestartuj router
 
 Konfiguracja urządzenia routera w Homey:
 Aplikacja jest przeznaczona dla routerów OpenWRT działających w trybie Routera. Możesz dodać routery OpenWRT skonfigurowane w trybie Punktu Dostępu (AP) dla lepszego/szybszego wykrywania urządzeń wifi w całym domu. Twój Homey powinien być podłączony wewnątrz części LAN routera, a nie z zewnątrz (WAN). Przy uruchomieniu aplikacji Homey spróbuje automatycznie włączyć statystyki ruchu (prędkość wysyłania/pobierania) instalując pakiet nlbwmon.
