@@ -714,6 +714,45 @@
         "id": "device_went_offline"
       }
     ],
+    "conditions": [
+      {
+        "title": {
+          "en": "Device !{{is|isn't}} online"
+        },
+        "titleFormatted": {
+          "en": "[[mac]] !{{is|isn't}} online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          },
+          {
+            "type": "autocomplete",
+            "name": "mac",
+            "title": {
+              "en": "Device",
+              "nl": "Apparaat",
+              "de": "Gerät",
+              "fr": "Appareil",
+              "it": "Dispositivo",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Dispositivo",
+              "da": "Enhed",
+              "pl": "Urządzenie",
+              "ru": "Устройство",
+              "ko": "장치"
+            },
+            "placeholder": {
+              "en": "AA:BB:CC:DD:EE:FF"
+            }
+          }
+        ],
+        "id": "deviceIsOnline"
+      }
+    ],
     "actions": [
       {
         "title": {

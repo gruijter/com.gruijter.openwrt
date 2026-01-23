@@ -33,7 +33,7 @@
       "name": "device",
       "filter": "driver_id=router&capabilities=measure_attached_devices"
    },
-    {
+   {
       "type": "autocomplete",
       "name": "mac",
       "title": {

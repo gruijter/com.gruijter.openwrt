@@ -34,7 +34,7 @@ module.exports = class MyApp extends Homey.App {
   }
 
   registerFlowListeners() {
-    // autocomplete function mac on dhcp router
+    // autocomplete functions
     const autoCompleteMac = (query, args) => {
       try {
         const list = [];
@@ -59,7 +59,6 @@ module.exports = class MyApp extends Homey.App {
       }
     };
 
-    // autocomplete function ssid
     const autoCompleteSsid = (query, args) => {
       const interfaces = args.device.wifiInterfaces || [];
       const results = interfaces
@@ -73,7 +72,6 @@ module.exports = class MyApp extends Homey.App {
       return Promise.resolve(results);
     };
 
-    // autocomplete function radio
     const autoCompleteRadio = (query, args) => {
       const radios = args.device.wifiRadios || [];
       const results = radios
@@ -92,6 +90,27 @@ module.exports = class MyApp extends Homey.App {
           // .then(this.log(device.getName(), tokens, state))
           .catch(this.error);
       };
+    });
+
+    // custom device condition cards
+    const conditionListeners = [];
+    const conditionList = Homey.manifest.flow.conditions;
+    conditionList.forEach((condition, index) => {
+      this.log('setting up flow condition listener', condition.id);
+      conditionListeners[index] = this.homey.flow.getConditionCard(condition.id);
+      if (condition.args) {
+        condition.args.forEach((arg) => {
+          if (arg.type === 'autocomplete') {
+            if (arg.name === 'mac') conditionListeners[index].registerArgumentAutocompleteListener('mac', autoCompleteMac);
+            if (arg.name === 'ssid') conditionListeners[index].registerArgumentAutocompleteListener('ssid', autoCompleteSsid);
+            if (arg.name === 'radio') conditionListeners[index].registerArgumentAutocompleteListener('radio', autoCompleteRadio);
+          }
+        });
+      }
+      conditionListeners[index].registerRunListener(async (args) => {
+        args.device.log(`Flow condition ${condition.id} called`);
+        return args.device.handleFlowCondition({ condition: condition.id, args });
+      });
     });
 
     // custom device action cards

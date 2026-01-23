@@ -477,23 +477,20 @@ class RouterDevice extends Device {
     }
   }
 
-  // trigger flows
-
   // condition flow card helpers
+  async deviceIsOnline(args, source) {
+    try {
+      if (!this.router || !this.knownDevices) throw Error('Router not ready');
+      const mac = args.mac && args.mac.name ? args.mac.name : args.mac;
+      const connected = this.knownDevices[mac]?.connected;
+      return !!connected;
+    } catch (error) {
+      this.error(`${this.getName()}`, error && error.message);
+      return Promise.reject(error);
+    }
+  }
 
-  // // commands to rpi
-  // async executeCommand(args, source) {
-  //   try {
-  //     if (!this.rpi) throw Error('Rpi not ready');
-  //     this.log(`${this.getName()} Executing ${args.command} by ${source}`);
-  //     const resp = await this.rpi.execute(args.command);
-  //     const tokens = { response: JSON.stringify(resp) };
-  //     return tokens;
-  //   } catch (error) {
-  //     this.error(`${this.getName()}`, error && error.message);
-  //     return Promise.reject(error);
-  //   }
-  // }
+  // trigger flow card helpers
 
   /**
    * Reboots the router.
@@ -595,6 +592,12 @@ class RouterDevice extends Device {
       this.error(`${this.getName()}`, error && error.message);
       return Promise.reject(error);
     }
+  }
+
+  // flow condition handler from app.js
+  async handleFlowCondition({ condition, args }) {
+    if (this[condition]) return this[condition](args, 'flow');
+    return Promise.reject(Error('condition not found'));
   }
 
   // flow action handler from app.js
