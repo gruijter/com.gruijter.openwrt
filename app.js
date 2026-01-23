@@ -35,31 +35,27 @@ module.exports = class MyApp extends Homey.App {
 
   registerFlowListeners() {
     // autocomplete functions
-    const autoCompleteMac = (query, args) => {
-      try {
-        const list = [];
-        if (args.device.knownDevices) {
-          Object.keys(args.device.knownDevices).forEach((key) => {
-            const device = args.device.knownDevices[key];
-            if (!device.mac) return;
-            list.push({
-              name: device.mac,
-              description: device.name || 'unknown',
-            });
+    const autoCompleteMac = async (query, args) => {
+      const list = [];
+      if (args.device.knownDevices) {
+        Object.keys(args.device.knownDevices).forEach((key) => {
+          const device = args.device.knownDevices[key];
+          if (!device.mac) return;
+          list.push({
+            name: device.mac,
+            description: device.name || 'unknown',
           });
-        }
-        const results = list.filter((result) => { // filter for query on MAC and Name
-          const macFound = result.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-          const nameFound = result.description.toLowerCase().indexOf(query.toLowerCase()) > -1;
-          return macFound || nameFound;
         });
-        return Promise.resolve(results);
-      } catch (error) {
-        return Promise.reject(error);
       }
+      const results = list.filter((result) => { // filter for query on MAC and Name
+        const macFound = result.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+        const nameFound = result.description.toLowerCase().indexOf(query.toLowerCase()) > -1;
+        return macFound || nameFound;
+      });
+      return results;
     };
 
-    const autoCompleteSsid = (query, args) => {
+    const autoCompleteSsid = async (query, args) => {
       const interfaces = args.device.wifiInterfaces || [];
       const results = interfaces
         .filter((iface) => iface.name.toLowerCase().includes(query.toLowerCase()))
@@ -69,14 +65,14 @@ module.exports = class MyApp extends Homey.App {
           ssid: iface.ssid,
           device: iface.device,
         }));
-      return Promise.resolve(results);
+      return results;
     };
 
-    const autoCompleteRadio = (query, args) => {
+    const autoCompleteRadio = async (query, args) => {
       const radios = args.device.wifiRadios || [];
       const results = radios
         .filter((radio) => radio.name.toLowerCase().includes(query.toLowerCase()));
-      return Promise.resolve(results);
+      return results;
     };
 
     // custom device trigger cards

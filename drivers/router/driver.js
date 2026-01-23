@@ -114,11 +114,11 @@ module.exports = class MyDriver extends Homey.Driver {
         }];
         await router.logout().catch(this.error);
         await session.showView('list_devices');
-        return Promise.resolve(deviceList);
+        return deviceList;
       } catch (error) {
         const msg = error.message && error.message.includes('"message":') ? JSON.parse(error.message).message : error;
         this.error(error);
-        return Promise.reject(msg);
+        throw msg;
       }
     });
 
@@ -128,7 +128,7 @@ module.exports = class MyDriver extends Homey.Driver {
       } catch (error) {
         const msg = error.message && error.message.includes('"message":') ? JSON.parse(error.message).message : error;
         this.error(error);
-        return Promise.reject(msg);
+        throw msg;
       }
     });
   }

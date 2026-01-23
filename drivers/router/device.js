@@ -164,7 +164,7 @@ class RouterDevice extends Device {
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log(`${this.getName()} settings where changed`, newSettings);
     this.restartDevice(3 * 1000).catch(this.error);
-    return Promise.resolve('Device will restart');
+    return 'Device will restart';
   }
 
   async onDeleted() {
@@ -486,7 +486,7 @@ class RouterDevice extends Device {
       return !!connected;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
@@ -506,7 +506,7 @@ class RouterDevice extends Device {
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
@@ -525,7 +525,7 @@ class RouterDevice extends Device {
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
@@ -551,7 +551,7 @@ class RouterDevice extends Device {
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
@@ -570,7 +570,7 @@ class RouterDevice extends Device {
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
@@ -590,20 +590,20 @@ class RouterDevice extends Device {
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);
-      return Promise.reject(error);
+      throw error;
     }
   }
 
   // flow condition handler from app.js
   async handleFlowCondition({ condition, args }) {
     if (this[condition]) return this[condition](args, 'flow');
-    return Promise.reject(Error('condition not found'));
+    throw Error('condition not found');
   }
 
   // flow action handler from app.js
   async handleFlowAction({ action, args }) {
     if (this[action]) return this[action](args, 'flow');
-    return Promise.reject(Error('action not found'));
+    throw Error('action not found');
   }
 
   // homey device listeners
