@@ -1,9 +1,9 @@
 {
   "title": {
-    "en": "Enable or disable wifi"
+    "en": "Enable or disable radio"
   },
   "titleFormatted": {
-    "en": "Turn [[ssid]] wifi [[enabled]]"
+    "en": "Turn [[radio]] radio [[enabled]]"
   },
   "args": [
     {
@@ -13,9 +13,9 @@
     },
     {
       "type": "autocomplete",
-      "name": "ssid",
+      "name": "radio",
       "title": {
-        "en": "SSID"
+        "en": "Radio"
       }
     },
     {

@@ -401,6 +401,7 @@ class RouterDevice extends Device {
       // Store SSIDs for use in flow card autocomplete
       if (routerInfo.wifi) {
         const interfaces = [];
+        const radios = [];
         for (const radio of routerInfo.wifi) {
           let band = 'Unknown';
           if (radio.frequency) {
@@ -408,6 +409,10 @@ class RouterDevice extends Device {
             else if (radio.frequency < 6000) band = '5GHz';
             else band = '6GHz';
           }
+          radios.push({
+            name: radio.radio,
+            description: band,
+          });
           if (radio.interfaces) {
             for (const iface of radio.interfaces) {
               if (iface.ssid) {
@@ -422,6 +427,7 @@ class RouterDevice extends Device {
           }
         }
         this.wifiInterfaces = interfaces.sort((a, b) => a.name.localeCompare(b.name));
+        this.wifiRadios = radios.sort((a, b) => a.name.localeCompare(b.name));
       }
 
       const commonStates = {
@@ -545,6 +551,25 @@ class RouterDevice extends Device {
       const deviceLog = radioDevice ? ` on ${radioDevice}` : '';
       this.log(`${this.getName()} setWifi ${ssid}${deviceLog} to ${enabled} by ${source}`);
       await this.router.setWifiState(ssid, enabled === 'on' || enabled === true, radioDevice);
+      return true;
+    } catch (error) {
+      this.error(`${this.getName()}`, error && error.message);
+      return Promise.reject(error);
+    }
+  }
+
+  /**
+   * Enables or disables a WiFi radio.
+   * @param {object} args - Flow arguments.
+   * @param {object} source - Source of the command.
+   * @returns {Promise<boolean>} True if command sent.
+   */
+  async setRadio(args, source) {
+    try {
+      if (!this.router) throw Error('Router not ready');
+      const { radio, enabled } = args;
+      this.log(`${this.getName()} setRadio ${radio} to ${enabled} by ${source}`);
+      await this.router.setRadioState(radio, enabled === 'on' || enabled === true);
       return true;
     } catch (error) {
       this.error(`${this.getName()}`, error && error.message);

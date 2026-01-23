@@ -742,6 +742,51 @@
       },
       {
         "title": {
+          "en": "Enable or disable radio"
+        },
+        "titleFormatted": {
+          "en": "Turn [[radio]] radio [[enabled]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=router&capabilities=measure_data_rate.2_4|measure_data_rate.5"
+          },
+          {
+            "type": "autocomplete",
+            "name": "radio",
+            "title": {
+              "en": "Radio"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "enabled",
+            "values": [
+              {
+                "id": "on",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan",
+                  "de": "An"
+                }
+              },
+              {
+                "id": "off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "setRadio"
+      },
+      {
+        "title": {
           "en": "Enable or disable wifi"
         },
         "titleFormatted": {
@@ -751,7 +796,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=router"
+            "filter": "driver_id=router@capabilities=measure_data_rate.2_4|measure_data_rate.5"
           },
           {
             "type": "autocomplete",

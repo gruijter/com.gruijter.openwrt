@@ -73,6 +73,14 @@ module.exports = class MyApp extends Homey.App {
       return Promise.resolve(results);
     };
 
+    // autocomplete function radio
+    const autoCompleteRadio = (query, args) => {
+      const radios = args.device.wifiRadios || [];
+      const results = radios
+        .filter((radio) => radio.name.toLowerCase().includes(query.toLowerCase()));
+      return Promise.resolve(results);
+    };
+
     // custom device trigger cards
     const triggerList = Homey.manifest.flow.triggers;
     triggerList.forEach((trigger, index) => {
@@ -97,6 +105,7 @@ module.exports = class MyApp extends Homey.App {
           if (arg.type === 'autocomplete') {
             if (arg.name === 'mac') actionListeners[index].registerArgumentAutocompleteListener('mac', autoCompleteMac);
             if (arg.name === 'ssid') actionListeners[index].registerArgumentAutocompleteListener('ssid', autoCompleteSsid);
+            if (arg.name === 'radio') actionListeners[index].registerArgumentAutocompleteListener('radio', autoCompleteRadio);
           }
         });
       }
