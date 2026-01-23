@@ -1,9 +1,31 @@
 {
   "title": {
-    "en": "Enable or disable wifi"
+    "en": "Enable or disable wifi",
+    "nl": "Wifi in- of uitschakelen",
+    "de": "WLAN ein- oder ausschalten",
+    "fr": "Activer ou désactiver le wifi",
+    "it": "Abilita o disabilita il wifi",
+    "sv": "Aktivera eller inaktivera wifi",
+    "no": "Aktiver eller deaktiver wifi",
+    "es": "Activar o desactivar wifi",
+    "da": "Aktiver eller deaktiver wifi",
+    "pl": "Włącz lub wyłącz wifi",
+    "ru": "Включить или выключить wifi",
+    "ko": "Wi-Fi 활성화 또는 비활성화"
   },
   "titleFormatted": {
-    "en": "Turn [[ssid]] wifi [[enabled]]"
+    "en": "Turn [[ssid]] [[enabled]]",
+    "nl": "Zet [[ssid]] [[enabled]]",
+    "de": "Schalte [[ssid]] [[enabled]]",
+    "fr": "Rendre [[ssid]] [[enabled]]",
+    "it": "Imposta [[ssid]] [[enabled]]",
+    "sv": "Sätt [[ssid]] [[enabled]]",
+    "no": "Sett [[ssid]] [[enabled]]",
+    "es": "Poner [[ssid]] [[enabled]]",
+    "da": "Sæt [[ssid]] [[enabled]]",
+    "pl": "Ustaw [[ssid]] [[enabled]]",
+    "ru": "Переключить [[ssid]] [[enabled]]",
+    "ko": "[[ssid]] [[enabled]]"
   },
   "args": [
     {
@@ -15,19 +37,53 @@
       "type": "autocomplete",
       "name": "ssid",
       "title": {
-        "en": "SSID"
+        "en": "Wifi SSID",
+        "nl": "Wifi SSID",
+        "de": "WLAN SSID",
+        "fr": "SSID Wifi",
+        "it": "SSID Wifi",
+        "sv": "Wifi SSID",
+        "no": "Wifi SSID",
+        "es": "SSID Wifi",
+        "da": "Wifi SSID",
+        "pl": "Wifi SSID",
+        "ru": "Wifi SSID",
+        "ko": "Wi-Fi SSID"
       }
     },
     {
       "type": "dropdown",
       "name": "enabled",
+      "title": {
+        "en": "On/Off",
+        "nl": "Aan/Uit",
+        "de": "An/Aus",
+        "fr": "Allumé/Éteint",
+        "it": "Acceso/Spento",
+        "sv": "På/Av",
+        "no": "På/Av",
+        "es": "Encendido/Apagado",
+        "da": "Tændt/Slukket",
+        "pl": "Włączone/Wyłączone",
+        "ru": "Вкл/Выкл",
+        "ko": "켜짐/꺼짐"
+      },
       "values": [
         {
           "id": "on",
           "label": {
             "en": "On",
             "nl": "Aan",
-            "de": "An"
+            "de": "An",
+            "fr": "Allumé",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Tændt",
+            "pl": "Włączone",
+            "ru": "Вкл",
+            "ko": "켜짐"
           }
         },
         {
@@ -35,7 +91,16 @@
           "label": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "fr": "Éteint",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Slukket",
+            "pl": "Wyłączone",
+            "ru": "Выкл",
+            "ko": "꺼짐"
           }
         }
       ]

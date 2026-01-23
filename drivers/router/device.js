@@ -577,6 +577,26 @@ class RouterDevice extends Device {
     }
   }
 
+  /**
+   * Sets access for a device (block or allow).
+   * @param {object} args - Flow arguments.
+   * @param {object} source - Source of the command.
+   * @returns {Promise<boolean>} True if command sent.
+   */
+  async setDevice(args, source) {
+    try {
+      if (!this.router) throw Error('Router not ready');
+      const mac = args.mac && args.mac.name ? args.mac.name : args.mac;
+      const { state, blockType } = args;
+      this.log(`${this.getName()} setDevice ${mac} to ${state} (${blockType || 'wan'}) by ${source}`);
+      await this.router.setDevice(mac, state, blockType);
+      return true;
+    } catch (error) {
+      this.error(`${this.getName()}`, error && error.message);
+      return Promise.reject(error);
+    }
+  }
+
   // flow action handler from app.js
   async handleFlowAction({ action, args }) {
     if (this[action]) return this[action](args, 'flow');

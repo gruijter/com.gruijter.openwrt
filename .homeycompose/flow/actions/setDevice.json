@@ -1,0 +1,183 @@
+{
+  "title": {
+    "en": "Enable or disable device access",
+    "nl": "Apparaattoegang in- of uitschakelen",
+    "de": "Gerätezugriff aktivieren oder deaktivieren",
+    "fr": "Activer ou désactiver l'accès à l'appareil",
+    "it": "Abilita o disabilita l'accesso al dispositivo",
+    "sv": "Aktivera eller inaktivera enhetsåtkomst",
+    "no": "Aktiver eller deaktiver enhetstilgang",
+    "es": "Habilitar o deshabilitar el acceso al dispositivo",
+    "da": "Aktiver eller deaktiver enhedsadgang",
+    "pl": "Włącz lub wyłącz dostęp do urządzenia",
+    "ru": "Включить или отключить доступ к устройству",
+    "ko": "장치 액세스 활성화 또는 비활성화"
+  },
+  "titleFormatted": {
+    "en": "Set access of [[mac]] for [[blockType]] to [[state]]",
+    "nl": "Zet toegang van [[mac]] voor [[blockType]] op [[state]]",
+    "de": "Setze Zugriff von [[mac]] für [[blockType]] auf [[state]]",
+    "fr": "Définir l'accès de [[mac]] pour [[blockType]] sur [[state]]",
+    "it": "Imposta l'accesso di [[mac]] per [[blockType]] su [[state]]",
+    "sv": "Sätt åtkomst för [[mac]] för [[blockType]] till [[state]]",
+    "no": "Sett tilgang for [[mac]] for [[blockType]] til [[state]]",
+    "es": "Establecer acceso de [[mac]] para [[blockType]] a [[state]]",
+    "da": "Sæt adgang for [[mac]] for [[blockType]] til [[state]]",
+    "pl": "Ustaw dostęp [[mac]] dla [[blockType]] na [[state]]",
+    "ru": "Установить доступ [[mac]] для [[blockType]] в [[state]]",
+    "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=router&capabilities=measure_attached_devices"
+   },
+    {
+      "type": "autocomplete",
+      "name": "mac",
+      "title": {
+        "en": "Device",
+        "nl": "Apparaat",
+        "de": "Gerät",
+        "fr": "Appareil",
+        "it": "Dispositivo",
+        "sv": "Enhet",
+        "no": "Enhet",
+        "es": "Dispositivo",
+        "da": "Enhed",
+        "pl": "Urządzenie",
+        "ru": "Устройство",
+        "ko": "장치"
+      },
+      "placeholder": {
+        "en": "AA:BB:CC:DD:EE:FF"
+      }
+    },
+    {
+      "type": "dropdown",
+      "name": "state",
+      "title": {
+        "en": "Allow/Block",
+        "nl": "Toestaan/Blokkeren",
+        "de": "Erlauben/Blockieren",
+        "fr": "Autoriser/Bloquer",
+        "it": "Consenti/Blocca",
+        "sv": "Tillåt/Blockera",
+        "no": "Tillat/Blokker",
+        "es": "Permitir/Bloquear",
+        "da": "Tillad/Bloker",
+        "pl": "Zezwól/Zablokuj",
+        "ru": "Разрешить/Блокировать",
+        "ko": "허용/차단"
+      },
+      "values": [
+        {
+          "id": "allow",
+          "label": {
+            "en": "Allow",
+            "nl": "Toestaan",
+            "de": "Erlauben",
+            "fr": "Autoriser",
+            "it": "Consenti",
+            "sv": "Tillåt",
+            "no": "Tillat",
+            "es": "Permitir",
+            "da": "Tillad",
+            "pl": "Zezwól",
+            "ru": "Разрешить",
+            "ko": "허용"
+          }
+        },
+        {
+          "id": "block",
+          "label": {
+            "en": "Block",
+            "nl": "Blokkeren",
+            "de": "Blockieren",
+            "fr": "Bloquer",
+            "it": "Blocca",
+            "sv": "Blockera",
+            "no": "Blokker",
+            "es": "Bloquear",
+            "da": "Bloker",
+            "pl": "Zablokuj",
+            "ru": "Блокировать",
+            "ko": "차단"
+          }
+        }
+      ]
+    },
+    {
+      "type": "dropdown",
+      "name": "blockType",
+      "title": {
+        "en": "WAN/LAN/Both",
+        "nl": "WAN/LAN/Beide",
+        "de": "WAN/LAN/Beide",
+        "fr": "WAN/LAN/Les deux",
+        "it": "WAN/LAN/Entrambi",
+        "sv": "WAN/LAN/Båda",
+        "no": "WAN/LAN/Begge",
+        "es": "WAN/LAN/Ambos",
+        "da": "WAN/LAN/Begge",
+        "pl": "WAN/LAN/Oba",
+        "ru": "WAN/LAN/Оба",
+        "ko": "WAN/LAN/둘 다"
+      },
+      "values": [
+        {
+          "id": "wan",
+          "label": {
+            "en": "WAN",
+            "nl": "WAN",
+            "de": "WAN",
+            "fr": "WAN",
+            "it": "WAN",
+            "sv": "WAN",
+            "no": "WAN",
+            "es": "WAN",
+            "da": "WAN",
+            "pl": "WAN",
+            "ru": "WAN",
+            "ko": "WAN"
+          }
+        },
+        {
+          "id": "lan",
+          "label": {
+            "en": "LAN",
+            "nl": "LAN",
+            "de": "LAN",
+            "fr": "LAN",
+            "it": "LAN",
+            "sv": "LAN",
+            "no": "LAN",
+            "es": "LAN",
+            "da": "LAN",
+            "pl": "LAN",
+            "ru": "LAN",
+            "ko": "LAN"
+          }
+        },
+        {
+          "id": "all",
+          "label": {
+            "en": "Both",
+            "nl": "Beide",
+            "de": "Beide",
+            "fr": "Les deux",
+            "it": "Entrambi",
+            "sv": "Båda",
+            "no": "Begge",
+            "es": "Ambos",
+            "da": "Begge",
+            "pl": "Oba",
+            "ru": "Оба",
+            "ko": "둘 다"
+          }
+        }
+      ]
+    }
+  ]
+}

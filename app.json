@@ -742,10 +742,216 @@
       },
       {
         "title": {
-          "en": "Enable or disable radio"
+          "en": "Enable or disable device access",
+          "nl": "Apparaattoegang in- of uitschakelen",
+          "de": "Gerätezugriff aktivieren oder deaktivieren",
+          "fr": "Activer ou désactiver l'accès à l'appareil",
+          "it": "Abilita o disabilita l'accesso al dispositivo",
+          "sv": "Aktivera eller inaktivera enhetsåtkomst",
+          "no": "Aktiver eller deaktiver enhetstilgang",
+          "es": "Habilitar o deshabilitar el acceso al dispositivo",
+          "da": "Aktiver eller deaktiver enhedsadgang",
+          "pl": "Włącz lub wyłącz dostęp do urządzenia",
+          "ru": "Включить или отключить доступ к устройству",
+          "ko": "장치 액세스 활성화 또는 비활성화"
         },
         "titleFormatted": {
-          "en": "Turn [[radio]] radio [[enabled]]"
+          "en": "Set access of [[mac]] for [[blockType]] to [[state]]",
+          "nl": "Zet toegang van [[mac]] voor [[blockType]] op [[state]]",
+          "de": "Setze Zugriff von [[mac]] für [[blockType]] auf [[state]]",
+          "fr": "Définir l'accès de [[mac]] pour [[blockType]] sur [[state]]",
+          "it": "Imposta l'accesso di [[mac]] per [[blockType]] su [[state]]",
+          "sv": "Sätt åtkomst för [[mac]] för [[blockType]] till [[state]]",
+          "no": "Sett tilgang for [[mac]] for [[blockType]] til [[state]]",
+          "es": "Establecer acceso de [[mac]] para [[blockType]] a [[state]]",
+          "da": "Sæt adgang for [[mac]] for [[blockType]] til [[state]]",
+          "pl": "Ustaw dostęp [[mac]] dla [[blockType]] na [[state]]",
+          "ru": "Установить доступ [[mac]] для [[blockType]] в [[state]]",
+          "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=router&capabilities=measure_attached_devices"
+          },
+          {
+            "type": "autocomplete",
+            "name": "mac",
+            "title": {
+              "en": "Device",
+              "nl": "Apparaat",
+              "de": "Gerät",
+              "fr": "Appareil",
+              "it": "Dispositivo",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Dispositivo",
+              "da": "Enhed",
+              "pl": "Urządzenie",
+              "ru": "Устройство",
+              "ko": "장치"
+            },
+            "placeholder": {
+              "en": "AA:BB:CC:DD:EE:FF"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "title": {
+              "en": "Allow/Block",
+              "nl": "Toestaan/Blokkeren",
+              "de": "Erlauben/Blockieren",
+              "fr": "Autoriser/Bloquer",
+              "it": "Consenti/Blocca",
+              "sv": "Tillåt/Blockera",
+              "no": "Tillat/Blokker",
+              "es": "Permitir/Bloquear",
+              "da": "Tillad/Bloker",
+              "pl": "Zezwól/Zablokuj",
+              "ru": "Разрешить/Блокировать",
+              "ko": "허용/차단"
+            },
+            "values": [
+              {
+                "id": "allow",
+                "label": {
+                  "en": "Allow",
+                  "nl": "Toestaan",
+                  "de": "Erlauben",
+                  "fr": "Autoriser",
+                  "it": "Consenti",
+                  "sv": "Tillåt",
+                  "no": "Tillat",
+                  "es": "Permitir",
+                  "da": "Tillad",
+                  "pl": "Zezwól",
+                  "ru": "Разрешить",
+                  "ko": "허용"
+                }
+              },
+              {
+                "id": "block",
+                "label": {
+                  "en": "Block",
+                  "nl": "Blokkeren",
+                  "de": "Blockieren",
+                  "fr": "Bloquer",
+                  "it": "Blocca",
+                  "sv": "Blockera",
+                  "no": "Blokker",
+                  "es": "Bloquear",
+                  "da": "Bloker",
+                  "pl": "Zablokuj",
+                  "ru": "Блокировать",
+                  "ko": "차단"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "blockType",
+            "title": {
+              "en": "WAN/LAN/Both",
+              "nl": "WAN/LAN/Beide",
+              "de": "WAN/LAN/Beide",
+              "fr": "WAN/LAN/Les deux",
+              "it": "WAN/LAN/Entrambi",
+              "sv": "WAN/LAN/Båda",
+              "no": "WAN/LAN/Begge",
+              "es": "WAN/LAN/Ambos",
+              "da": "WAN/LAN/Begge",
+              "pl": "WAN/LAN/Oba",
+              "ru": "WAN/LAN/Оба",
+              "ko": "WAN/LAN/둘 다"
+            },
+            "values": [
+              {
+                "id": "wan",
+                "label": {
+                  "en": "WAN",
+                  "nl": "WAN",
+                  "de": "WAN",
+                  "fr": "WAN",
+                  "it": "WAN",
+                  "sv": "WAN",
+                  "no": "WAN",
+                  "es": "WAN",
+                  "da": "WAN",
+                  "pl": "WAN",
+                  "ru": "WAN",
+                  "ko": "WAN"
+                }
+              },
+              {
+                "id": "lan",
+                "label": {
+                  "en": "LAN",
+                  "nl": "LAN",
+                  "de": "LAN",
+                  "fr": "LAN",
+                  "it": "LAN",
+                  "sv": "LAN",
+                  "no": "LAN",
+                  "es": "LAN",
+                  "da": "LAN",
+                  "pl": "LAN",
+                  "ru": "LAN",
+                  "ko": "LAN"
+                }
+              },
+              {
+                "id": "all",
+                "label": {
+                  "en": "Both",
+                  "nl": "Beide",
+                  "de": "Beide",
+                  "fr": "Les deux",
+                  "it": "Entrambi",
+                  "sv": "Båda",
+                  "no": "Begge",
+                  "es": "Ambos",
+                  "da": "Begge",
+                  "pl": "Oba",
+                  "ru": "Оба",
+                  "ko": "둘 다"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "setDevice"
+      },
+      {
+        "title": {
+          "en": "Enable or disable wifi radio",
+          "nl": "Wifi radio in- of uitschakelen",
+          "de": "WLAN Radio ein- oder ausschalten",
+          "fr": "Activer ou désactiver la radio wifi",
+          "it": "Abilita o disabilita la radio wifi",
+          "sv": "Aktivera eller inaktivera wifi-radio",
+          "no": "Aktiver eller deaktiver wifi-radio",
+          "es": "Activar o desactivar la radio wifi",
+          "da": "Aktiver eller deaktiver wifi-radio",
+          "pl": "Włącz lub wyłącz radio wifi",
+          "ru": "Включить или выключить радио wifi",
+          "ko": "Wi-Fi 라디오 활성화 또는 비활성화"
+        },
+        "titleFormatted": {
+          "en": "Turn [[radio]] [[enabled]]",
+          "nl": "Zet [[radio]] [[enabled]]",
+          "de": "Schalte [[radio]] [[enabled]]",
+          "fr": "Rendre [[radio]] [[enabled]]",
+          "it": "Imposta [[radio]] [[enabled]]",
+          "sv": "Sätt [[radio]] [[enabled]]",
+          "no": "Sett [[radio]] [[enabled]]",
+          "es": "Poner [[radio]] [[enabled]]",
+          "da": "Sæt [[radio]] [[enabled]]",
+          "pl": "Ustaw [[radio]] [[enabled]]",
+          "ru": "Переключить [[radio]] [[enabled]]",
+          "ko": "[[radio]] [[enabled]]"
         },
         "args": [
           {
@@ -757,19 +963,53 @@
             "type": "autocomplete",
             "name": "radio",
             "title": {
-              "en": "Radio"
+              "en": "Wifi radio",
+              "nl": "Wifi radio",
+              "de": "WLAN Radio",
+              "fr": "Radio Wifi",
+              "it": "Radio Wifi",
+              "sv": "Wifi-radio",
+              "no": "Wifi-radio",
+              "es": "Radio Wifi",
+              "da": "Wifi-radio",
+              "pl": "Radio Wifi",
+              "ru": "Радио Wifi",
+              "ko": "Wi-Fi 라디오"
             }
           },
           {
             "type": "dropdown",
             "name": "enabled",
+            "title": {
+              "en": "On/Off",
+              "nl": "Aan/Uit",
+              "de": "An/Aus",
+              "fr": "Allumé/Éteint",
+              "it": "Acceso/Spento",
+              "sv": "På/Av",
+              "no": "På/Av",
+              "es": "Encendido/Apagado",
+              "da": "Tændt/Slukket",
+              "pl": "Włączone/Wyłączone",
+              "ru": "Вкл/Выкл",
+              "ko": "켜짐/꺼짐"
+            },
             "values": [
               {
                 "id": "on",
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "An"
+                  "de": "An",
+                  "fr": "Allumé",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Tændt",
+                  "pl": "Włączone",
+                  "ru": "Вкл",
+                  "ko": "켜짐"
                 }
               },
               {
@@ -777,7 +1017,16 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Éteint",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Slukket",
+                  "pl": "Wyłączone",
+                  "ru": "Выкл",
+                  "ko": "꺼짐"
                 }
               }
             ]
@@ -787,34 +1036,90 @@
       },
       {
         "title": {
-          "en": "Enable or disable wifi"
+          "en": "Enable or disable wifi",
+          "nl": "Wifi in- of uitschakelen",
+          "de": "WLAN ein- oder ausschalten",
+          "fr": "Activer ou désactiver le wifi",
+          "it": "Abilita o disabilita il wifi",
+          "sv": "Aktivera eller inaktivera wifi",
+          "no": "Aktiver eller deaktiver wifi",
+          "es": "Activar o desactivar wifi",
+          "da": "Aktiver eller deaktiver wifi",
+          "pl": "Włącz lub wyłącz wifi",
+          "ru": "Включить или выключить wifi",
+          "ko": "Wi-Fi 활성화 또는 비활성화"
         },
         "titleFormatted": {
-          "en": "Turn [[ssid]] wifi [[enabled]]"
+          "en": "Turn [[ssid]] [[enabled]]",
+          "nl": "Zet [[ssid]] [[enabled]]",
+          "de": "Schalte [[ssid]] [[enabled]]",
+          "fr": "Rendre [[ssid]] [[enabled]]",
+          "it": "Imposta [[ssid]] [[enabled]]",
+          "sv": "Sätt [[ssid]] [[enabled]]",
+          "no": "Sett [[ssid]] [[enabled]]",
+          "es": "Poner [[ssid]] [[enabled]]",
+          "da": "Sæt [[ssid]] [[enabled]]",
+          "pl": "Ustaw [[ssid]] [[enabled]]",
+          "ru": "Переключить [[ssid]] [[enabled]]",
+          "ko": "[[ssid]] [[enabled]]"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=router@capabilities=measure_data_rate.2_4|measure_data_rate.5"
+            "filter": "driver_id=router&capabilities=measure_data_rate.2_4|measure_data_rate.5"
           },
           {
             "type": "autocomplete",
             "name": "ssid",
             "title": {
-              "en": "SSID"
+              "en": "Wifi SSID",
+              "nl": "Wifi SSID",
+              "de": "WLAN SSID",
+              "fr": "SSID Wifi",
+              "it": "SSID Wifi",
+              "sv": "Wifi SSID",
+              "no": "Wifi SSID",
+              "es": "SSID Wifi",
+              "da": "Wifi SSID",
+              "pl": "Wifi SSID",
+              "ru": "Wifi SSID",
+              "ko": "Wi-Fi SSID"
             }
           },
           {
             "type": "dropdown",
             "name": "enabled",
+            "title": {
+              "en": "On/Off",
+              "nl": "Aan/Uit",
+              "de": "An/Aus",
+              "fr": "Allumé/Éteint",
+              "it": "Acceso/Spento",
+              "sv": "På/Av",
+              "no": "På/Av",
+              "es": "Encendido/Apagado",
+              "da": "Tændt/Slukket",
+              "pl": "Włączone/Wyłączone",
+              "ru": "Вкл/Выкл",
+              "ko": "켜짐/꺼짐"
+            },
             "values": [
               {
                 "id": "on",
                 "label": {
                   "en": "On",
                   "nl": "Aan",
-                  "de": "An"
+                  "de": "An",
+                  "fr": "Allumé",
+                  "it": "Acceso",
+                  "sv": "På",
+                  "no": "På",
+                  "es": "Encendido",
+                  "da": "Tændt",
+                  "pl": "Włączone",
+                  "ru": "Вкл",
+                  "ko": "켜짐"
                 }
               },
               {
@@ -822,7 +1127,16 @@
                 "label": {
                   "en": "Off",
                   "nl": "Uit",
-                  "de": "Aus"
+                  "de": "Aus",
+                  "fr": "Éteint",
+                  "it": "Spento",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Apagado",
+                  "da": "Slukket",
+                  "pl": "Wyłączone",
+                  "ru": "Выкл",
+                  "ko": "꺼짐"
                 }
               }
             ]
@@ -869,18 +1183,18 @@
             "type": "autocomplete",
             "name": "mac",
             "title": {
-              "en": "Which device (MAC address)",
-              "nl": "Welk apparaat (MAC-adres)",
-              "de": "Welches Gerät (MAC-Adresse)",
-              "da": "Hvilken enhed (MAC-adresse)",
-              "es": "Qué dispositivo (dirección MAC)",
-              "fr": "Quel appareil (adresse MAC)",
-              "it": "Quale dispositivo (indirizzo MAC)",
-              "no": "Hvilken enhet (MAC-adresse)",
-              "sv": "Vilken enhet (MAC-adress)",
-              "pl": "Które urządzenie (adres MAC)",
-              "ru": "Какое устройство (MAC-адрес)",
-              "ko": "어떤 장치 (MAC 주소)"
+              "en": "MAC address",
+              "nl": "MAC-adres",
+              "de": "MAC-Adresse",
+              "da": "MAC-adresse",
+              "es": "Dirección MAC",
+              "fr": "Adresse MAC",
+              "it": "Indirizzo MAC",
+              "no": "MAC-adresse",
+              "sv": "MAC-adress",
+              "pl": "Adres MAC",
+              "ru": "MAC-адрес",
+              "ko": "MAC 주소"
             },
             "placeholder": {
               "en": "AA:BB:CC:DD:EE:FF"

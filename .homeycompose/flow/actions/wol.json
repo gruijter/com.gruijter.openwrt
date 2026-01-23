@@ -37,18 +37,18 @@
       "type": "autocomplete",
       "name": "mac",
       "title": {
-        "en": "Which device (MAC address)",
-        "nl": "Welk apparaat (MAC-adres)",
-        "de": "Welches Gerät (MAC-Adresse)",
-        "da": "Hvilken enhed (MAC-adresse)",
-        "es": "Qué dispositivo (dirección MAC)",
-        "fr": "Quel appareil (adresse MAC)",
-        "it": "Quale dispositivo (indirizzo MAC)",
-        "no": "Hvilken enhet (MAC-adresse)",
-        "sv": "Vilken enhet (MAC-adress)",
-        "pl": "Które urządzenie (adres MAC)",
-        "ru": "Какое устройство (MAC-адрес)",
-        "ko": "어떤 장치 (MAC 주소)"
+        "en": "Device",
+        "nl": "Apparaat",
+        "de": "Gerät",
+        "fr": "Appareil",
+        "it": "Dispositivo",
+        "sv": "Enhet",
+        "no": "Enhet",
+        "es": "Dispositivo",
+        "da": "Enhed",
+        "pl": "Urządzenie",
+        "ru": "Устройство",
+        "ko": "장치"
       },
       "placeholder": {
         "en": "AA:BB:CC:DD:EE:FF"

@@ -1,9 +1,31 @@
 {
   "title": {
-    "en": "Enable or disable radio"
+    "en": "Enable or disable wifi radio",
+    "nl": "Wifi radio in- of uitschakelen",
+    "de": "WLAN Radio ein- oder ausschalten",
+    "fr": "Activer ou désactiver la radio wifi",
+    "it": "Abilita o disabilita la radio wifi",
+    "sv": "Aktivera eller inaktivera wifi-radio",
+    "no": "Aktiver eller deaktiver wifi-radio",
+    "es": "Activar o desactivar la radio wifi",
+    "da": "Aktiver eller deaktiver wifi-radio",
+    "pl": "Włącz lub wyłącz radio wifi",
+    "ru": "Включить или выключить радио wifi",
+    "ko": "Wi-Fi 라디오 활성화 또는 비활성화"
   },
   "titleFormatted": {
-    "en": "Turn [[radio]] radio [[enabled]]"
+    "en": "Turn [[radio]] [[enabled]]",
+    "nl": "Zet [[radio]] [[enabled]]",
+    "de": "Schalte [[radio]] [[enabled]]",
+    "fr": "Rendre [[radio]] [[enabled]]",
+    "it": "Imposta [[radio]] [[enabled]]",
+    "sv": "Sätt [[radio]] [[enabled]]",
+    "no": "Sett [[radio]] [[enabled]]",
+    "es": "Poner [[radio]] [[enabled]]",
+    "da": "Sæt [[radio]] [[enabled]]",
+    "pl": "Ustaw [[radio]] [[enabled]]",
+    "ru": "Переключить [[radio]] [[enabled]]",
+    "ko": "[[radio]] [[enabled]]"
   },
   "args": [
     {
@@ -15,19 +37,53 @@
       "type": "autocomplete",
       "name": "radio",
       "title": {
-        "en": "Radio"
+        "en": "Wifi radio",
+        "nl": "Wifi radio",
+        "de": "WLAN Radio",
+        "fr": "Radio Wifi",
+        "it": "Radio Wifi",
+        "sv": "Wifi-radio",
+        "no": "Wifi-radio",
+        "es": "Radio Wifi",
+        "da": "Wifi-radio",
+        "pl": "Radio Wifi",
+        "ru": "Радио Wifi",
+        "ko": "Wi-Fi 라디오"
       }
     },
     {
       "type": "dropdown",
       "name": "enabled",
+      "title": {
+        "en": "On/Off",
+        "nl": "Aan/Uit",
+        "de": "An/Aus",
+        "fr": "Allumé/Éteint",
+        "it": "Acceso/Spento",
+        "sv": "På/Av",
+        "no": "På/Av",
+        "es": "Encendido/Apagado",
+        "da": "Tændt/Slukket",
+        "pl": "Włączone/Wyłączone",
+        "ru": "Вкл/Выкл",
+        "ko": "켜짐/꺼짐"
+      },
       "values": [
         {
           "id": "on",
           "label": {
             "en": "On",
             "nl": "Aan",
-            "de": "An"
+            "de": "An",
+            "fr": "Allumé",
+            "it": "Acceso",
+            "sv": "På",
+            "no": "På",
+            "es": "Encendido",
+            "da": "Tændt",
+            "pl": "Włączone",
+            "ru": "Вкл",
+            "ko": "켜짐"
           }
         },
         {
@@ -35,7 +91,16 @@
           "label": {
             "en": "Off",
             "nl": "Uit",
-            "de": "Aus"
+            "de": "Aus",
+            "fr": "Éteint",
+            "it": "Spento",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Apagado",
+            "da": "Slukket",
+            "pl": "Wyłączone",
+            "ru": "Выкл",
+            "ko": "꺼짐"
           }
         }
       ]

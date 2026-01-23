@@ -22,7 +22,7 @@ Act on:
 Do:
 - send WakeOnLan (WOL) to a MAC address
 - block and allow an attached device by MAC address*
-- enable and disable Guest Wifi*
+- enable and disable Guest Wifi
 - reboot the router
 
 * Work In Progress
