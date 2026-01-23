@@ -331,8 +331,8 @@ module.exports = class MyDevice extends Homey.Device {
   }
 
   // flow action handler from app.js
-  async handleFlowAction({ action, val }) {
-    if (this[action]) return this[action](val, 'flow');
+  async handleFlowAction({ action, args }) {
+    if (this[action]) return this[action](args, 'flow');
     return Promise.reject(Error('action not found'));
   }
 

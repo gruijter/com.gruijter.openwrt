@@ -22,8 +22,8 @@
     "ar": "OpenWRT"
   },
   "description": {
-    "en": "Presence Detection, Network control, Energy Monitoring",
-    "nl": "Aanwezigheidsdetectie, netwerkcontrole, energiebewaking",
+    "en": "Presence detection, Network control, Energy monitoring",
+    "nl": "Aanwezigheidsdetectie, Netwerkbeheer, Energie monitoring",
     "da": "Tilstedeværelsesdetektion, netværksstyring, energiovervågning",
     "de": "Anwesenheitserkennung, Netzwerkkontrolle, Energieüberwachung",
     "es": "Detección de presencia, control de red, monitorización de energía",

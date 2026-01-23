@@ -34,6 +34,31 @@ module.exports = class MyApp extends Homey.App {
   }
 
   registerFlowListeners() {
+    // autocomplete function mac on dhcp router
+    const autoCompleteMac = (query, args) => {
+      try {
+        const list = [];
+        if (args.device.knownDevices) {
+          Object.keys(args.device.knownDevices).forEach((key) => {
+            const device = args.device.knownDevices[key];
+            if (!device.mac) return;
+            list.push({
+              name: device.mac,
+              description: device.name || 'unknown',
+            });
+          });
+        }
+        const results = list.filter((result) => { // filter for query on MAC and Name
+          const macFound = result.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+          const nameFound = result.description.toLowerCase().indexOf(query.toLowerCase()) > -1;
+          return macFound || nameFound;
+        });
+        return Promise.resolve(results);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    };
+
     // custom device trigger cards
     const triggerList = Homey.manifest.flow.triggers;
     triggerList.forEach((trigger, index) => {
@@ -53,10 +78,13 @@ module.exports = class MyApp extends Homey.App {
     actionList.forEach((action, index) => {
       this.log('setting up flow action listener', action.id);
       actionListeners[index] = this.homey.flow.getActionCard(action.id);
+      if (action.args && action.args.some((arg) => arg.type === 'autocomplete')) {
+        actionListeners[index].registerArgumentAutocompleteListener('mac', autoCompleteMac);
+      }
       actionListeners[index].registerRunListener(async (args) => {
         try {
-          args.device.log(`Flow action ${action.id} called with value ${args.val}`);
-          await args.device.handleFlowAction({ action: action.id, val: args.val });
+          args.device.log(`Flow action ${action.id} called`);
+          await args.device.handleFlowAction({ action: action.id, args });
         } catch (error) {
           this.error(error);
         }

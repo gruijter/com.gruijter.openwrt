@@ -74,6 +74,17 @@ class RouterDevice extends Device {
         }
       }
 
+      // check if etherwake is installed
+      if (this.settings.isDhcpServer) {
+        this.log(`Checking if etherwake is installed on ${this.getName()}`);
+        const { isEtherWakeInstalled } = this.router;
+        if (!isEtherWakeInstalled) {
+          this.log(`etherwake is not installed on ${this.getName()}, installing now`);
+          await this.router.installEtherWake().catch(this.error);
+          await this.router.getStaticRouterInfo();
+        }
+      }
+
       // store the capability states before migration
       const sym = Object.getOwnPropertySymbols(this).find((s) => String(s) === 'Symbol(state)');
       const state = this[sym] || {};
@@ -470,9 +481,28 @@ class RouterDevice extends Device {
     }
   }
 
+  /**
+   * Sends a Wake-on-LAN packet.
+   * @param {object} args - Flow arguments.
+   * @param {object} source - Source of the command.
+   * @returns {Promise<boolean>} True if command sent.
+   */
+  async wol(args, source) {
+    try {
+      if (!this.router) throw Error('Router not ready');
+      const mac = args.mac && args.mac.name ? args.mac.name : args.mac;
+      this.log(`${this.getName()} WOL command sent to ${mac} by ${source}`);
+      await this.router.wakeOnLan(mac, args.password);
+      return true;
+    } catch (error) {
+      this.error(`${this.getName()}`, error && error.message);
+      return Promise.reject(error);
+    }
+  }
+
   // flow action handler from app.js
-  async handleFlowAction({ action, val }) {
-    if (this[action]) return this[action](val, 'flow');
+  async handleFlowAction({ action, args }) {
+    if (this[action]) return this[action](args, 'flow');
     return Promise.reject(Error('action not found'));
   }
 
