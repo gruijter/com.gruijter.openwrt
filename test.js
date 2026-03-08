@@ -16,6 +16,7 @@ const baseConfig = {
   password: process.env.ROUTER_PASSWORD || '', // Leave empty if using key agent or no password
   timeout: 10000,
   debug: true, // Set to true for verbose logging
+  pingCheck: true, // Enable active pinging
 };
 
 async function runTest() {
@@ -36,10 +37,9 @@ async function runTest() {
     return;
   }
 
-  const routerInstances = [];
-  const routerData = [];
+  const routerInstances = []; // Store objects { router, staticInfo, ip }
 
-  console.log('\n--- 1. Connecting and Fetching Data from All Routers ---');
+  console.log('\n--- 1. Connecting and Fetching Static Data ---');
 
   for (const discRouter of discovered) {
     console.log(`\nProcessing ${discRouter.ip} (${discRouter.hostname})...`);
@@ -65,92 +65,108 @@ async function runTest() {
       // 3. Package Status
       console.log(`[${discRouter.ip}] Packages: nlbwmon=${router.isNlbwmonInstalled}, etherwake=${router.isEtherWakeInstalled}`);
 
-      // 4. Test Router Status (Live stats)
-      // console.log('\n--- 3. Fetching Router Status ---');
-      console.time(`[${discRouter.ip}] getRouterStatus (1)`);
-      let status = await router.getRouterStatus();
-      console.timeEnd(`[${discRouter.ip}] getRouterStatus (1)`);
-
-      // CPU usage requires two samples to calculate load.
-      if (status.routerInfo.cpuUsage === null) {
-        console.log(`[${discRouter.ip}] Waiting 2s for CPU stats...`);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        console.time(`[${discRouter.ip}] getRouterStatus (2)`);
-        status = await router.getRouterStatus();
-        console.timeEnd(`[${discRouter.ip}] getRouterStatus (2)`);
-      }
-
-      const cpuFreq = status.routerInfo.cpuFreq && status.routerInfo.cpuFreq.length ? ` (${status.routerInfo.cpuFreq.join('/')} MHz)` : '';
-      const cpuScaling = status.routerInfo.cpuScaling !== null ? ` [${status.routerInfo.cpuScaling}%]` : '';
-      console.log(`[${discRouter.ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${status.routerInfo.cpuUsage}%${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%`);
-
-      // 5. Firewall Check
-      if (status.attachedDevices.length > 0) {
-        const testMac = status.attachedDevices[0].mac;
-        const isBlocked = await router.isDeviceBlocked(testMac);
-        console.log(`[${discRouter.ip}] Firewall check (${testMac}): ${isBlocked}`);
-      }
-
-      if (baseConfig.debug) {
-        console.log(`[${discRouter.ip}] Raw Status Object Keys:`, Object.keys(status));
-      }
-
-      // 6. WiFi & Radio Info
+      // 4. WiFi & Radio Info (Static)
       if (staticInfo.wifi && staticInfo.wifi.length > 0) {
         staticInfo.wifi.forEach((radio) => {
           console.log(`[${discRouter.ip}] Radio ${radio.radio}: Ch ${radio.channel}, Ifaces: ${radio.interfaces.length}`);
         });
       }
 
-      // 7. Update Options
+      // 5. Update Options
       router.updateOptions({ timeout: 12000 });
 
-      routerData.push({
-        routerInfo: {
-          routerId: staticInfo.uniqueId,
-          routerName: staticInfo.hostname,
-          isInternetRouter: staticInfo.isInternetRouter,
-        },
-        attachedDevices: status.attachedDevices,
-      });
+      // Store for polling loop
+      // We need to replace the router instance in the array with the object containing metadata
+      routerInstances.pop();
+      routerInstances.push({ router, staticInfo, ip: discRouter.ip });
+
     } catch (e) {
       console.error(`[${discRouter.ip}] Failed: ${e.message}`);
     }
   }
 
-  console.log('\n--- 2. Aggregating Devices ---');
+  if (routerInstances.length === 0) {
+    console.log('No routers connected. Exiting.');
+    return;
+  }
 
-  const registeredRouterIds = routerData.map((d) => d.routerInfo.routerId);
-  let aggregatedDevices = [];
+  console.log('\n--- 2. Starting Polling Loop (5 iterations, 10s interval) ---');
 
-  // Simulate updates from each router
-  for (const data of routerData) {
-    aggregatedDevices = OpenWRTRouter.aggregateDevices(data.routerInfo, data.attachedDevices, registeredRouterIds);
-    if (baseConfig.debug) {
-      console.log(`\n--- Aggregated after ${data.routerInfo.routerName} (${aggregatedDevices.length} devices) ---`);
+  for (let i = 1; i <= 5; i++) {
+    console.log(`\n=== Poll #${i} ===`);
+    const routerData = [];
+
+    for (const { router, staticInfo, ip } of routerInstances) {
+      try {
+        console.time(`[${ip}] getRouterStatus`);
+        const status = await router.getRouterStatus();
+        console.timeEnd(`[${ip}] getRouterStatus`);
+
+        const cpuFreq = status.routerInfo.cpuFreq && status.routerInfo.cpuFreq.length ? ` (${status.routerInfo.cpuFreq.join('/')} MHz)` : '';
+        const cpuScaling = status.routerInfo.cpuScaling !== null ? ` [${status.routerInfo.cpuScaling}%]` : '';
+        const cpuUsage = status.routerInfo.cpuUsage !== null ? `${status.routerInfo.cpuUsage}%` : 'calc...';
+
+        console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%`);
+
+        // Firewall Check (Sample on first run)
+        if (i === 1 && status.attachedDevices.length > 0) {
+          const testMac = status.attachedDevices[0].mac;
+          const isBlocked = await router.isDeviceBlocked(testMac);
+          console.log(`[${ip}] Firewall check (${testMac}): ${isBlocked}`);
+        }
+
+        if (baseConfig.debug && i === 1) {
+          console.log(`[${ip}] Raw Status Object Keys:`, Object.keys(status));
+        }
+
+        routerData.push({
+          routerInfo: {
+            routerId: staticInfo.uniqueId,
+            routerName: staticInfo.hostname,
+            isInternetRouter: staticInfo.isInternetRouter,
+          },
+          attachedDevices: status.attachedDevices,
+        });
+      } catch (e) {
+        console.error(`[${ip}] Poll failed: ${e.message}`);
+      }
+    }
+
+    // Aggregation
+    const registeredRouterIds = routerData.map((d) => d.routerInfo.routerId);
+    let aggregatedDevices = [];
+    for (const data of routerData) {
+      aggregatedDevices = OpenWRTRouter.aggregateDevices(data.routerInfo, data.attachedDevices, registeredRouterIds);
+    }
+
+    console.log(`Total Aggregated Devices: ${aggregatedDevices.length}`);
+
+    // Print full list on last poll
+    if (i === 5) {
+      aggregatedDevices.sort((a, b) => {
+        const ipA = a.ip === 'unknown' ? '0.0.0.0' : a.ip;
+        const ipB = b.ip === 'unknown' ? '0.0.0.0' : b.ip;
+        return ipA.localeCompare(ipB, undefined, { numeric: true });
+      });
+
+      aggregatedDevices.forEach((d) => {
+        let extra = '';
+        if (d.wifi) extra += ` [WiFi: ${d.wifi.ssid} ${d.wifi.signal}dBm]`;
+        if (d.connectedVia === 'uplink') extra += ' [UPLINK]';
+
+        console.log(`- [${d.mac}] ${d.name} (${d.ip})`);
+        console.log(`    Via: ${d.connectedVia} on ${d.routerName} (${d.interface || 'N/A'})${extra}`);
+      });
+    }
+
+    if (i < 5) {
+      // console.log('Waiting 10s...');
+      await new Promise((resolve) => setTimeout(resolve, 10000));
     }
   }
 
-  console.log(`Total Aggregated Devices: ${aggregatedDevices.length}`);
-
-  // Sort by IP for easier reading
-  aggregatedDevices.sort((a, b) => {
-    const ipA = a.ip === 'unknown' ? '0.0.0.0' : a.ip;
-    const ipB = b.ip === 'unknown' ? '0.0.0.0' : b.ip;
-    return ipA.localeCompare(ipB, undefined, { numeric: true });
-  });
-
-  aggregatedDevices.forEach((d) => {
-    let extra = '';
-    if (d.wifi) extra += ` [WiFi: ${d.wifi.ssid} ${d.wifi.signal}dBm]`;
-    if (d.connectedVia === 'uplink') extra += ' [UPLINK]';
-
-    console.log(`- [${d.mac}] ${d.name} (${d.ip})`);
-    console.log(`    Via: ${d.connectedVia} on ${d.routerName} (${d.interface || 'N/A'})${extra}`);
-  });
-
   console.log('\n--- 3. Cleanup ---');
-  for (const router of routerInstances) {
+  for (const { router } of routerInstances) {
     try {
       await router.logout();
     } catch (e) { }
