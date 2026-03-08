@@ -20,6 +20,16 @@ const config = {
 };
 
 async function runTest() {
+  // 0. Test Discovery
+  console.log('--- 0. Network Discovery ---');
+  try {
+    const discovered = await OpenWRTRouter.discover({ timeout: 1000, silent: true });
+    console.log(`Discovered ${discovered.length} OpenWRT routers:`);
+    discovered.forEach((r) => console.log(` - ${r.ip} (${r.hostname || 'N/A'})`));
+  } catch (e) {
+    console.error('Discovery failed:', e.message);
+  }
+
   console.log(`Connecting to router at ${config.host}...`);
   const router = new OpenWRTRouter(config);
 
@@ -29,7 +39,7 @@ async function runTest() {
     console.log('Login successful.');
 
     // 2. Test Static Router Info (Hardware, Firmware, Interfaces)
-    console.log('\n--- Fetching Static Router Info ---');
+    console.log('\n--- 1. Fetching Static Router Info ---');
     const staticInfo = await router.getStaticRouterInfo();
     console.log('Router Model:', staticInfo.model);
     console.log('Firmware:', staticInfo.firmwareVersion);
@@ -37,27 +47,64 @@ async function runTest() {
     console.log('Firewall Active:', staticInfo.isFirewall);
     console.log('WiFi Interfaces:', staticInfo.wifiInterfaces);
     console.log('WAN IP:', staticInfo.wan.ipAddress);
-    // console.log('Full Static Info:', JSON.stringify(staticInfo, null, 2));
 
-    // 3. Test Router Status (Live stats)
-    console.log('\n--- Fetching Router Status ---');
+    // 3. Package Status
+    console.log('\n--- 2. Package Status ---');
+    console.log('nlbwmon installed:', router.isNlbwmonInstalled);
+    console.log('etherwake installed:', router.isEtherWakeInstalled);
+
+    // 4. Test Router Status (Live stats)
+    console.log('\n--- 3. Fetching Router Status ---');
     const status = await router.getRouterStatus();
+
+    // CPU usage requires two samples to calculate load.
+    if (status.routerInfo.cpuUsage === null) {
+      console.log('First poll (CPU usage needs diff)... waiting 2s...');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      Object.assign(status, await router.getRouterStatus());
+    }
+
     console.log('CPU Usage:', status.routerInfo.cpuUsage, '%');
     console.log('Memory Usage:', status.routerInfo.memory.usage, '%');
     console.log('Total Clients:', status.routerInfo.totalClientCount);
 
-    // 4. Test Attached Devices
-    console.log('\n--- Attached Devices ---');
+    // 5. Test Attached Devices
+    console.log('\n--- 4. Attached Devices ---');
     const devices = status.attachedDevices;
     console.log(`Found ${devices.length} devices.`);
     devices.forEach((d) => {
       console.log(`- [${d.mac}] ${d.name} (${d.ip}) via ${d.connectedVia} (${d.interface || 'N/A'})`);
     });
 
-    // 5. Test Firewall Block Check (Optional)
-    // const testMac = 'AA:BB:CC:DD:EE:FF';
-    // const isBlocked = await router.isDeviceBlocked(testMac);
-    // console.log(`\nDevice ${testMac} blocked status:`, isBlocked);
+    // 6. Test Firewall Block Check
+    console.log('\n--- 5. Firewall Check ---');
+    if (devices.length > 0) {
+      const testMac = devices[0].mac;
+      console.log(`Checking block status for ${testMac}...`);
+      const isBlocked = await router.isDeviceBlocked(testMac);
+      console.log(`Device ${testMac} blocked status:`, isBlocked);
+    } else {
+      console.log('No devices available to test firewall check.');
+    }
+
+    // 7. WiFi & Radio
+    console.log('\n--- 6. WiFi & Radio Info ---');
+    if (staticInfo.wifi && staticInfo.wifi.length > 0) {
+      staticInfo.wifi.forEach((radio) => {
+        console.log(`Radio ${radio.radio}: Channel ${radio.channel}, Interfaces: ${radio.interfaces.length}`);
+      });
+    } else {
+      console.log('No WiFi radios found.');
+    }
+
+    // 8. Other Methods (Skipped)
+    console.log('\n--- 7. Other Methods (Skipped) ---');
+    console.log('Skipping: installNlbwmon, installEtherWake, wakeOnLan, reboot, setWifiState, setRadioState, setDeviceTTL, setDevice');
+
+    // 9. Update Options
+    console.log('\n--- 8. Update Options ---');
+    router.updateOptions({ timeout: 12000 });
+    console.log('Options updated (timeout: 12000)');
 
   } catch (error) {
     console.error('Test failed:', error);

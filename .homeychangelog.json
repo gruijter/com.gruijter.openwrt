@@ -10,5 +10,8 @@
   },
   "1.2.1": {
     "en": "Reduced router CPU load. Improved translations."
+  },
+  "1.3.0": {
+    "en": "Improved 25.12 compatibility."
   }
 }
