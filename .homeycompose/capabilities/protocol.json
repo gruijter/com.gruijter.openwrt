@@ -15,5 +15,6 @@
     "ko": "프로토콜"
   },
   "getable": true,
-  "setable": false
+  "setable": false,
+  "icon": "./assets/protocol.svg"
 }
