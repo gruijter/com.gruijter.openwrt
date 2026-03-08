@@ -35,4 +35,4 @@ Energy monitoring:
 After adding your router to Homey, you can add additional devices that you want to monitor for power, e.g. your T.V. or printer. In advanced device settings enter the estimated / average power usage of the device when it is OFF or ON. Now when you turn on your T.V. you will see that the estimated power is included in Homey Energy tab.
 
 Supported routers:
-This app has been developed and tested on a Netgear R7800 router running OpenWRT 24.10. It should be compatible with all OpenWRT routers running firmware 24.10 or higher.
+This app has been developed and tested on a Netgear R7800 router running OpenWRT 24.10 and 25.12. It should be compatible with all OpenWRT routers running firmware 24.10 or higher.

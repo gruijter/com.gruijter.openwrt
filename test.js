@@ -15,7 +15,7 @@ const baseConfig = {
   username: process.env.ROUTER_USER || 'root',
   password: process.env.ROUTER_PASSWORD || '', // Leave empty if using key agent or no password
   timeout: 10000,
-  debug: false,
+  debug: true, // Set to true for verbose logging
 };
 
 async function runTest() {
@@ -54,31 +54,45 @@ async function runTest() {
 
       // 2. Test Static Router Info (Hardware, Firmware, Interfaces)
       // console.log('\n--- 1. Fetching Static Router Info ---');
+      console.time(`[${discRouter.ip}] getStaticRouterInfo`);
       const staticInfo = await router.getStaticRouterInfo();
+      console.timeEnd(`[${discRouter.ip}] getStaticRouterInfo`);
       console.log(`[${discRouter.ip}] Model: ${staticInfo.model}, FW: ${staticInfo.firmwareVersion}`);
       console.log(`[${discRouter.ip}] Roles: DHCP=${staticInfo.isDhcpServer}, Firewall=${staticInfo.isFirewall}, Router=${staticInfo.isInternetRouter}, AP=${staticInfo.isAp}`);
+
+      if (baseConfig.debug && staticInfo.cpuMaxFreq) console.log(`[${discRouter.ip}] Max Frequencies: ${staticInfo.cpuMaxFreq.join('/')} MHz`);
 
       // 3. Package Status
       console.log(`[${discRouter.ip}] Packages: nlbwmon=${router.isNlbwmonInstalled}, etherwake=${router.isEtherWakeInstalled}`);
 
       // 4. Test Router Status (Live stats)
       // console.log('\n--- 3. Fetching Router Status ---');
+      console.time(`[${discRouter.ip}] getRouterStatus (1)`);
       let status = await router.getRouterStatus();
+      console.timeEnd(`[${discRouter.ip}] getRouterStatus (1)`);
 
       // CPU usage requires two samples to calculate load.
       if (status.routerInfo.cpuUsage === null) {
         console.log(`[${discRouter.ip}] Waiting 2s for CPU stats...`);
         await new Promise((resolve) => setTimeout(resolve, 2000));
+        console.time(`[${discRouter.ip}] getRouterStatus (2)`);
         status = await router.getRouterStatus();
+        console.timeEnd(`[${discRouter.ip}] getRouterStatus (2)`);
       }
 
-      console.log(`[${discRouter.ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${status.routerInfo.cpuUsage}%, Mem: ${status.routerInfo.memory.usage}%`);
+      const cpuFreq = status.routerInfo.cpuFreq && status.routerInfo.cpuFreq.length ? ` (${status.routerInfo.cpuFreq.join('/')} MHz)` : '';
+      const cpuScaling = status.routerInfo.cpuScaling !== null ? ` [${status.routerInfo.cpuScaling}%]` : '';
+      console.log(`[${discRouter.ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${status.routerInfo.cpuUsage}%${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%`);
 
       // 5. Firewall Check
       if (status.attachedDevices.length > 0) {
         const testMac = status.attachedDevices[0].mac;
         const isBlocked = await router.isDeviceBlocked(testMac);
         console.log(`[${discRouter.ip}] Firewall check (${testMac}): ${isBlocked}`);
+      }
+
+      if (baseConfig.debug) {
+        console.log(`[${discRouter.ip}] Raw Status Object Keys:`, Object.keys(status));
       }
 
       // 6. WiFi & Radio Info
@@ -112,6 +126,9 @@ async function runTest() {
   // Simulate updates from each router
   for (const data of routerData) {
     aggregatedDevices = OpenWRTRouter.aggregateDevices(data.routerInfo, data.attachedDevices, registeredRouterIds);
+    if (baseConfig.debug) {
+      console.log(`\n--- Aggregated after ${data.routerInfo.routerName} (${aggregatedDevices.length} devices) ---`);
+    }
   }
 
   console.log(`Total Aggregated Devices: ${aggregatedDevices.length}`);
