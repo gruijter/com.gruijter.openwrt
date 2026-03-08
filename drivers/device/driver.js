@@ -16,6 +16,11 @@ const capabilities = [
   'measure_download_speed',
   'measure_upload_speed',
   'onoff',
+  'measure_frequency.band',
+  'measure_frequency.width',
+  'measure_mcs_index',
+  'measure_inactive_time',
+  'protocol',
 ];
 
 module.exports = class MyDriver extends Homey.Driver {

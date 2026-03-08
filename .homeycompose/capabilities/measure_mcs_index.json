@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "MCS Index",
+    "nl": "MCS Index",
+    "de": "MCS Index",
+    "fr": "Indice MCS",
+    "it": "Indice MCS",
+    "sv": "MCS Index",
+    "no": "MCS Indeks",
+    "es": "Índice MCS",
+    "da": "MCS Indeks",
+    "pl": "Indeks MCS",
+    "ru": "Индекс MCS",
+    "ko": "MCS 인덱스"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "icon": "./assets/measure_mcs.svg"
+}

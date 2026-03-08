@@ -12,6 +12,35 @@
       "units": {
         "en": "dB"
       }
+    },
+    "measure_frequency.band": {
+      "title": {
+        "en": "Frequency band"
+      },
+      "units": {
+        "en": "GHz"
+      },
+      "decimals": 3
+    },
+    "measure_frequency.width": {
+      "title": {
+        "en": "Channel Width",
+        "nl": "Kanaalbreedte",
+        "de": "Kanalbreite",
+        "fr": "Largeur de canal",
+        "it": "Larghezza canale",
+        "sv": "Kanalbredd",
+        "no": "Kanalbredde",
+        "es": "Ancho de canal",
+        "da": "Kanalbredde",
+        "pl": "Szerokość kanału",
+        "ru": "Ширина канала",
+        "ko": "채널 폭"
+      },
+      "units": {
+        "en": "MHz"
+      },
+      "decimals": 0
     }
   },
   "platforms": [

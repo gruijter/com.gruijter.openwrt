@@ -755,6 +755,19 @@
     ],
     "actions": [
       {
+        "id": "getTrafficStats",
+        "title": {
+          "en": "Refresh traffic statistics"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=router"
+          }
+        ]
+      },
+      {
         "title": {
           "en": "Reboot",
           "nl": "Herstart",
@@ -1272,21 +1285,7 @@
         "en": "Device"
       },
       "class": "sensor",
-      "capabilities": [
-        "device_connected",
-        "ip_address",
-        "name_in_router",
-        "router_name",
-        "port",
-        "measure_link_speed",
-        "firewall_zone",
-        "measure_connections",
-        "measure_signal_strength",
-        "measure_signal_strength.snr",
-        "measure_download_speed",
-        "measure_upload_speed",
-        "onoff"
-      ],
+      "capabilities": [],
       "capabilitiesOptions": {
         "measure_signal_strength.snr": {
           "title": {
@@ -1295,6 +1294,35 @@
           "units": {
             "en": "dB"
           }
+        },
+        "measure_frequency.band": {
+          "title": {
+            "en": "Frequency band"
+          },
+          "units": {
+            "en": "GHz"
+          },
+          "decimals": 3
+        },
+        "measure_frequency.width": {
+          "title": {
+            "en": "Channel Width",
+            "nl": "Kanaalbreedte",
+            "de": "Kanalbreite",
+            "fr": "Largeur de canal",
+            "it": "Larghezza canale",
+            "sv": "Kanalbredd",
+            "no": "Kanalbredde",
+            "es": "Ancho de canal",
+            "da": "Kanalbredde",
+            "pl": "Szerokość kanału",
+            "ru": "Ширина канала",
+            "ko": "채널 폭"
+          },
+          "units": {
+            "en": "MHz"
+          },
+          "decimals": 0
         }
       },
       "platforms": [
@@ -2458,6 +2486,31 @@
       "insights": true,
       "icon": "./assets/download_speed.svg"
     },
+    "measure_inactive_time": {
+      "type": "number",
+      "title": {
+        "en": "Inactive Time",
+        "nl": "Inactieve tijd",
+        "de": "Inaktive Zeit",
+        "fr": "Temps inactif",
+        "it": "Tempo inattivo",
+        "sv": "Inaktiv tid",
+        "no": "Inaktiv tid",
+        "es": "Tiempo inactivo",
+        "da": "Inaktiv tid",
+        "pl": "Czas nieaktywności",
+        "ru": "Время бездействия",
+        "ko": "비활성 시간"
+      },
+      "units": {
+        "en": "min"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "decimals": 0,
+      "icon": "./assets/uptime.svg"
+    },
     "measure_link_speed": {
       "type": "number",
       "title": {
@@ -2494,6 +2547,28 @@
       "setable": false,
       "insights": true,
       "icon": "./assets/link_speed.svg"
+    },
+    "measure_mcs_index": {
+      "type": "number",
+      "title": {
+        "en": "MCS Index",
+        "nl": "MCS Index",
+        "de": "MCS Index",
+        "fr": "Indice MCS",
+        "it": "Indice MCS",
+        "sv": "MCS Index",
+        "no": "MCS Indeks",
+        "es": "Índice MCS",
+        "da": "MCS Indeks",
+        "pl": "Indeks MCS",
+        "ru": "Индекс MCS",
+        "ko": "MCS 인덱스"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "decimals": 0,
+      "icon": "./assets/measure_mcs.svg"
     },
     "measure_mem_utilization": {
       "type": "number",
@@ -2636,6 +2711,25 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/port.svg"
+    },
+    "protocol": {
+      "type": "string",
+      "title": {
+        "en": "Protocol",
+        "nl": "Protocol",
+        "de": "Protokoll",
+        "fr": "Protocole",
+        "it": "Protocollo",
+        "sv": "Protokoll",
+        "no": "Protokoll",
+        "es": "Protocolo",
+        "da": "Protokol",
+        "pl": "Protokół",
+        "ru": "Протокол",
+        "ko": "프로토콜"
+      },
+      "getable": true,
+      "setable": false
     },
     "router_name": {
       "type": "string",

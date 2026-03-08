@@ -6,10 +6,10 @@ Rilevamento della presenza, controllo della rete, monitoraggio dell'energia
 - Monitora il consumo energetico dei tuoi dispositivi di rete, ad es. la TV.
 
 Vedi e registra:
-- stato della connessione internet
-- velocità di upload e download internet
+- stato della connessione internet, velocità di upload/download ed errori dei pacchetti
+- utilizzo di CPU e memoria del router
 - stato di connessione dei dispositivi collegati
-- qualità WiFi e larghezza di banda per dispositivo
+- qualità WiFi (Segnale, SNR, MCS, Larghezza canale), larghezza di banda e protocollo dominante per dispositivo
 - consumo energetico per dispositivo
 
 Agisci su:
@@ -35,4 +35,4 @@ Monitoraggio dell'energia:
 Dopo aver aggiunto il tuo router a Homey, puoi aggiungere ulteriori dispositivi che desideri monitorare per l'energia, ad es. la tua TV o stampante. Nelle impostazioni avanzate del dispositivo inserisci il consumo energetico stimato / medio del dispositivo quando è SPENTO o ACCESO. Ora, quando accendi la tua TV, vedrai che la potenza stimata è inclusa nella scheda Energia di Homey.
 
 Router supportati:
-Questa app è stata sviluppata e testata su un router Netgear R7800 con OpenWRT 24.10. Dovrebbe essere compatibile con tutti i router OpenWRT con firmware 24.10 o superiore.
+Questa app è stata sviluppata e testata su router Netgear R7800 con versioni recenti di OpenWRT (22.03 e successive). Dovrebbe essere compatibile con la maggior parte dei router con firmware OpenWRT 21.02 o superiore.

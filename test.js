@@ -63,7 +63,7 @@ async function runTest() {
       if (baseConfig.debug && staticInfo.cpuMaxFreq) console.log(`[${discRouter.ip}] Max Frequencies: ${staticInfo.cpuMaxFreq.join('/')} MHz`);
 
       // 3. Package Status
-      console.log(`[${discRouter.ip}] Packages: nlbwmon=${router.isNlbwmonInstalled}, etherwake=${router.isEtherWakeInstalled}`);
+      console.log(`[${discRouter.ip}] Packages: nlbwmon=${router.isNlbwmonInstalled} (DB on RAM: ${staticInfo.nlbwmonDbOnRam}), etherwake=${router.isEtherWakeInstalled}`);
 
       // 4. WiFi & Radio Info (Static)
       if (staticInfo.wifi && staticInfo.wifi.length > 0) {
@@ -90,7 +90,9 @@ async function runTest() {
     return;
   }
 
-  console.log('\n--- 2. Starting Polling Loop (5 iterations, 10s interval) ---');
+  console.log('\n--- 2. Starting Polling Loop (5 iterations, 15s interval) ---');
+
+  const lastDeviceTraffic = new Map(); // mac -> protocolTraffic
 
   for (let i = 1; i <= 5; i++) {
     console.log(`\n=== Poll #${i} ===`);
@@ -112,13 +114,14 @@ async function runTest() {
           + (status.routerInfo.wan?.stats?.txDrops || 0);
 
         let errorRate = 0;
-        const now = Date.now();
-        if (instance.lastStats && (now - instance.lastStats.time > 0)) {
-          errorRate = Math.round((currentErrors - instance.lastStats.errors) * (60000 / (now - instance.lastStats.time)));
+        const routerTime = status.routerInfo.timestamp || (status.routerInfo.localtime ? status.routerInfo.localtime.getTime() : Date.now());
+        if (instance.lastStats && (routerTime - instance.lastStats.time > 0)) {
+          errorRate = Math.round((currentErrors - instance.lastStats.errors) * (60000 / (routerTime - instance.lastStats.time)));
         }
-        instance.lastStats = { time: now, errors: currentErrors };
+        instance.lastStats = { time: routerTime, errors: currentErrors };
 
-        console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%, PktErr: ${errorRate}/min`);
+        // eslint-disable-next-line max-len
+        console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%, PktErr: ${errorRate}/min, Ts: ${routerTime}`);
 
         // Firewall Check (Sample on first run)
         if (i === 1 && status.attachedDevices.length > 0) {
@@ -153,6 +156,95 @@ async function runTest() {
 
     console.log(`Total Aggregated Devices: ${aggregatedDevices.length}`);
 
+    // Update history and calculate display strings for all devices
+    aggregatedDevices.forEach((d) => {
+      d._displayProtocol = '';
+
+      if (d.protocolTraffic) {
+        const trafficToUse = {};
+        // Initialize with 0 rate for all protocols present
+        for (const p of Object.keys(d.protocolTraffic)) {
+          trafficToUse[p] = { rx: 0, tx: 0 };
+        }
+
+        const previousTraffic = lastDeviceTraffic.get(d.mac);
+        if (previousTraffic) {
+          const deltaTime = d.deviceTimestamp && previousTraffic.deviceTimestamp
+            ? d.deviceTimestamp - previousTraffic.deviceTimestamp
+            : d.lastSeen - previousTraffic.lastSeen;
+          const seconds = deltaTime / 1000;
+          if (seconds > 0) {
+            for (const [p, stats] of Object.entries(d.protocolTraffic)) {
+              const old = previousTraffic.protocolTraffic[p] || { rx: 0, tx: 0, count: 0 };
+              let rx = stats.rx - old.rx;
+              let tx = stats.tx - old.tx;
+              if (rx < 0) rx = stats.rx;
+              if (tx < 0) tx = stats.tx;
+              const rxMbps = (rx * 8) / (seconds * 1000000);
+              const txMbps = (tx * 8) / (seconds * 1000000);
+              trafficToUse[p] = { rx: rxMbps, tx: txMbps, delta: rx + tx };
+            }
+          }
+        }
+        lastDeviceTraffic.set(d.mac, { lastSeen: d.lastSeen, deviceTimestamp: d.deviceTimestamp, protocolTraffic: d.protocolTraffic });
+
+        const protos = Object.entries(trafficToUse);
+        protos.sort((a, b) => {
+          const rateA = a[1].rx + a[1].tx;
+          const rateB = b[1].rx + b[1].tx;
+          if (Math.abs(rateA - rateB) > 0.001) return rateB - rateA;
+
+          const totalA = d.protocolTraffic[a[0]].rx + d.protocolTraffic[a[0]].tx;
+          const totalB = d.protocolTraffic[b[0]].rx + d.protocolTraffic[b[0]].tx;
+          return totalB - totalA;
+        });
+
+        const topProtos = protos.slice(0, 5).map((p) => {
+          const mbps = (p[1].rx + p[1].tx).toFixed(2);
+          const totalBytes = d.protocolTraffic[p[0]].rx + d.protocolTraffic[p[0]].tx;
+          const totalMB = (totalBytes / 1024 / 1024).toFixed(1);
+          const delta = trafficToUse[p[0]]?.delta || 0;
+          const deltaStr = delta > 0 ? ` +${(delta / 1024).toFixed(1)}KB` : '';
+          return `${p[0]}: ${mbps}Mbps (${totalMB}MB${deltaStr})`;
+        }).join(', ');
+
+        const maxRate = protos.length > 0 ? (protos[0][1].rx + protos[0][1].tx) : 0;
+        const threshold = maxRate * 0.1;
+
+        const generic = [
+          'tcp', 'udp', 'http', 'https', 'quic', 'tls', 'ssl', 'unknown',
+          'google-cloud-messaging', 'google cloud messaging',
+          'apple push service', 'apple-push-service', 'imaps', 'imap', 'mdns', 'icmp',
+          'xmpp', 'dns', 'dns-over-tls',
+        ];
+
+        const specific = protos.find((p) => {
+          const rate = p[1].rx + p[1].tx;
+          return !generic.includes(p[0].toLowerCase()) && rate > threshold;
+        });
+        const p = specific || protos[0];
+        d._displayProtocol = ` [Dominant: ${p ? p[0] : 'None'}] [All: ${topProtos}]`;
+      } else if (d.traffic?.connections) {
+        const conns = { ...d.traffic.connections };
+        delete conns.total;
+        const sorted = Object.entries(conns).sort((a, b) => b[1] - a[1]);
+
+        const maxConns = sorted.length > 0 ? sorted[0][1] : 0;
+        const threshold = maxConns * 0.1;
+
+        const generic = [
+          'tcp', 'udp', 'http', 'https', 'quic', 'tls', 'ssl', 'unknown',
+          'google-cloud-messaging', 'google cloud messaging',
+          'apple push service', 'apple-push-service', 'imaps', 'imap', 'mdns', 'icmp',
+          'xmpp', 'dns', 'dns-over-tls',
+        ];
+
+        const specific = sorted.find((p) => !generic.includes(p[0].toLowerCase()) && p[1] > threshold);
+        if (specific) d._displayProtocol = ` [Proto: ${specific[0]}]`;
+        else if (sorted.length > 0) d._displayProtocol = ` [Proto: ${sorted[0][0]}]`;
+      }
+    });
+
     // Print full list on last poll
     if (i === 5) {
       aggregatedDevices.sort((a, b) => {
@@ -163,17 +255,24 @@ async function runTest() {
 
       aggregatedDevices.forEach((d) => {
         let extra = '';
-        if (d.wifi) extra += ` [WiFi: ${d.wifi.ssid} ${d.wifi.signal}dBm]`;
+        if (d.wifi) {
+          extra += ` [WiFi: ${d.wifi.ssid} ${d.wifi.signal}dBm`;
+          if (d.wifi.frequency) extra += `, ${d.wifi.frequency}MHz`;
+          if (d.wifi.rxChannelWidth) extra += `, ${d.wifi.rxChannelWidth}MHz`;
+          if (d.wifi.rxMcs !== null) extra += `, MCS${d.wifi.rxMcs}`;
+          if (d.wifi.inactiveTime) extra += `, Inactive: ${Math.round(d.wifi.inactiveTime / 60000)}m`;
+          extra += ']';
+        }
         if (d.connectedVia === 'uplink') extra += ' [UPLINK]';
 
         console.log(`- [${d.mac}] ${d.name} (${d.ip})`);
-        console.log(`    Via: ${d.connectedVia} on ${d.routerName} (${d.interface || 'N/A'})${extra}`);
+        console.log(`    Via: ${d.connectedVia} on ${d.routerName} (${d.interface || 'N/A'})${extra}${d._displayProtocol || ''}`);
       });
     }
 
     if (i < 5) {
-      // console.log('Waiting 10s...');
-      await new Promise((resolve) => setTimeout(resolve, 10000));
+      // console.log('Waiting 15s...');
+      await new Promise((resolve) => setTimeout(resolve, 15000));
     }
   }
 

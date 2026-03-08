@@ -1,0 +1,13 @@
+{
+  "id": "getTrafficStats",
+  "title": {
+    "en": "Refresh traffic statistics"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=router"
+    }
+  ]
+}

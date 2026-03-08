@@ -1,0 +1,19 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Protocol",
+    "nl": "Protocol",
+    "de": "Protokoll",
+    "fr": "Protocole",
+    "it": "Protocollo",
+    "sv": "Protokoll",
+    "no": "Protokoll",
+    "es": "Protocolo",
+    "da": "Protokol",
+    "pl": "Protokół",
+    "ru": "Протокол",
+    "ko": "프로토콜"
+  },
+  "getable": true,
+  "setable": false
+}

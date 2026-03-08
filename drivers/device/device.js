@@ -140,8 +140,13 @@ module.exports = class MyDevice extends Homey.Device {
     try {
       if (!oldstats) return null;
       // calculate speeds
-      const deltaTime = (newstats?.lastSeen - oldstats?.lastSeen); // milliseconds
-      if (!deltaTime || deltaTime < 20000) return null;
+      let deltaTime;
+      if (newstats.deviceTimestamp && oldstats.deviceTimestamp) {
+        deltaTime = newstats.deviceTimestamp - oldstats.deviceTimestamp;
+      } else {
+        deltaTime = (newstats?.lastSeen - oldstats?.lastSeen);
+      }
+      if (!deltaTime || deltaTime < 1000) return null;
 
       const newRx = newstats?.traffic?.rxBytes || 0;
       const oldRx = oldstats?.traffic?.rxBytes || 0;
@@ -156,7 +161,7 @@ module.exports = class MyDevice extends Homey.Device {
       if (wanUs < 0 || Number.isNaN(wanUs)) wanUs = 0;
 
       return {
-        wanDs, wanUs,
+        wanDs, wanUs, deltaTime,
       };
     } catch (error) {
       this.error(error);
@@ -180,6 +185,9 @@ module.exports = class MyDevice extends Homey.Device {
 
   async updateHomeyDeviceState(deviceInfo) {
     try {
+      // Capture old stats before updating lastSpeedStats
+      const oldProtocolTraffic = this.lastSpeedStats?.protocolTraffic;
+
       if (!this.lastSpeedStats) this.lastSpeedStats = { ...deviceInfo };
       const speeds = this.calculateSpeed(deviceInfo, this.lastSpeedStats);
       if (speeds) {
@@ -195,6 +203,60 @@ module.exports = class MyDevice extends Homey.Device {
       const nextWanUp = speeds ? speeds.wanUs : currentWanUp;
       const nextWanDown = speeds ? speeds.wanDs : currentWanDown;
 
+      let protocol = this.getCapabilityValue('protocol') || '';
+      const generic = [
+        'tcp', 'udp', 'http', 'https', 'quic', 'tls', 'ssl', 'unknown',
+        'google-cloud-messaging', 'google cloud messaging',
+        'apple push service', 'apple-push-service', 'imaps', 'imap', 'mdns', 'icmp',
+        'xmpp', 'dns', 'dns-over-tls',
+      ];
+
+      if (deviceInfo?.protocolTraffic) {
+        const trafficToUse = {};
+
+        // Calculate delta if we have history
+        if (oldProtocolTraffic && speeds && speeds.deltaTime) {
+          const seconds = speeds.deltaTime / 1000;
+          for (const [p, stats] of Object.entries(deviceInfo.protocolTraffic)) {
+            const old = oldProtocolTraffic[p] || { rx: 0, tx: 0 };
+            let rx = stats.rx - old.rx;
+            let tx = stats.tx - old.tx;
+            if (rx < 0) rx = stats.rx; // Handle reset
+            if (tx < 0) tx = stats.tx;
+
+            const rxMbps = (rx * 8) / (seconds * 1000000);
+            const txMbps = (tx * 8) / (seconds * 1000000);
+            trafficToUse[p] = { rx: rxMbps, tx: txMbps };
+          }
+        }
+
+        const protos = Object.entries(trafficToUse);
+        protos.sort((a, b) => (b[1].rx + b[1].tx) - (a[1].rx + a[1].tx));
+
+        const maxRate = protos.length > 0 ? (protos[0][1].rx + protos[0][1].tx) : 0;
+        const threshold = maxRate * 0.1;
+
+        const specific = protos.find((p) => {
+          const rate = p[1].rx + p[1].tx;
+          return !generic.includes(p[0].toLowerCase()) && rate > threshold;
+        });
+        if (specific) protocol = specific[0];
+        else if (protos.length > 0) protocol = protos[0][0];
+      } else if (deviceInfo?.traffic?.connections) {
+        const conns = { ...deviceInfo.traffic.connections };
+        delete conns.total;
+        const sorted = Object.entries(conns).sort((a, b) => b[1] - a[1]);
+
+        const maxConns = sorted.length > 0 ? sorted[0][1] : 0;
+        const threshold = maxConns * 0.1;
+
+        const specific = sorted.find((p) => !generic.includes(p[0].toLowerCase()) && p[1] > threshold);
+        if (specific) protocol = specific[0];
+        else if (sorted.length > 0) protocol = sorted[0][0];
+      }
+
+      const band = deviceInfo?.wifi?.frequency ? deviceInfo.wifi.frequency / 1000 : 0;
+
       const capabilityStates = {
         device_connected: isConnected,
         ip_address: isConnected ? (deviceInfo.ip || '') : '',
@@ -209,6 +271,11 @@ module.exports = class MyDevice extends Homey.Device {
         measure_upload_speed: isConnected ? nextWanUp : 0,
         measure_download_speed: isConnected ? nextWanDown : 0,
         onoff: isConnected,
+        'measure_frequency.width': (isConnected && isWifi) ? (deviceInfo?.wifi?.rxChannelWidth || 0) : 0,
+        measure_mcs_index: (isConnected && isWifi) ? (deviceInfo?.wifi?.rxMcs ?? null) : null,
+        measure_inactive_time: (isConnected && isWifi && deviceInfo?.wifi?.inactiveTime) ? Math.round(deviceInfo.wifi.inactiveTime / 60000) : 0,
+        protocol: isConnected ? protocol : '',
+        'measure_frequency.band': (isConnected && isWifi) ? band : 0,
       };
 
       // set the capabilities
@@ -248,16 +315,35 @@ module.exports = class MyDevice extends Homey.Device {
     merged.traffic = { rxBytes: 0, txBytes: 0, connections: { total: 0 } };
     let maxLinkSpeed = 0;
     let maxLastSeen = 0;
+    let maxDeviceTimestamp = 0;
 
     for (const d of foundDevices) {
       if (d.connected) merged.connected = true;
       if (d.lastSeen > maxLastSeen) maxLastSeen = d.lastSeen;
+      if (d.deviceTimestamp && d.deviceTimestamp > maxDeviceTimestamp) maxDeviceTimestamp = d.deviceTimestamp;
 
       if (d.traffic) {
         merged.traffic.rxBytes += (d.traffic.rxBytes || 0);
         merged.traffic.txBytes += (d.traffic.txBytes || 0);
         if (d.traffic.connections) {
           merged.traffic.connections.total += (d.traffic.connections.total || 0);
+          for (const [proto, count] of Object.entries(d.traffic.connections)) {
+            if (proto !== 'total') {
+              merged.traffic.connections[proto] = (merged.traffic.connections[proto] || 0) + count;
+            }
+          }
+        }
+      }
+
+      if (d.protocolTraffic) {
+        merged.protocolTraffic = merged.protocolTraffic || {};
+        for (const [proto, stats] of Object.entries(d.protocolTraffic)) {
+          if (!merged.protocolTraffic[proto]) {
+            merged.protocolTraffic[proto] = { rx: 0, tx: 0, count: 0 };
+          }
+          merged.protocolTraffic[proto].rx += stats.rx;
+          merged.protocolTraffic[proto].tx += stats.tx;
+          merged.protocolTraffic[proto].count += stats.count;
         }
       }
 
@@ -266,12 +352,17 @@ module.exports = class MyDevice extends Homey.Device {
     }
 
     merged.lastSeen = maxLastSeen;
+    merged.deviceTimestamp = maxDeviceTimestamp;
     merged.linkSpeed = maxLinkSpeed;
 
     if (!merged.wifi) {
       const wifiDev = foundDevices.find((d) => d.wifi);
       if (wifiDev) {
         merged.wifi = wifiDev.wifi;
+        // Add frequency if available in radio info (not directly in device wifi object usually, need to infer or pass it)
+        // Actually, OpenWRT.js doesn't pass frequency in device.wifi currently.
+        // We can infer it from channel width or add it to OpenWRT.js later.
+        // For now, band logic in updateHomeyDeviceState relies on frequency which might be missing.
       }
     }
 

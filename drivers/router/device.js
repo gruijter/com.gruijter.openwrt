@@ -39,13 +39,14 @@ class RouterDevice extends Device {
       if (deviceCacheTTL < 60) deviceCacheTTL = 60;
       await this.setSettings({ deviceCacheTTL }).catch(this.error);
       this.settings = { ...this.getSettings() };
+      let staticInfo = null;
       if (!this.router) this.router = new Router(this.settings);
       if (this.router) {
         this.router.updateOptions(this.settings);
         await this.router.login();
-        await this.router.getStaticRouterInfo();
+        staticInfo = await this.router.getStaticRouterInfo();
       }
-      await this.migrate();
+      await this.migrate(staticInfo);
       // start polling device for info
       this.startPolling(pollingInterval).catch(this.error);
       await this.registerListeners();
@@ -60,7 +61,7 @@ class RouterDevice extends Device {
   /**
    * Migrates capability states when the driver capabilities change.
    */
-  async migrate() {
+  async migrate(staticInfo) {
     try {
       this.log(`checking device migration for ${this.getName()}`);
       // check if nlbwmon is installed
@@ -95,6 +96,7 @@ class RouterDevice extends Device {
       if (this.settings?.isInternetRouter) correctCaps.push(...this.driver.ds.routerCaps);
       if (this.settings?.isAp) correctCaps.push(...this.driver.ds.wifiCaps24);
       if (this.settings?.isAp) correctCaps.push(...this.driver.ds.wifiCaps5);
+      if (staticInfo && !staticInfo.nlbwmonDbOnRam) correctCaps.push(...this.driver.ds.trafficRefreshCaps);
 
       const currentCaps = this.getCapabilities();
       const capsToRemove = currentCaps.filter((c) => !correctCaps.includes(c));
@@ -299,8 +301,8 @@ class RouterDevice extends Device {
     try {
       if (!oldstats) return {};
       // calculate speeds
-      const t1 = newstats?.localtime ? newstats.localtime.getTime() : 0;
-      const t2 = oldstats?.localtime ? oldstats.localtime.getTime() : 0;
+      const t1 = newstats?.timestamp || (newstats?.localtime ? newstats.localtime.getTime() : 0);
+      const t2 = oldstats?.timestamp || (oldstats?.localtime ? oldstats.localtime.getTime() : 0);
       const deltaTime = t1 - t2; // milliseconds
       if (deltaTime <= 0) return {};
 
@@ -376,8 +378,9 @@ class RouterDevice extends Device {
   async updateHomeyDeviceState(routerInfo) {
     try {
       // Update history for speed calculation (avg over min 30s)
-      const now = routerInfo.localtime ? routerInfo.localtime.getTime() : Date.now();
+      const now = routerInfo.timestamp || (routerInfo.localtime ? routerInfo.localtime.getTime() : Date.now());
       const currentStat = {
+        timestamp: routerInfo.timestamp,
         localtime: routerInfo.localtime,
         wan: { stats: routerInfo.wan?.stats },
       };
@@ -387,7 +390,7 @@ class RouterDevice extends Device {
       let oldStat = null;
       for (let i = this.routerStatsHistory.length - 2; i >= 0; i--) {
         const stat = this.routerStatsHistory[i];
-        const statTime = stat.localtime ? stat.localtime.getTime() : 0;
+        const statTime = stat.timestamp || (stat.localtime ? stat.localtime.getTime() : 0);
         if (now - statTime >= 30000) {
           oldStat = stat;
           break;
@@ -401,7 +404,7 @@ class RouterDevice extends Device {
 
       // Prune history (keep max 60s)
       this.routerStatsHistory = this.routerStatsHistory.filter((s) => {
-        const t = s.localtime ? s.localtime.getTime() : 0;
+        const t = s.timestamp || (s.localtime ? s.localtime.getTime() : 0);
         return now - t < 60000;
       });
 
@@ -539,6 +542,20 @@ class RouterDevice extends Device {
   }
 
   /**
+   * Forces a refresh of traffic statistics.
+   * @param {object} args - Flow arguments.
+   * @param {object} source - Source of the command.
+   * @returns {Promise<boolean>} True if command sent.
+   */
+  async getTrafficStats(args, source) {
+    if (!this.router) throw Error('Router not ready');
+    this.log(`${this.getName()} getTrafficStats command sent by ${source}`);
+    await this.router.commitNlbwmonDatabase();
+    this.doPoll().catch(this.error);
+    return true;
+  }
+
+  /**
    * Enables or disables a WiFi network.
    * @param {object} args - Flow arguments.
    * @param {object} source - Source of the command.
@@ -627,6 +644,9 @@ class RouterDevice extends Device {
         this.knownDevices[d.mac] = d;
       }
     };
+    this.registerCapabilityListener('button.traffic_refresh', async () => {
+      await this.getTrafficStats({}, 'button');
+    });
     this.driver.on('knownDevices', this.onKnownDevicesChanged);
     this.listenersSet = true;
     this.log(`${this.getName()} ready setting up listeners`);

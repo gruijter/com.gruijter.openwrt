@@ -19,6 +19,9 @@ const routerCaps = [
   'measure_download_speed',
   'measure_upload_speed',
 ];
+const trafficRefreshCaps = [
+  'button.traffic_refresh',
+];
 const wifiCaps24 = [
   'measure_attached_devices.wifi_2_4',
   'measure_data_rate.2_4',
@@ -88,6 +91,7 @@ module.exports = class MyDriver extends Homey.Driver {
         if (routerInfo?.isInternetRouter) capabilities.push(...routerCaps);
         if (routerInfo?.isAp) capabilities.push(...wifiCaps24);
         if (routerInfo?.isAp) capabilities.push(...wifiCaps5);
+        if (routerInfo && !routerInfo.nlbwmonDbOnRam) capabilities.push(...trafficRefreshCaps);
         deviceList = [{
           name: `${routerInfo.hostname}`,
           data: {
