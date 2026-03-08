@@ -190,42 +190,15 @@ module.exports = class MyDevice extends Homey.Device {
 
       if (!this.lastSpeedStats) {
         // Initialize on first run
-        this.lastSpeedStats = { ...deviceInfo, lastActiveTimestamp: Date.now() };
+        this.lastSpeedStats = { ...deviceInfo };
       }
       const speeds = this.calculateSpeed(deviceInfo, this.lastSpeedStats);
 
       const isConnected = deviceInfo.connected || false;
       const isWifi = deviceInfo.connectedVia === 'wifi';
 
-      // --- Inactive Time Calculation ---
-      let inactiveTime = null;
-      if (isConnected) {
-        inactiveTime = 0;
-        if (isWifi && typeof deviceInfo?.wifi?.inactiveTime === 'number') {
-          // 1. Use precise WiFi inactive time if available
-          inactiveTime = Math.round(deviceInfo.wifi.inactiveTime / 60000);
-          // If device was active recently, update our traffic-based timestamp
-          // to ensure a smooth transition if it roams to a wired connection.
-          if (deviceInfo.wifi.inactiveTime < 60000) { // Active in the last minute
-            this.lastSpeedStats.lastActiveTimestamp = Date.now();
-          }
-        } else if (speeds && (speeds.wanDs > 0 || speeds.wanUs > 0)) {
-          // 2. Fallback to traffic-based inactivity for wired devices (or WiFi without data)
-          // Traffic detected, so device is active. Reset timer.
-          this.lastSpeedStats.lastActiveTimestamp = Date.now();
-          inactiveTime = 0;
-        } else if (this.lastSpeedStats.lastActiveTimestamp) {
-          // No traffic, calculate inactive time since last activity.
-          const now = Date.now();
-          inactiveTime = Math.round((now - this.lastSpeedStats.lastActiveTimestamp) / 60000);
-        }
-      }
-      // --- End Inactive Time ---
-
       if (speeds) {
-        // Persist deviceInfo for next speed calculation, preserving lastActiveTimestamp
-        const { lastActiveTimestamp } = this.lastSpeedStats;
-        this.lastSpeedStats = { ...deviceInfo, lastActiveTimestamp };
+        this.lastSpeedStats = { ...deviceInfo };
       }
 
       const currentWanUp = this.getCapabilityValue('measure_upload_speed') || 0;
@@ -304,7 +277,6 @@ module.exports = class MyDevice extends Homey.Device {
         onoff: isConnected,
         'measure_frequency.width': (isConnected && isWifi) ? (deviceInfo?.wifi?.rxChannelWidth || 0) : null,
         measure_mcs_index: (isConnected && isWifi) ? (deviceInfo?.wifi?.rxMcs ?? null) : null,
-        measure_inactive_time: inactiveTime,
         protocol: isConnected ? protocol : '',
         'measure_frequency.band': (isConnected && isWifi) ? band : null,
       };

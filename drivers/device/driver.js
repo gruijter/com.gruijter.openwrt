@@ -5,7 +5,6 @@ const Homey = require('homey');
 const capabilities = [
   'onoff',
   'device_connected',
-  'measure_inactive_time',
   'router_name',
   'name_in_router',
   'ip_address',
