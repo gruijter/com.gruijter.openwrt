@@ -12,7 +12,8 @@
     "da": "Protokol",
     "pl": "Protokół",
     "ru": "Протокол",
-    "ko": "프로토콜"
+    "ko": "프로토콜",
+    "ar": "البروتوكول"
   },
   "getable": true,
   "setable": false,

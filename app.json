@@ -408,7 +408,7 @@
             "title": {
               "en": "Eth link speed"
             },
-            "example": "100 Mbit/s"
+            "example": "100 MB/s"
           },
           {
             "name": "wifiSsid",
@@ -2468,16 +2468,16 @@
       "getable": true,
       "setable": false,
       "units": {
-        "en": "Mbit/s",
-        "nl": "Mbit/s",
-        "da": "Mbit/s",
-        "de": "Mbit/s",
-        "es": "Mbit/s",
-        "fr": "Mbit/s",
-        "it": "Mbit/s",
-        "no": "Mbit/s",
-        "sv": "Mbit/s",
-        "pl": "Mbit/s",
+        "en": "MB/s",
+        "nl": "MB/s",
+        "da": "MB/s",
+        "de": "MB/s",
+        "es": "MB/s",
+        "fr": "MB/s",
+        "it": "MB/s",
+        "no": "MB/s",
+        "sv": "MB/s",
+        "pl": "MB/s",
         "ru": "Мбит/с",
         "ko": "메가비트/초",
         "ar": "ميغابت/ث"
@@ -2641,7 +2641,7 @@
       "getable": true,
       "setable": false,
       "units": {
-        "en": "Mbit/s"
+        "en": "MB/s"
       },
       "decimals": 2,
       "insights": true,

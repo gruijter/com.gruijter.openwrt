@@ -25,7 +25,8 @@
     "da": "Sæt [[ssid]] [[enabled]]",
     "pl": "Ustaw [[ssid]] [[enabled]]",
     "ru": "Переключить [[ssid]] [[enabled]]",
-    "ko": "[[ssid]] [[enabled]]"
+    "ko": "[[ssid]] [[enabled]]",
+    "ar": "تحويل [[ssid]] [[enabled]]"
   },
   "args": [
     {
@@ -48,7 +49,8 @@
         "da": "Wifi SSID",
         "pl": "Wifi SSID",
         "ru": "Wifi SSID",
-        "ko": "Wi-Fi SSID"
+        "ko": "Wi-Fi SSID",
+        "ar": "SSID WiFi"
       }
     },
     {
@@ -66,7 +68,8 @@
         "da": "Tændt/Slukket",
         "pl": "Włączone/Wyłączone",
         "ru": "Вкл/Выкл",
-        "ko": "켜짐/꺼짐"
+        "ko": "켜짐/꺼짐",
+        "ar": "تشغيل/إيقاف"
       },
       "values": [
         {
@@ -83,7 +86,8 @@
             "da": "Tændt",
             "pl": "Włączone",
             "ru": "Вкл",
-            "ko": "켜짐"
+            "ko": "켜짐",
+            "ar": "تشغيل"
           }
         },
         {
@@ -100,7 +104,8 @@
             "da": "Slukket",
             "pl": "Wyłączone",
             "ru": "Выкл",
-            "ko": "꺼짐"
+            "ko": "꺼짐",
+            "ar": "إيقاف"
           }
         }
       ]

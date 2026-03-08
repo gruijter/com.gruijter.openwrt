@@ -1,12 +1,27 @@
 {
   "type": "number",
   "title": {
-    "en": "WAN Upload Speed"
+    "en": "WAN Upload Speed",
+    "nl": "WAN-uploadsnelheid",
+    "da": "WAN-uploadhastighed",
+    "de": "WAN-Upload-Geschwindigkeit",
+    "es": "Velocidad de subida WAN",
+    "fr": "Vitesse d'envoi WAN",
+    "it": "Velocità di upload WAN",
+    "no": "WAN opplastingshastighet",
+    "sv": "WAN uppladdningshastighet",
+    "pl": "Prędkość wysyłania WAN",
+    "ru": "Скорость выгрузки WAN",
+    "ko": "WAN 업로드 속도",
+    "ar": "سرعة رفع WAN"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "Mbit/s"
+    "en": "MB/s",
+    "ru": "Мбит/с",
+    "ko": "메가비트/초",
+    "ar": "ميغابت/ث"
   },
   "decimals": 2,
   "insights": true,

@@ -16,19 +16,7 @@
     "ar": "سرعة الرابط"
   },
   "units": {
-    "en": "Mb/s",
-    "nl": "Mb/s",
-    "da": "Mb/s",
-    "de": "Mb/s",
-    "es": "Mb/s",
-    "fr": "Mb/s",
-    "it": "Mb/s",
-    "no": "Mb/s",
-    "sv": "Mb/s",
-    "pl": "Mb/s",
-    "ru": "Mb/s",
-    "ko": "Mb/s",
-    "ar": "Mb/s"
+    "en": "Mb/s"
   },
   "getable": true,
   "setable": false,

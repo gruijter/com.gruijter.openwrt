@@ -1,7 +1,19 @@
 {
   "type": "string",
   "title": {
-    "en": "Uptime"
+    "en": "Uptime",
+    "nl": "Uptime",
+    "da": "Oppetid",
+    "de": "Betriebszeit",
+    "es": "Tiempo de actividad",
+    "fr": "Temps de fonctionnement",
+    "it": "Tempo di attività",
+    "no": "Oppetid",
+    "sv": "Upptid",
+    "pl": "Czas pracy",
+    "ru": "Время работы",
+    "ko": "가동 시간",
+    "ar": "وقت التشغيل"
   },
   "getable": true,
   "setable": false,

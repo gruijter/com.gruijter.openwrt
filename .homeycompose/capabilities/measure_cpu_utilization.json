@@ -18,19 +18,7 @@
   "getable": true,
   "setable": false,
   "units": {
-    "en": "%",
-    "da": "%",
-    "de": "%",
-    "es": "%",
-    "fr": "%",
-    "it": "%",
-    "no": "%",
-    "sv": "%",
-    "pl": "%",
-    "ru": "%",
-    "ko": "%",
-    "nl": "%",
-    "ar": "%"
+    "en": "%"
   },
   "decimals": 0,
   "insights": true,

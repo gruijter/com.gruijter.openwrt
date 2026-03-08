@@ -11,7 +11,8 @@
     "sv": "Starta om",
     "pl": "Uruchom ponownie",
     "ru": "Перезагрузить",
-    "ko": "재부팅"
+    "ko": "재부팅",
+    "ar": "إعادة تشغيل"
   },
   "highlight": true,
   "args": [

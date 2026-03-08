@@ -12,7 +12,8 @@
     "da": "Inaktiv tid",
     "pl": "Czas nieaktywności",
     "ru": "Время бездействия",
-    "ko": "비활성 시간"
+    "ko": "비활성 시간",
+    "ar": "وقت الخمول"
   },
   "units": {
     "en": "min"

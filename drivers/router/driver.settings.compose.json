@@ -13,7 +13,8 @@
       "sv": "Routerinformation",
       "pl": "Informacje o routerze",
       "ru": "Информация о маршрутизаторе",
-      "ko": "라우터 정보"
+      "ko": "라우터 정보",
+      "ar": "معلومات الراوتر"
     },
     "children": [
       {
@@ -31,7 +32,8 @@
           "sv": "ID",
           "pl": "ID",
           "ru": "ID",
-          "ko": "ID"
+          "ko": "ID",
+          "ar": "المعرف"
         },
         "value": ""
       },
@@ -50,7 +52,8 @@
           "sv": "Värdnamn",
           "pl": "Nazwa hosta",
           "ru": "Имя хоста",
-          "ko": "호스트 이름"
+          "ko": "호스트 이름",
+          "ar": "اسم المضيف"
         },
         "value": ""
       },
@@ -69,7 +72,8 @@
           "sv": "OpenWRT-version",
           "pl": "Wersja OpenWRT",
           "ru": "Версия OpenWRT",
-          "ko": "OpenWRT 버전"
+          "ko": "OpenWRT 버전",
+          "ar": "إصدار OpenWRT"
         },
         "value": ""
       },
@@ -88,7 +92,8 @@
           "sv": "LuCI-version",
           "pl": "Wersja LuCI",
           "ru": "Версия LuCI",
-          "ko": "LuCI 버전"
+          "ko": "LuCI 버전",
+          "ar": "إصدار LuCI"
         },
         "value": ""
       },
@@ -107,7 +112,8 @@
           "sv": "Hårdvarumodell",
           "pl": "Model sprzętu",
           "ru": "Аппаратная модель",
-          "ko": "하드웨어 모델"
+          "ko": "하드웨어 모델",
+          "ar": "طراز الجهاز"
         },
         "value": ""
       },
@@ -126,7 +132,8 @@
           "sv": "CPU-arkitektur",
           "pl": "Architektura CPU",
           "ru": "Архитектура CPU",
-          "ko": "CPU 아키텍처"
+          "ko": "CPU 아키텍처",
+          "ar": "معمارية المعالج"
         },
         "value": ""
       },
@@ -145,7 +152,8 @@
           "sv": "Totalt minne (MB)",
           "pl": "Całkowita pamięć (MB)",
           "ru": "Объем памяти (МБ)",
-          "ko": "총 메모리(MB)"
+          "ko": "총 메모리(MB)",
+          "ar": "إجمالي الذاكرة (ميجابايت)"
         },
         "value": ""
       }
@@ -165,7 +173,8 @@
       "sv": "SSH-anslutningsinställningar",
       "pl": "Ustawienia połączenia SSH",
       "ru": "Настройки подключения SSH",
-      "ko": "SSH 연결 설정"
+      "ko": "SSH 연결 설정",
+      "ar": "إعدادات اتصال SSH"
     },
     "children": [
       {
@@ -183,7 +192,8 @@
           "sv": "IP-adress",
           "pl": "Adres IP",
           "ru": "IP-адрес",
-          "ko": "IP 주소"
+          "ko": "IP 주소",
+          "ar": "عنوان IP"
         },
         "value": ""
       },
@@ -202,7 +212,8 @@
           "sv": "SSH-port",
           "pl": "Port SSH",
           "ru": "Порт SSH",
-          "ko": "SSH 포트"
+          "ko": "SSH 포트",
+          "ar": "منفذ SSH"
         },
         "value": 22
       },
@@ -221,7 +232,8 @@
           "sv": "Användarnamn",
           "pl": "Nazwa użytkownika",
           "ru": "Имя пользователя",
-          "ko": "사용자 이름"
+          "ko": "사용자 이름",
+          "ar": "اسم المستخدم"
         },
         "value": "root"
       },
@@ -240,7 +252,8 @@
           "sv": "Lösenord",
           "pl": "Hasło",
           "ru": "Пароль",
-          "ko": "비밀번호"
+          "ko": "비밀번호",
+          "ar": "كلمة المرور"
         },
         "value": ""
       }
@@ -260,7 +273,8 @@
       "sv": "Routerinställningar",
       "pl": "Ustawienia routera",
       "ru": "Настройки маршрутизатора",
-      "ko": "라우터 설정"
+      "ko": "라우터 설정",
+      "ar": "إعدادات الراوتر"
     },
     "children": [
       {
@@ -278,7 +292,8 @@
           "sv": "Pollinterval (sekunder)",
           "pl": "Interwał odpytywania (sekundy)",
           "ru": "Период опроса (секунд)",
-          "ko": "폴링 간격(초)"
+          "ko": "폴링 간격(초)",
+          "ar": "فاصل الاستطلاع (ثواني)"
         },
         "hint": {
           "en": "Interval to poll the router. Lower values increase presence responsiveness, but also increase load on the router.",
@@ -292,7 +307,8 @@
           "sv": "Intervall för routens polling. Lägre värden ökar responsiviteten men ökar också belastningen på routern.",
           "pl": "Interwał odpytywania routera. Mniejsze wartości zwiększają responsywność wykrywania obecności, ale zwiększają również obciążenie routera.",
           "ru": "Интервал опроса маршрутизатора. Меньшие значения повышают отзывчивость, но также увеличивают нагрузку на маршрутизатор.",
-          "ko": "라우터를 폴링하는 간격입니다. 값이 작아지면 응답성이 향상되지만 라우터의 부하도 증가합니다."
+          "ko": "라우터를 폴링하는 간격입니다. 값이 작아지면 응답성이 향상되지만 라우터의 부하도 증가합니다.",
+          "ar": "الفاصل الزمني لاستطلاع الراوتر. القيم المنخفضة تزيد من استجابة التواجد، ولكنها تزيد أيضًا من الحمل على الراوتر."
         },
         "min": 5,
         "max": 60,
@@ -313,7 +329,8 @@
           "sv": "Snabb upptäckt av offline-enheter",
           "pl": "Szybkie wykrywanie urządzeń offline",
           "ru": "Быстрое обнаружение офлайн-устройств",
-          "ko": "오프라인 장치의 빠른 탐지"
+          "ko": "오프라인 장치의 빠른 탐지",
+          "ar": "الكشف السريع عن الأجهزة غير المتصلة"
         },
         "hint": {
           "en": "When enabled, the router will actively ping devices to double-check their presence. This speeds up offline detection, but increases load on the router.",
@@ -327,7 +344,8 @@
           "sv": "När den är aktiverad kommer routern aktivt pinga enheter för att dubbelkolla deras närvaro. Detta ökar hastigheten på offline-detektion, men ökar belastningen på routern.",
           "pl": "Po włączeniu, router aktywnie wywołuje ping do urządzeń, aby potwierdzić ich obecność. Szybciej wykrywa urządzenia offline, ale zwiększa obciążenie routera.",
           "ru": "При включении маршрутизатор будет активно отправлять пинги устройствам, чтобы дважды проверить их присутствие. Это ускоряет обнаружение офлайн-устройств, но увеличивает нагрузку на маршрутизатор.",
-          "ko": "활성화되면 라우터가 장치를 적극적으로 핑하여 존재를 재확인합니다. 이로 인해 오프라인 탐지가 빨라지지만 라우터의 부하가 증가합니다."
+          "ko": "활성화되면 라우터가 장치를 적극적으로 핑하여 존재를 재확인합니다. 이로 인해 오프라인 탐지가 빨라지지만 라우터의 부하가 증가합니다.",
+          "ar": "عند التمكين، سيقوم الراوتر باختبار اتصال الأجهزة بشكل نشط للتحقق من وجودها. هذا يسرع من اكتشاف عدم الاتصال، ولكنه يزيد من الحمل على الراوتر."
         },
         "value": false
       },
@@ -346,7 +364,8 @@
           "sv": "Detta är internetroutern",
           "pl": "To jest router internetowy",
           "ru": "Это интернет-маршрутизатор",
-          "ko": "이것은 인터넷 라우터입니다"
+          "ko": "이것은 인터넷 라우터입니다",
+          "ar": "هذا هو راوتر الإنترنت"
         },
         "hint": {
           "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -360,7 +379,8 @@
           "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
           "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
           "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+          "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
         },
         "value": false
       },
@@ -379,7 +399,8 @@
           "sv": "Detta är DHCP-servern",
           "pl": "To jest serwer DHCP",
           "ru": "Это DHCP-сервер",
-          "ko": "이것은 DHCP 서버입니다"
+          "ko": "이것은 DHCP 서버입니다",
+          "ar": "هذا هو خادم DHCP"
         },
         "hint": {
           "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -393,7 +414,8 @@
           "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
           "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
           "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+          "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
         },
         "value": false
       },
@@ -412,7 +434,8 @@
           "sv": "Detta är en brandvägg",
           "pl": "To jest zapora sieciowa",
           "ru": "Это брандмауэр",
-          "ko": "이것은 방화벽입니다"
+          "ko": "이것은 방화벽입니다",
+          "ar": "هذا جدار حماية"
         },
         "hint": {
           "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -426,7 +449,8 @@
           "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
           "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
           "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+          "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
         },
         "value": false
       },
@@ -445,7 +469,8 @@
           "sv": "Detta är en Wi-Fi-accesspunkt",
           "pl": "To jest punkt dostępu Wi-Fi",
           "ru": "Это точка доступа Wi-Fi",
-          "ko": "이것은 Wi-Fi 접근 지점입니다"
+          "ko": "이것은 Wi-Fi 접근 지점입니다",
+          "ar": "هذه نقطة وصول Wi-Fi"
         },
         "hint": {
           "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -459,7 +484,8 @@
           "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
           "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
           "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+          "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+          "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
         },
         "value": false
       }

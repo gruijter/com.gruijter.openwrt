@@ -11,7 +11,8 @@
     "da": "Aktiver eller deaktiver enhedsadgang",
     "pl": "Włącz lub wyłącz dostęp do urządzenia",
     "ru": "Включить или отключить доступ к устройству",
-    "ko": "장치 액세스 활성화 또는 비활성화"
+    "ko": "장치 액세스 활성화 또는 비활성화",
+    "ar": "تمكين أو تعطيل الوصول للجهاز"
   },
   "titleFormatted": {
     "en": "Set access of [[mac]] for [[blockType]] to [[state]]",
@@ -25,7 +26,8 @@
     "da": "Sæt adgang for [[mac]] for [[blockType]] til [[state]]",
     "pl": "Ustaw dostęp [[mac]] dla [[blockType]] na [[state]]",
     "ru": "Установить доступ [[mac]] для [[blockType]] в [[state]]",
-    "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정"
+    "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정",
+    "ar": "تعيين وصول [[mac]] لـ [[blockType]] إلى [[state]]"
   },
   "args": [
     {
@@ -48,7 +50,8 @@
         "da": "Enhed",
         "pl": "Urządzenie",
         "ru": "Устройство",
-        "ko": "장치"
+        "ko": "장치",
+        "ar": "الجهاز"
       },
       "placeholder": {
         "en": "AA:BB:CC:DD:EE:FF"
@@ -69,7 +72,8 @@
         "da": "Tillad/Bloker",
         "pl": "Zezwól/Zablokuj",
         "ru": "Разрешить/Блокировать",
-        "ko": "허용/차단"
+        "ko": "허용/차단",
+        "ar": "سماح/حظر"
       },
       "values": [
         {
@@ -86,7 +90,8 @@
             "da": "Tillad",
             "pl": "Zezwól",
             "ru": "Разрешить",
-            "ko": "허용"
+            "ko": "허용",
+            "ar": "سماح"
           }
         },
         {
@@ -103,7 +108,8 @@
             "da": "Bloker",
             "pl": "Zablokuj",
             "ru": "Блокировать",
-            "ko": "차단"
+            "ko": "차단",
+            "ar": "حظر"
           }
         }
       ]
@@ -123,7 +129,8 @@
         "da": "WAN/LAN/Begge",
         "pl": "WAN/LAN/Oba",
         "ru": "WAN/LAN/Оба",
-        "ko": "WAN/LAN/둘 다"
+        "ko": "WAN/LAN/둘 다",
+        "ar": "WAN/LAN/كلاهما"
       },
       "values": [
         {
@@ -140,7 +147,8 @@
             "da": "WAN",
             "pl": "WAN",
             "ru": "WAN",
-            "ko": "WAN"
+            "ko": "WAN",
+            "ar": "WAN"
           }
         },
         {
@@ -157,7 +165,8 @@
             "da": "LAN",
             "pl": "LAN",
             "ru": "LAN",
-            "ko": "LAN"
+            "ko": "LAN",
+            "ar": "LAN"
           }
         },
         {
@@ -174,7 +183,8 @@
             "da": "Begge",
             "pl": "Oba",
             "ru": "Оба",
-            "ko": "둘 다"
+            "ko": "둘 다",
+            "ar": "كلاهما"
           }
         }
       ]

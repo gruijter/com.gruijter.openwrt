@@ -12,7 +12,8 @@
     "da": "Pakke fejl",
     "pl": "Błędy pakietów",
     "ru": "Ошибки пакетов",
-    "ko": "패킷 오류"
+    "ko": "패킷 오류",
+    "ar": "أخطاء الحزمة"
   },
   "units": {
     "en": "err/min"

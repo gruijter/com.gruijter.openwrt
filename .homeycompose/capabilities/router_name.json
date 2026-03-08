@@ -1,7 +1,19 @@
 {
   "type": "string",
   "title": {
-    "en": "Connected Router"
+    "en": "Connected Router",
+    "nl": "Verbonden router",
+    "da": "Tilsluttet router",
+    "de": "Verbundener Router",
+    "es": "Router conectado",
+    "fr": "Routeur connecté",
+    "it": "Router connesso",
+    "no": "Tilkoblet ruter",
+    "sv": "Ansluten router",
+    "pl": "Podłączony router",
+    "ru": "Подключенный маршрутизатор",
+    "ko": "연결된 라우터",
+    "ar": "الراوتر المتصل"
   },
   "getable": true,
   "setable": false,

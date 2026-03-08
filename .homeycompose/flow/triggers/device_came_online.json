@@ -1,6 +1,18 @@
 {
   "title": {
-    "en": "A device came online"
+    "en": "A device came online",
+    "nl": "Een apparaat kwam online",
+    "da": "En enhed kom online",
+    "de": "Ein Gerät ging online",
+    "es": "Un dispositivo se conectó",
+    "fr": "Un appareil s'est connecté",
+    "it": "Un dispositivo è andato online",
+    "no": "En enhet kom på nett",
+    "sv": "En enhet kom online",
+    "pl": "Urządzenie przeszło w tryb online",
+    "ru": "Устройство появилось в сети",
+    "ko": "장치가 온라인 상태가 됨",
+    "ar": "جهاز أصبح متصلاً"
   },
   "highlight": true,
   "args": [

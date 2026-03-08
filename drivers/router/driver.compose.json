@@ -1,13 +1,37 @@
 {
   "name": {
-    "en": "Router"
+    "en": "Router",
+    "nl": "Router",
+    "da": "Router",
+    "de": "Router",
+    "es": "Router",
+    "fr": "Routeur",
+    "it": "Router",
+    "no": "Ruter",
+    "sv": "Router",
+    "pl": "Router",
+    "ru": "Маршрутизатор",
+    "ko": "라우터",
+    "ar": "راوتر"
   },
   "class": "sensor",
   "capabilities": [],
   "capabilitiesOptions": {
     "measure_signal_strength.tx_2_4": {
       "title": {
-        "en": "2.4GHz TX power"
+        "en": "2.4GHz TX power",
+        "nl": "2.4GHz zendvermogen",
+        "da": "2.4GHz sendestyrke",
+        "de": "2.4GHz Sendeleistung",
+        "es": "Potencia de transmisión 2.4GHz",
+        "fr": "Puissance d'émission 2.4GHz",
+        "it": "Potenza di trasmissione 2.4GHz",
+        "no": "2.4GHz sendestyrke",
+        "sv": "2.4GHz sändningseffekt",
+        "pl": "Moc nadawania 2.4GHz",
+        "ru": "Мощность передачи 2.4ГГц",
+        "ko": "2.4GHz 전송 전력",
+        "ar": "طاقة إرسال 2.4 جيجاهرتز"
       },
       "units": {
         "en": "dBm"
@@ -15,7 +39,19 @@
     },
     "measure_signal_strength.tx_5": {
       "title": {
-        "en": "5GHz TX power"
+        "en": "5GHz TX power",
+        "nl": "5GHz zendvermogen",
+        "da": "5GHz sendestyrke",
+        "de": "5GHz Sendeleistung",
+        "es": "Potencia de transmisión 5GHz",
+        "fr": "Puissance d'émission 5GHz",
+        "it": "Potenza di trasmissione 5GHz",
+        "no": "5GHz sendestyrke",
+        "sv": "5GHz sändningseffekt",
+        "pl": "Moc nadawania 5GHz",
+        "ru": "Мощность передачи 5ГГц",
+        "ko": "5GHz 전송 전력",
+        "ar": "طاقة إرسال 5 جيجاهرتز"
       },
       "units": {
         "en": "dBm"
@@ -23,7 +59,19 @@
     },
     "measure_signal_strength.noise_2_4": {
       "title": {
-        "en": "2.4GHz RX noise"
+        "en": "2.4GHz RX noise",
+        "nl": "2.4GHz ontvangstuis",
+        "da": "2.4GHz modtagelsesstøj",
+        "de": "2.4GHz Empfangsrauschen",
+        "es": "Ruido de recepción 2.4GHz",
+        "fr": "Bruit de réception 2.4GHz",
+        "it": "Rumore di ricezione 2.4GHz",
+        "no": "2.4GHz mottaksstøy",
+        "sv": "2.4GHz mottagningsbrus",
+        "pl": "Szum odbioru 2.4GHz",
+        "ru": "Шум приема 2.4ГГц",
+        "ko": "2.4GHz 수신 노이즈",
+        "ar": "ضوضاء استقبال 2.4 جيجاهرتز"
       },
       "units": {
         "en": "dBm"
@@ -31,7 +79,19 @@
     },
     "measure_signal_strength.noise_5": {
       "title": {
-        "en": "5GHz RX noise"
+        "en": "5GHz RX noise",
+        "nl": "5GHz ontvangstuis",
+        "da": "5GHz modtagelsesstøj",
+        "de": "5GHz Empfangsrauschen",
+        "es": "Ruido de recepción 5GHz",
+        "fr": "Bruit de réception 5GHz",
+        "it": "Rumore di ricezione 5GHz",
+        "no": "5GHz mottaksstøy",
+        "sv": "5GHz mottagningsbrus",
+        "pl": "Szum odbioru 5GHz",
+        "ru": "Шум приема 5ГГц",
+        "ko": "5GHz 수신 노이즈",
+        "ar": "ضوضاء استقبال 5 جيجاهرتز"
       },
       "units": {
         "en": "dBm"
@@ -39,7 +99,19 @@
     },
     "measure_signal_strength.snr_2_4": {
       "title": {
-        "en": "2.4GHz SNR"
+        "en": "2.4GHz SNR",
+        "nl": "2.4GHz SNR",
+        "da": "2.4GHz SNR",
+        "de": "2.4GHz SNR",
+        "es": "SNR 2.4GHz",
+        "fr": "SNR 2.4GHz",
+        "it": "SNR 2.4GHz",
+        "no": "2.4GHz SNR",
+        "sv": "2.4GHz SNR",
+        "pl": "SNR 2.4GHz",
+        "ru": "SNR 2.4ГГц",
+        "ko": "2.4GHz SNR",
+        "ar": "SNR 2.4 جيجاهرتز"
       },
       "units": {
         "en": "dB"
@@ -47,7 +119,19 @@
     },
     "measure_signal_strength.snr_5": {
       "title": {
-        "en": "5GHz SNR"
+        "en": "5GHz SNR",
+        "nl": "5GHz SNR",
+        "da": "5GHz SNR",
+        "de": "5GHz SNR",
+        "es": "SNR 5GHz",
+        "fr": "SNR 5GHz",
+        "it": "SNR 5GHz",
+        "no": "5GHz SNR",
+        "sv": "5GHz SNR",
+        "pl": "SNR 5GHz",
+        "ru": "SNR 5ГГц",
+        "ko": "5GHz SNR",
+        "ar": "SNR 5 جيجاهرتز"
       },
       "units": {
         "en": "dB"
@@ -55,7 +139,19 @@
     },
     "measure_data_rate.2_4": {
       "title": {
-        "en": "2.4GHz Data Rate"
+        "en": "2.4GHz Data Rate",
+        "nl": "2.4GHz datasnelheid",
+        "da": "2.4GHz datahastighed",
+        "de": "2.4GHz Datenrate",
+        "es": "Velocidad de datos 2.4GHz",
+        "fr": "Débit de données 2.4GHz",
+        "it": "Velocità dati 2.4GHz",
+        "no": "2.4GHz datahastighet",
+        "sv": "2.4GHz datahastighet",
+        "pl": "Szybkość transmisji danych 2.4GHz",
+        "ru": "Скорость передачи данных 2.4ГГц",
+        "ko": "2.4GHz 데이터 속도",
+        "ar": "معدل بيانات 2.4 جيجاهرتز"
       },
       "units": {
         "en": "Mb/s"
@@ -64,7 +160,19 @@
     },
     "measure_data_rate.5": {
       "title": {
-        "en": "5GHz Data Rate"
+        "en": "5GHz Data Rate",
+        "nl": "5GHz datasnelheid",
+        "da": "5GHz datahastighed",
+        "de": "5GHz Datenrate",
+        "es": "Velocidad de datos 5GHz",
+        "fr": "Débit de données 5GHz",
+        "it": "Velocità dati 5GHz",
+        "no": "5GHz datahastighet",
+        "sv": "5GHz datahastighet",
+        "pl": "Szybkość transmisji danych 5GHz",
+        "ru": "Скорость передачи данных 5ГГц",
+        "ko": "5GHz 데이터 속도",
+        "ar": "معدل بيانات 5 جيجاهرتز"
       },
       "units": {
         "en": "Mb/s"
@@ -73,12 +181,36 @@
     },
     "measure_attached_devices.wifi_2_4": {
       "title": {
-        "en": "2.4GHz connections"
+        "en": "2.4GHz connections",
+        "nl": "2.4GHz verbindingen",
+        "da": "2.4GHz forbindelser",
+        "de": "2.4GHz Verbindungen",
+        "es": "Conexiones 2.4GHz",
+        "fr": "Connexions 2.4GHz",
+        "it": "Connessioni 2.4GHz",
+        "no": "2.4GHz tilkoblinger",
+        "sv": "2.4GHz anslutningar",
+        "pl": "Połączenia 2.4GHz",
+        "ru": "Подключения 2.4ГГц",
+        "ko": "2.4GHz 연결",
+        "ar": "اتصالات 2.4 جيجاهرتز"
       }
     },
     "measure_attached_devices.wifi_5": {
       "title": {
-        "en": "5GHz connections"
+        "en": "5GHz connections",
+        "nl": "5GHz verbindingen",
+        "da": "5GHz forbindelser",
+        "de": "5GHz Verbindungen",
+        "es": "Conexiones 5GHz",
+        "fr": "Connexions 5GHz",
+        "it": "Connessioni 5GHz",
+        "no": "5GHz tilkoblinger",
+        "sv": "5GHz anslutningar",
+        "pl": "Połączenia 5GHz",
+        "ru": "Подключения 5ГГц",
+        "ko": "5GHz 연결",
+        "ar": "اتصالات 5 جيجاهرتز"
       }
     }
   },

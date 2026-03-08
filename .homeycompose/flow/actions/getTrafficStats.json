@@ -1,7 +1,19 @@
 {
   "id": "getTrafficStats",
   "title": {
-    "en": "Refresh traffic statistics"
+    "en": "Refresh traffic statistics",
+    "nl": "Ververs verkeersstatistieken",
+    "da": "Opdater trafikstatistik",
+    "de": "Verkehrsstatistiken aktualisieren",
+    "es": "Actualizar estadísticas de tráfico",
+    "fr": "Actualiser les statistiques de trafic",
+    "it": "Aggiorna statistiche traffico",
+    "no": "Oppdater trafikkstatistikk",
+    "sv": "Uppdatera trafikstatistik",
+    "pl": "Odśwież statystyki ruchu",
+    "ru": "Обновить статистику трафика",
+    "ko": "트래픽 통계 새로 고침",
+    "ar": "تحديث إحصائيات المرور"
   },
   "args": [
     {

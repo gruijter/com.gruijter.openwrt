@@ -1,9 +1,33 @@
 {
   "title": {
-    "en": "Device !{{is|isn't}} online"
+    "en": "Device !{{is|isn't}} online",
+    "nl": "Apparaat !{{is|is niet}} online",
+    "da": "Enhed !{{er|er ikke}} online",
+    "de": "Gerät !{{ist|ist nicht}} online",
+    "es": "Dispositivo !{{está|no está}} en línea",
+    "fr": "Appareil !{{est|n'est pas}} en ligne",
+    "it": "Dispositivo !{{è|non è}} online",
+    "no": "Enhet !{{er|er ikke}} på nett",
+    "sv": "Enhet !{{är|är inte}} online",
+    "pl": "Urządzenie !{{jest|nie jest}} online",
+    "ru": "Устройство !{{в сети|не в сети}}",
+    "ko": "장치가 !{{온라인입니다|오프라인입니다}}",
+    "ar": "الجهاز !{{متصل|غير متصل}}"
   },
   "titleFormatted": {
-    "en": "[[mac]] !{{is|isn't}} online"
+    "en": "[[mac]] !{{is|isn't}} online",
+    "nl": "[[mac]] !{{is|is niet}} online",
+    "da": "[[mac]] !{{er|er ikke}} online",
+    "de": "[[mac]] !{{ist|ist nicht}} online",
+    "es": "[[mac]] !{{está|no está}} en línea",
+    "fr": "[[mac]] !{{est|n'est pas}} en ligne",
+    "it": "[[mac]] !{{è|non è}} online",
+    "no": "[[mac]] !{{er|er ikke}} på nett",
+    "sv": "[[mac]] !{{är|är inte}} online",
+    "pl": "[[mac]] !{{jest|nie jest}} online",
+    "ru": "[[mac]] !{{в сети|не в сети}}",
+    "ko": "[[mac]] !{{온라인입니다|오프라인입니다}}",
+    "ar": "[[mac]] !{{متصل|غير متصل}}"
   },
   "args": [
     {
@@ -26,7 +50,8 @@
         "da": "Enhed",
         "pl": "Urządzenie",
         "ru": "Устройство",
-        "ko": "장치"
+        "ko": "장치",
+        "ar": "الجهاز"
       },
       "placeholder": {
         "en": "AA:BB:CC:DD:EE:FF"

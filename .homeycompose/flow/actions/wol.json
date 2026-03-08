@@ -11,7 +11,8 @@
     "sv": "WakeOnLan",
     "pl": "WakeOnLan",
     "ru": "WakeOnLan",
-    "ko": "WakeOnLan"
+    "ko": "WakeOnLan",
+    "ar": "WakeOnLan"
   },
   "titleFormatted": {
     "en": "WakeOnLan [[mac]] [[password]]",
@@ -25,7 +26,8 @@
     "sv": "WakeOnLan [[mac]] [[password]]",
     "pl": "WakeOnLan [[mac]] [[password]]",
     "ru": "WakeOnLan [[mac]] [[password]]",
-    "ko": "WakeOnLan [[mac]] [[password]]"
+    "ko": "WakeOnLan [[mac]] [[password]]",
+    "ar": "WakeOnLan [[mac]] [[password]]"
   },
   "args": [
     {
@@ -48,7 +50,8 @@
         "da": "Enhed",
         "pl": "Urządzenie",
         "ru": "Устройство",
-        "ko": "장치"
+        "ko": "장치",
+        "ar": "الجهاز"
       },
       "placeholder": {
         "en": "AA:BB:CC:DD:EE:FF"
@@ -69,7 +72,8 @@
         "sv": "Lösenord eller använd 00:00:00:00:00:00",
         "pl": "Hasło lub użyj 00:00:00:00:00:00",
         "ru": "Пароль или используйте 00:00:00:00:00:00",
-        "ko": "비밀번호 또는 00:00:00:00:00:00 사용"
+        "ko": "비밀번호 또는 00:00:00:00:00:00 사용",
+        "ar": "كلمة المرور أو استخدم 00:00:00:00:00:00"
       },
       "placeholder": {
         "en": "00:00:00:00:00:00"

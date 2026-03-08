@@ -12,22 +12,13 @@
     "no": "CPU skalering",
     "sv": "CPU skalning",
     "ru": "Масштабирование ЦП",
-    "ko": "CPU 스케일링"
+    "ko": "CPU 스케일링",
+    "ar": "تحجيم وحدة المعالجة المركزية"
   },
   "getable": true,
   "setable": false,
   "units": {
-    "en": "%",
-    "da": "%",
-    "de": "%",
-    "es": "%",
-    "fr": "%",
-    "it": "%",
-    "no": "%",
-    "sv": "%",
-    "pl": "%",
-    "ru": "%",
-    "ko": "%"
+    "en": "%"
   },
   "decimals": 0,
   "insights": true,

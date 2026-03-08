@@ -25,7 +25,8 @@
     "da": "Sæt [[radio]] [[enabled]]",
     "pl": "Ustaw [[radio]] [[enabled]]",
     "ru": "Переключить [[radio]] [[enabled]]",
-    "ko": "[[radio]] [[enabled]]"
+    "ko": "[[radio]] [[enabled]]",
+    "ar": "تحويل [[radio]] [[enabled]]"
   },
   "args": [
     {
@@ -48,7 +49,8 @@
         "da": "Wifi-radio",
         "pl": "Radio Wifi",
         "ru": "Радио Wifi",
-        "ko": "Wi-Fi 라디오"
+        "ko": "Wi-Fi 라디오",
+        "ar": "راديو WiFi"
       }
     },
     {
@@ -66,7 +68,8 @@
         "da": "Tændt/Slukket",
         "pl": "Włączone/Wyłączone",
         "ru": "Вкл/Выкл",
-        "ko": "켜짐/꺼짐"
+        "ko": "켜짐/꺼짐",
+        "ar": "تشغيل/إيقاف"
       },
       "values": [
         {
@@ -83,7 +86,8 @@
             "da": "Tændt",
             "pl": "Włączone",
             "ru": "Вкл",
-            "ko": "켜짐"
+            "ko": "켜짐",
+            "ar": "تشغيل"
           }
         },
         {
@@ -100,7 +104,8 @@
             "da": "Slukket",
             "pl": "Wyłączone",
             "ru": "Выкл",
-            "ko": "꺼짐"
+            "ko": "꺼짐",
+            "ar": "إيقاف"
           }
         }
       ]

@@ -12,7 +12,8 @@
     "da": "MCS Indeks",
     "pl": "Indeks MCS",
     "ru": "Индекс MCS",
-    "ko": "MCS 인덱스"
+    "ko": "MCS 인덱스",
+    "ar": "مؤشر MCS"
   },
   "getable": true,
   "setable": false,

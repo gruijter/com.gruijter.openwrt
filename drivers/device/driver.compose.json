@@ -1,6 +1,18 @@
 {
   "name": {
-    "en": "Device"
+    "en": "Device",
+    "nl": "Apparaat",
+    "da": "Enhed",
+    "de": "Gerät",
+    "es": "Dispositivo",
+    "fr": "Appareil",
+    "it": "Dispositivo",
+    "no": "Enhet",
+    "sv": "Enhet",
+    "pl": "Urządzenie",
+    "ru": "Устройство",
+    "ko": "장치",
+    "ar": "جهاز"
   },
   "class": "sensor",
   "capabilities": [],
@@ -15,7 +27,19 @@
     },
     "measure_frequency.band": {
       "title": {
-        "en": "Frequency band"
+        "en": "Frequency band",
+        "nl": "Frequentieband",
+        "da": "Frekvensbånd",
+        "de": "Frequenzband",
+        "es": "Banda de frecuencia",
+        "fr": "Bande de fréquence",
+        "it": "Banda di frequenza",
+        "no": "Frekvensbånd",
+        "sv": "Frekvensband",
+        "pl": "Pasmo częstotliwości",
+        "ru": "Частотный диапазон",
+        "ko": "주파수 대역",
+        "ar": "نطاق التردد"
       },
       "units": {
         "en": "GHz"
@@ -35,7 +59,8 @@
         "da": "Kanalbredde",
         "pl": "Szerokość kanału",
         "ru": "Ширина канала",
-        "ko": "채널 폭"
+        "ko": "채널 폭",
+        "ar": "عرض القناة"
       },
       "units": {
         "en": "MHz"
