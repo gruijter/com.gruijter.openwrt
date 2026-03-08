@@ -6,10 +6,10 @@ Anwesenheitserkennung, Netzwerksteuerung, Energieüberwachung
 - Überwachen Sie den Energieverbrauch Ihrer Netzwerkgeräte, z. B. des Fernsehers
 
 Sehen und protokollieren:
-- Status der Internetverbindung
-- die Internet-Upload- und Download-Geschwindigkeit
+- Status der Internetverbindung, Upload-/Download-Geschwindigkeit und Paketfehler
+- CPU- und Speicherauslastung des Routers
 - Verbindungsstatus der angeschlossenen Geräte
-- WLAN-Qualität und Bandbreite pro Gerät
+- WLAN-Qualität (Signal, SNR, MCS, Kanalbreite), Bandbreite und dominantes Protokoll pro Gerät
 - Energieverbrauch pro Gerät
 
 Reagieren auf:
@@ -36,4 +36,4 @@ Energieüberwachung:
 Nachdem Sie Ihren Router zu Homey hinzugefügt haben, können Sie weitere Geräte hinzufügen, deren Stromverbrauch Sie überwachen möchten, z. B. Ihren Fernseher oder Drucker. Geben Sie in den erweiterten Geräteeinstellungen den geschätzten / durchschnittlichen Stromverbrauch des Geräts ein, wenn es AUS oder EIN ist. Wenn Sie nun Ihren Fernseher einschalten, sehen Sie, dass der geschätzte Stromverbrauch im Homey Energie-Tab enthalten ist.
 
 Unterstützte Router:
-Diese App wurde auf einem Netgear R7800 Router mit OpenWRT 24.10 entwickelt und getestet. Sie sollte mit allen OpenWRT-Routern kompatibel sein, auf denen Firmware 24.10 oder höher läuft.
+Diese App wurde auf Netgear R7800 Routern mit aktuellen OpenWRT-Versionen (22.03 und neuer) entwickelt und getestet. Sie sollte mit den meisten Routern kompatibel sein, auf denen OpenWRT-Firmware 21.02 oder höher läuft.

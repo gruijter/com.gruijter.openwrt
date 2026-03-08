@@ -6,10 +6,10 @@ Aanwezigheidsdetectie, Netwerkbeheer, Energiemonitoring
 - Monitor het energieverbruik van uw netwerkapparaten, bijv. de TV
 
 Inzien en loggen:
-- status van internetverbinding
-- de upload- en downloadsnelheid van internet
+- status van internetverbinding, upload-/downloadsnelheid en pakketfouten
+- CPU- en geheugengebruik van de router
 - verbindingsstatus van aangesloten apparaten
-- WiFi-kwaliteit en bandbreedte per apparaat
+- WiFi-kwaliteit (Signaal, SNR, MCS, Kanaalbreedte), bandbreedte en dominant protocol per apparaat
 - Energieverbruik per apparaat
 
 Reageer op:
@@ -36,4 +36,4 @@ Energiemonitoring:
 Na het toevoegen van uw router aan Homey, kunt u extra apparaten toevoegen die u wilt monitoren op stroomverbruik, bijv. uw TV of printer. Voer in de geavanceerde apparaatinstellingen het geschatte / gemiddelde stroomverbruik van het apparaat in wanneer het UIT of AAN staat. Wanneer u nu uw TV aanzet, ziet u dat het geschatte vermogen wordt opgenomen in het Homey Energie-tabblad.
 
 Ondersteunde routers:
-Deze app is ontwikkeld en getest op een Netgear R7800 router die draait op OpenWRT 24.10. Het zou compatibel moeten zijn met alle OpenWRT-routers die firmware 24.10 of hoger draaien.
+Deze app is ontwikkeld en getest op Netgear R7800 routers die draaien op recente OpenWRT versies (22.03 en nieuwer). Het zou compatibel moeten zijn met de meeste routers die OpenWRT firmware 21.02 of hoger draaien.

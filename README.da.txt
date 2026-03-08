@@ -6,10 +6,10 @@ Tilstedeværelsesdetektion, netværksstyring, energiovervågning
 - Overvåg energiforbruget for dine netværksenheder, f.eks. TV'et.
 
 Se og log:
-- internetforbindelsesstatus
-- internet upload- og downloadhastighed
+- internetforbindelsesstatus, upload-/downloadhastighed og pakkefejl
+- CPU- og hukommelsesudnyttelse af routeren
 - forbindelsesstatus for tilsluttede enheder
-- WiFi-kvalitet og båndbredde pr. enhed
+- WiFi-kvalitet (Signal, SNR, MCS, Kanalbredde), båndbredde og dominerende protokol pr. enhed
 - Energiforbrug pr. enhed
 
 Reager på:
@@ -35,4 +35,4 @@ Energiovervågning:
 Efter at have tilføjet din router til Homey, kan du tilføje yderligere enheder, som du vil overvåge for strøm, f.eks. dit TV eller printer. I avancerede enhedsindstillinger indtastes det estimerede / gennemsnitlige strømforbrug for enheden, når den er SLUKKET eller TÆNDT. Når du nu tænder dit TV, vil du se, at det estimerede strømforbrug er inkluderet i Homey Energi-fanen.
 
 Understøttede routere:
-Denne app er udviklet og testet på en Netgear R7800 router, der kører OpenWRT 24.10. Den bør være kompatibel med alle OpenWRT-routere, der kører firmware 24.10 eller højere.
+Denne app er udviklet og testet på Netgear R7800-routere, der kører nyere OpenWRT-versioner (22.03 og nyere). Den bør være kompatibel med de fleste routere, der kører OpenWRT-firmware 21.02 eller højere.

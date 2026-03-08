@@ -6,10 +6,10 @@ Détection de présence, Contrôle réseau, Surveillance énergétique
 - Surveillez la consommation d'énergie de vos appareils réseau, par ex. la TV
 
 Voir et journaliser :
-- statut de la connexion internet
-- vitesse de téléchargement et d'envoi internet
+- statut de la connexion internet, vitesse de téléchargement/envoi et erreurs de paquets
+- utilisation du CPU et de la mémoire du routeur
 - statut de connexion des appareils connectés
-- qualité WiFi et bande passante par appareil
+- qualité WiFi (Signal, SNR, MCS, Largeur de canal), bande passante et protocole dominant par appareil
 - consommation d'énergie par appareil
 
 Agir sur :
@@ -35,4 +35,4 @@ Surveillance énergétique :
 Après avoir ajouté votre routeur à Homey, vous pouvez ajouter des appareils supplémentaires que vous souhaitez surveiller pour la consommation, par ex. votre TV ou imprimante. Dans les paramètres avancés de l'appareil, entrez la consommation électrique estimée / moyenne de l'appareil lorsqu'il est ÉTEINT ou ALLUMÉ. Maintenant, lorsque vous allumez votre TV, vous verrez que la puissance estimée est incluse dans l'onglet Énergie de Homey.
 
 Routeurs supportés :
-Cette application a été développée et testée sur un routeur Netgear R7800 exécutant OpenWRT 24.10. Elle devrait être compatible avec tous les routeurs OpenWRT exécutant le firmware 24.10 ou supérieur.
+Cette application a été développée et testée sur des routeurs Netgear R7800 exécutant des versions récentes d'OpenWRT (22.03 et plus récentes). Elle devrait être compatible avec la plupart des routeurs exécutant le firmware OpenWRT 21.02 ou supérieur.

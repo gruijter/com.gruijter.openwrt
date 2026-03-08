@@ -6,10 +6,10 @@ Wykrywanie obecności, sterowanie siecią, monitorowanie energii
 - Monitoruj zużycie energii przez urządzenia sieciowe, np. telewizor.
 
 Zobacz i rejestruj:
-- status połączenia internetowego
-- prędkość wysyłania i pobierania danych z internetu
+- status połączenia internetowego, prędkość wysyłania/pobierania i błędy pakietów
+- wykorzystanie procesora i pamięci routera
 - status połączenia podłączonych urządzeń
-- jakość WiFi i przepustowość na urządzenie
+- jakość WiFi (Sygnał, SNR, MCS, Szerokość kanału), przepustowość i dominujący protokół na urządzenie
 - zużycie energii na urządzenie
 
 Reaguj na:
@@ -35,4 +35,4 @@ Monitorowanie energii:
 Po dodaniu routera do Homey możesz dodać dodatkowe urządzenia, które chcesz monitorować pod kątem zużycia energii, np. telewizor lub drukarkę. W zaawansowanych ustawieniach urządzenia wprowadź szacowane / średnie zużycie energii przez urządzenie, gdy jest WYŁĄCZONE lub WŁĄCZONE. Teraz, gdy włączysz telewizor, zobaczysz, że szacowana moc jest uwzględniona w zakładce Energia Homey.
 
 Obsługiwane routery:
-Ta aplikacja została opracowana i przetestowana na routerze Netgear R7800 z systemem OpenWRT 24.10. Powinna być kompatybilna ze wszystkimi routerami OpenWRT z oprogramowaniem układowym 24.10 lub nowszym.
+Ta aplikacja została opracowana i przetestowana na routerach Netgear R7800 z nowszymi wersjami OpenWRT (22.03 i nowsze). Powinna być kompatybilna z większością routerów z oprogramowaniem OpenWRT 21.02 lub nowszym.
