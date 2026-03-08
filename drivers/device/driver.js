@@ -2,9 +2,21 @@
 
 const Homey = require('homey');
 
-const capabilities = ['device_connected', 'ip_address', 'name_in_router', 'router_name', 'port', 'measure_link_speed',
-  'firewall_zone', 'measure_connections', 'measure_signal_strength', 'measure_signal_strength.snr',
-  'measure_download_speed', 'measure_upload_speed', 'onoff'];
+const capabilities = [
+  'device_connected',
+  'ip_address',
+  'name_in_router',
+  'router_name',
+  'port',
+  'measure_link_speed',
+  'firewall_zone',
+  'measure_connections',
+  'measure_signal_strength',
+  'measure_signal_strength.snr',
+  'measure_download_speed',
+  'measure_upload_speed',
+  'onoff',
+];
 
 module.exports = class MyDriver extends Homey.Driver {
 
