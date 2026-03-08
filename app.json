@@ -1638,6 +1638,7 @@
         "measure_attached_devices",
         "measure_signal_strength",
         "measure_cpu_utilization",
+        "measure_cpu_scaling",
         "measure_mem_utilization",
         "measure_temperature",
         "measure_attached_devices.wifi_2_4",
@@ -2366,6 +2367,41 @@
       "setable": false,
       "insights": true,
       "icon": "./assets/connections.svg"
+    },
+    "measure_cpu_scaling": {
+      "type": "number",
+      "title": {
+        "en": "CPU scaling",
+        "nl": "CPU schaling",
+        "pl": "Skalowanie CPU",
+        "da": "CPU skalering",
+        "de": "CPU Skalierung",
+        "es": "Escalado de CPU",
+        "fr": "Mise à l'échelle du CPU",
+        "it": "Scalabilità della CPU",
+        "no": "CPU skalering",
+        "sv": "CPU skalning",
+        "ru": "Масштабирование ЦП",
+        "ko": "CPU 스케일링"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "da": "%",
+        "de": "%",
+        "es": "%",
+        "fr": "%",
+        "it": "%",
+        "no": "%",
+        "sv": "%",
+        "pl": "%",
+        "ru": "%",
+        "ko": "%"
+      },
+      "decimals": 0,
+      "insights": true,
+      "icon": "./assets/cpu_utilization.svg"
     },
     "measure_cpu_utilization": {
       "type": "number",

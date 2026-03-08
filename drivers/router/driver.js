@@ -7,6 +7,7 @@ const commonCaps = [
   'uptime',
   'measure_temperature',
   'measure_cpu_utilization',
+  'measure_cpu_scaling',
   'measure_mem_utilization',
 ];
 const dhcpCaps = [

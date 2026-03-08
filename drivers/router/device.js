@@ -434,6 +434,7 @@ class RouterDevice extends Device {
         uptime: this.parseUptime(routerInfo?.uptime),
         measure_temperature: routerInfo?.temperature || null,
         measure_cpu_utilization: routerInfo?.cpuUsage || 0,
+        measure_cpu_scaling: routerInfo?.cpuScaling ?? null,
         measure_mem_utilization: routerInfo?.memory?.usage || 0,
       };
       const dhcpStates = {
