@@ -17,6 +17,7 @@ const routerCaps = [
   'alarm_connectivity',
   'measure_download_speed',
   'measure_upload_speed',
+  'measure_packet_errors',
 ];
 const wifiCaps24 = [
   'measure_attached_devices.wifi_2_4',

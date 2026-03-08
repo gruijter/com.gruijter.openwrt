@@ -1,0 +1,25 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Packet errors",
+    "nl": "Pakketfouten",
+    "de": "Paketfehler",
+    "fr": "Erreurs de paquets",
+    "it": "Errori pacchetti",
+    "sv": "Paketfel",
+    "no": "Pakke feil",
+    "es": "Errores de paquetes",
+    "da": "Pakke fejl",
+    "pl": "Błędy pakietów",
+    "ru": "Ошибки пакетов",
+    "ko": "패킷 오류"
+  },
+  "units": {
+    "en": "err/min"
+  },
+  "getable": true,
+  "setable": false,
+  "decimals": 0,
+  "insights": true,
+  "icon": "./assets/packet_errors.svg"
+}

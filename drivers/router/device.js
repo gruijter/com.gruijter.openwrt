@@ -312,12 +312,19 @@ class RouterDevice extends Device {
       let wanDs = Math.round(((8 * (newRx - oldRx)) / deltaTime)) / 1000;
       let wanUs = Math.round(((8 * (newTx - oldTx)) / deltaTime)) / 1000;
 
+      // Calculate packet error rate (errors per minute)
+      const getErrors = (stats) => (stats?.rxErrors || 0) + (stats?.rxDrops || 0) + (stats?.txErrors || 0) + (stats?.txDrops || 0);
+      const newErrors = getErrors(newstats?.wan?.stats);
+      const oldErrors = getErrors(oldstats?.wan?.stats);
+      let wanErrorRate = Math.round((newErrors - oldErrors) * (60000 / deltaTime));
+
       // Handle counter reset (negative speed) or invalid data
       if (wanDs < 0 || Number.isNaN(wanDs)) wanDs = 0;
       if (wanUs < 0 || Number.isNaN(wanUs)) wanUs = 0;
+      if (wanErrorRate < 0 || Number.isNaN(wanErrorRate)) wanErrorRate = 0;
 
       return {
-        wanDs, wanUs,
+        wanDs, wanUs, wanErrorRate,
       };
     } catch (error) {
       this.error(error);
@@ -445,6 +452,7 @@ class RouterDevice extends Device {
         alarm_connectivity: !routerInfo?.wan?.up,
         measure_download_speed: speeds.wanDs || 0,
         measure_upload_speed: speeds.wanUs || 0,
+        measure_packet_errors: speeds.wanErrorRate || 0,
       };
       const wifi24 = routerInfo.wifi.find((wifi) => wifi.frequency < 2500);
       const wifiStates24 = {

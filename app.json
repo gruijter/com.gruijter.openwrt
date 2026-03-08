@@ -1635,6 +1635,7 @@
         "alarm_connectivity",
         "measure_download_speed",
         "measure_upload_speed",
+        "measure_packet_errors",
         "measure_attached_devices",
         "measure_signal_strength",
         "measure_cpu_utilization",
@@ -2553,6 +2554,31 @@
       "decimals": 0,
       "insights": true,
       "icon": "./assets/mem_utilization.svg"
+    },
+    "measure_packet_errors": {
+      "type": "number",
+      "title": {
+        "en": "Packet errors",
+        "nl": "Pakketfouten",
+        "de": "Paketfehler",
+        "fr": "Erreurs de paquets",
+        "it": "Errori pacchetti",
+        "sv": "Paketfel",
+        "no": "Pakke feil",
+        "es": "Errores de paquetes",
+        "da": "Pakke fejl",
+        "pl": "Błędy pakietów",
+        "ru": "Ошибки пакетов",
+        "ko": "패킷 오류"
+      },
+      "units": {
+        "en": "err/min"
+      },
+      "getable": true,
+      "setable": false,
+      "decimals": 0,
+      "insights": true,
+      "icon": "./assets/packet_errors.svg"
     },
     "measure_upload_speed": {
       "type": "number",

@@ -96,7 +96,8 @@ async function runTest() {
     console.log(`\n=== Poll #${i} ===`);
     const routerData = [];
 
-    for (const { router, staticInfo, ip } of routerInstances) {
+    for (const instance of routerInstances) {
+      const { router, staticInfo, ip } = instance;
       try {
         console.time(`[${ip}] getRouterStatus`);
         const status = await router.getRouterStatus();
@@ -105,8 +106,19 @@ async function runTest() {
         const cpuFreq = status.routerInfo.cpuFreq && status.routerInfo.cpuFreq.length ? ` (${status.routerInfo.cpuFreq.join('/')} MHz)` : '';
         const cpuScaling = status.routerInfo.cpuScaling !== null ? ` [${status.routerInfo.cpuScaling}%]` : '';
         const cpuUsage = status.routerInfo.cpuUsage !== null ? `${status.routerInfo.cpuUsage}%` : 'calc...';
+        const currentErrors = (status.routerInfo.wan?.stats?.rxErrors || 0)
+          + (status.routerInfo.wan?.stats?.rxDrops || 0)
+          + (status.routerInfo.wan?.stats?.txErrors || 0)
+          + (status.routerInfo.wan?.stats?.txDrops || 0);
 
-        console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%`);
+        let errorRate = 0;
+        const now = Date.now();
+        if (instance.lastStats && (now - instance.lastStats.time > 0)) {
+          errorRate = Math.round((currentErrors - instance.lastStats.errors) * (60000 / (now - instance.lastStats.time)));
+        }
+        instance.lastStats = { time: now, errors: currentErrors };
+
+        console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%, PktErr: ${errorRate}/min`);
 
         // Firewall Check (Sample on first run)
         if (i === 1 && status.attachedDevices.length > 0) {
