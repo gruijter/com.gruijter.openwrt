@@ -1,0 +1,23 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Active online",
+    "nl": "Actief online",
+    "da": "Aktiv online",
+    "de": "Aktiv online",
+    "es": "Activo en línea",
+    "fr": "Actif en ligne",
+    "it": "Attivo online",
+    "no": "Aktiv på nett",
+    "sv": "Aktiv online",
+    "pl": "Aktywny online",
+    "ru": "Активен в сети",
+    "ko": "온라인 활성",
+    "ar": "نشط على الإنترنت"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "./assets/active_online.svg"
+}

@@ -261,6 +261,26 @@ module.exports = class MyDevice extends Homey.Device {
 
       const band = deviceInfo?.wifi?.frequency ? deviceInfo.wifi.frequency / 1000 : 0;
 
+      // Determine if device is active based on traffic threshold (0.008 Mbps = 8 Kbps)
+      const traffic = nextWanUp + nextWanDown;
+      const threshold = 0.008;
+      const now = Date.now();
+
+      // Initialize expiry if undefined
+      if (!this.activityExpiry) this.activityExpiry = 0;
+
+      // Robust Active Detection (Leaky Bucket / Timer)
+      // Only extend timer if we have FRESH speed data exceeding threshold.
+      // This filters out the "train" of duplicate updates (where speeds is null)
+      // and ensures we don't extend based on stale data.
+      if (speeds && traffic > threshold) {
+        this.activityExpiry = now + 90000; // 90 seconds hysteresis
+      }
+
+      const currentActive = this.getCapabilityValue('active_online') || false;
+      // Check if timer is still valid
+      const isActive = now < this.activityExpiry;
+
       const capabilityStates = {
         device_connected: isConnected,
         ip_address: isConnected ? (deviceInfo.ip || '') : '',
@@ -278,6 +298,7 @@ module.exports = class MyDevice extends Homey.Device {
         'measure_frequency.width': (isConnected && isWifi) ? (deviceInfo?.wifi?.rxChannelWidth || 0) : null,
         measure_mcs_index: (isConnected && isWifi) ? (deviceInfo?.wifi?.rxMcs ?? null) : null,
         protocol: isConnected ? protocol : '',
+        active_online: isActive,
         'measure_frequency.band': (isConnected && isWifi) ? band : null,
       };
 

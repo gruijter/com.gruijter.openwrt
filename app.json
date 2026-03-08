@@ -2984,6 +2984,29 @@
     }
   ],
   "capabilities": {
+    "active_online": {
+      "type": "boolean",
+      "title": {
+        "en": "Active online",
+        "nl": "Actief online",
+        "da": "Aktiv online",
+        "de": "Aktiv online",
+        "es": "Activo en línea",
+        "fr": "Actif en ligne",
+        "it": "Attivo online",
+        "no": "Aktiv på nett",
+        "sv": "Aktiv online",
+        "pl": "Aktywny online",
+        "ru": "Активен в сети",
+        "ko": "온라인 활성",
+        "ar": "نشط على الإنترنت"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/active_online.svg"
+    },
     "device_connected": {
       "type": "boolean",
       "title": {
@@ -3204,32 +3227,6 @@
       "decimals": 2,
       "insights": true,
       "icon": "./assets/download_speed.svg"
-    },
-    "measure_inactive_time": {
-      "type": "number",
-      "title": {
-        "en": "Inactive Time",
-        "nl": "Inactieve tijd",
-        "de": "Inaktive Zeit",
-        "fr": "Temps inactif",
-        "it": "Tempo inattivo",
-        "sv": "Inaktiv tid",
-        "no": "Inaktiv tid",
-        "es": "Tiempo inactivo",
-        "da": "Inaktiv tid",
-        "pl": "Czas nieaktywności",
-        "ru": "Время бездействия",
-        "ko": "비활성 시간",
-        "ar": "وقت الخمول"
-      },
-      "units": {
-        "en": "min"
-      },
-      "getable": true,
-      "setable": false,
-      "insights": true,
-      "decimals": 0,
-      "icon": "./assets/uptime.svg"
     },
     "measure_link_speed": {
       "type": "number",
@@ -3487,6 +3484,32 @@
       "getable": true,
       "setable": false,
       "insights": true,
+      "icon": "./assets/uptime.svg"
+    },
+    "zzz_measure_inactive_time": {
+      "type": "number",
+      "title": {
+        "en": "Inactive Time",
+        "nl": "Inactieve tijd",
+        "de": "Inaktive Zeit",
+        "fr": "Temps inactif",
+        "it": "Tempo inattivo",
+        "sv": "Inaktiv tid",
+        "no": "Inaktiv tid",
+        "es": "Tiempo inactivo",
+        "da": "Inaktiv tid",
+        "pl": "Czas nieaktywności",
+        "ru": "Время бездействия",
+        "ko": "비활성 시간",
+        "ar": "وقت الخمول"
+      },
+      "units": {
+        "en": "min"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "decimals": 0,
       "icon": "./assets/uptime.svg"
     }
   }
