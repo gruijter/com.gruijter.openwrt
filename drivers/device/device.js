@@ -198,8 +198,9 @@ module.exports = class MyDevice extends Homey.Device {
       const isWifi = deviceInfo.connectedVia === 'wifi';
 
       // --- Inactive Time Calculation ---
-      let inactiveTime = 0;
+      let inactiveTime = null;
       if (isConnected) {
+        inactiveTime = 0;
         if (isWifi && typeof deviceInfo?.wifi?.inactiveTime === 'number') {
           // 1. Use precise WiFi inactive time if available
           inactiveTime = Math.round(deviceInfo.wifi.inactiveTime / 60000);
@@ -293,19 +294,19 @@ module.exports = class MyDevice extends Homey.Device {
         name_in_router: deviceInfo.name || '',
         router_name: isConnected ? (deviceInfo.routerName || '') : '',
         port: isConnected ? (deviceInfo.port || '') : '',
-        measure_link_speed: isConnected ? (parseInt(deviceInfo.linkSpeed, 10) || 0) : 0,
+        measure_link_speed: isConnected ? (parseInt(deviceInfo.linkSpeed, 10) || 0) : null,
         firewall_zone: isConnected ? (deviceInfo.firewallZone || '') : '',
-        measure_connections: isConnected ? (deviceInfo?.traffic?.connections?.total || 0) : 0,
+        measure_connections: isConnected ? (deviceInfo?.traffic?.connections?.total || 0) : null,
         measure_signal_strength: (isConnected && isWifi) ? (deviceInfo?.wifi?.signal ?? null) : null,
         'measure_signal_strength.snr': (isConnected && isWifi) ? deviceInfo?.wifi?.snr : null,
-        measure_upload_speed: isConnected ? nextWanUp : 0,
-        measure_download_speed: isConnected ? nextWanDown : 0,
+        measure_upload_speed: isConnected ? nextWanUp : null,
+        measure_download_speed: isConnected ? nextWanDown : null,
         onoff: isConnected,
-        'measure_frequency.width': (isConnected && isWifi) ? (deviceInfo?.wifi?.rxChannelWidth || 0) : 0,
+        'measure_frequency.width': (isConnected && isWifi) ? (deviceInfo?.wifi?.rxChannelWidth || 0) : null,
         measure_mcs_index: (isConnected && isWifi) ? (deviceInfo?.wifi?.rxMcs ?? null) : null,
         measure_inactive_time: inactiveTime,
         protocol: isConnected ? protocol : '',
-        'measure_frequency.band': (isConnected && isWifi) ? band : 0,
+        'measure_frequency.band': (isConnected && isWifi) ? band : null,
       };
 
       // set the capabilities

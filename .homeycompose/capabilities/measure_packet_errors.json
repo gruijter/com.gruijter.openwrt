@@ -16,7 +16,7 @@
     "ar": "أخطاء الحزمة"
   },
   "units": {
-    "en": "err/min"
+    "en": "Err/min"
   },
   "getable": true,
   "setable": false,

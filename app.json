@@ -69,7 +69,19 @@
     "triggers": [
       {
         "title": {
-          "en": "A device came online"
+          "en": "A device came online",
+          "nl": "Een apparaat kwam online",
+          "da": "En enhed kom online",
+          "de": "Ein Gerät ging online",
+          "es": "Un dispositivo se conectó",
+          "fr": "Un appareil s'est connecté",
+          "it": "Un dispositivo è andato online",
+          "no": "En enhet kom på nett",
+          "sv": "En enhet kom online",
+          "pl": "Urządzenie przeszło w tryb online",
+          "ru": "Устройство появилось в сети",
+          "ko": "장치가 온라인 상태가 됨",
+          "ar": "جهاز أصبح متصلاً"
         },
         "highlight": true,
         "args": [
@@ -345,7 +357,19 @@
       },
       {
         "title": {
-          "en": "Device metrics changed"
+          "en": "Device metrics changed",
+          "nl": "Apparaatstatistieken gewijzigd",
+          "da": "Enhedsmålinger ændret",
+          "de": "Gerätemetriken geändert",
+          "es": "Métricas del dispositivo cambiadas",
+          "fr": "Métriques de l'appareil modifiées",
+          "it": "Metriche del dispositivo modificate",
+          "no": "Enhetsmålinger endret",
+          "sv": "Enhetsmätvärden ändrade",
+          "pl": "Zmieniono metryki urządzenia",
+          "ru": "Метрики устройства изменены",
+          "ko": "장치 메트릭 변경됨",
+          "ar": "تغيرت مقاييس الجهاز"
         },
         "highlight": true,
         "args": [
@@ -362,7 +386,17 @@
             "title": {
               "en": "mac",
               "nl": "mac",
-              "de": "MAC"
+              "de": "MAC",
+              "da": "MAC",
+              "es": "MAC",
+              "fr": "MAC",
+              "it": "MAC",
+              "no": "MAC",
+              "sv": "MAC",
+              "pl": "MAC",
+              "ru": "MAC",
+              "ko": "MAC",
+              "ar": "MAC"
             },
             "example": "AA:BB:CC:DD:EE:FF"
           },
@@ -372,7 +406,17 @@
             "title": {
               "en": "name",
               "nl": "naam",
-              "de": "Name"
+              "de": "Name",
+              "da": "navn",
+              "es": "nombre",
+              "fr": "nom",
+              "it": "nome",
+              "no": "navn",
+              "sv": "namn",
+              "pl": "nazwa",
+              "ru": "имя",
+              "ko": "이름",
+              "ar": "الاسم"
             },
             "example": "iPhone"
           },
@@ -382,7 +426,17 @@
             "title": {
               "en": "ip",
               "nl": "ip",
-              "de": "IP"
+              "de": "IP",
+              "da": "IP",
+              "es": "IP",
+              "fr": "IP",
+              "it": "IP",
+              "no": "IP",
+              "sv": "IP",
+              "pl": "IP",
+              "ru": "IP",
+              "ko": "IP",
+              "ar": "IP"
             },
             "example": "10.0.0.10"
           },
@@ -390,7 +444,19 @@
             "name": "routerName",
             "type": "string",
             "title": {
-              "en": "router name"
+              "en": "router name",
+              "nl": "routernaam",
+              "da": "routernavn",
+              "de": "Routername",
+              "es": "Nombre del router",
+              "fr": "Nom du routeur",
+              "it": "Nome del router",
+              "no": "routernavn",
+              "sv": "Routernamn",
+              "pl": "nazwa routera",
+              "ru": "имя маршрутизатора",
+              "ko": "라우터 이름",
+              "ar": "اسم الراوتر"
             },
             "example": "OpenWRT-Router"
           },
@@ -398,7 +464,19 @@
             "name": "port",
             "type": "string",
             "title": {
-              "en": "port"
+              "en": "port",
+              "nl": "poort",
+              "da": "port",
+              "de": "Port",
+              "es": "Puerto",
+              "fr": "Port",
+              "it": "porta",
+              "no": "port",
+              "sv": "port",
+              "pl": "port",
+              "ru": "порт",
+              "ko": "포트",
+              "ar": "منفذ"
             },
             "example": "lan3"
           },
@@ -406,7 +484,19 @@
             "name": "linkSpeed",
             "type": "string",
             "title": {
-              "en": "Eth link speed"
+              "en": "Eth link speed",
+              "nl": "Link-snelheid (Mb/s)",
+              "da": "Linkhastighed (Mb/s)",
+              "de": "Link-Geschwindigkeit (Mb/s)",
+              "es": "Velocidad de enlace (Mb/s)",
+              "fr": "Vitesse du lien (Mb/s)",
+              "it": "Velocità del link (Mb/s)",
+              "no": "Lenkehastighet (Mb/s)",
+              "sv": "Länkhastighet (Mb/s)",
+              "pl": "Prędkość łącza (Mb/s)",
+              "ru": "Скорость канала (Mb/s)",
+              "ko": "링크 속도 (Mb/s)",
+              "ar": "سرعة الرابط (Mb/s)"
             },
             "example": "100 MB/s"
           },
@@ -414,7 +504,19 @@
             "name": "wifiSsid",
             "type": "string",
             "title": {
-              "en": "wifi ssid"
+              "en": "wifi ssid",
+              "nl": "wifi SSID",
+              "de": "WLAN-SSID",
+              "da": "WiFi-SSID",
+              "es": "SSID de WiFi",
+              "fr": "SSID Wi‑Fi",
+              "it": "SSID Wi‑Fi",
+              "no": "WiFi-SSID",
+              "sv": "WiFi-SSID",
+              "pl": "SSID WiFi",
+              "ru": "SSID WiFi",
+              "ko": "와이파이 SSID",
+              "ar": "SSID"
             },
             "example": "GUEST_WIFI"
           },
@@ -422,7 +524,19 @@
             "name": "wifiSignal",
             "type": "number",
             "title": {
-              "en": "wifi signal (dBm)"
+              "en": "wifi signal (dBm)",
+              "nl": "WiFi-signaal (dBm)",
+              "da": "WiFi-signal (dBm)",
+              "de": "WiFi-Signal (dBm)",
+              "es": "Señal WiFi (dBm)",
+              "fr": "Signal Wi‑Fi (dBm)",
+              "it": "Segnale Wi‑Fi (dBm)",
+              "no": "WiFi-signal (dBm)",
+              "sv": "WiFi-signal (dBm)",
+              "pl": "Sygnał WiFi (dBm)",
+              "ru": "Сигнал WiFi (dBm)",
+              "ko": "와이파이 신호 (dBm)",
+              "ar": "إشارة WiFi (dBm)"
             },
             "example": -46
           },
@@ -430,7 +544,19 @@
             "name": "wifiSnr",
             "type": "number",
             "title": {
-              "en": "wifi S/NR (dB)"
+              "en": "wifi S/NR (dB)",
+              "nl": "WiFi SNR (dB)",
+              "da": "WiFi-SNR (dB)",
+              "de": "WiFi-SNR (dB)",
+              "es": "SNR de WiFi (dB)",
+              "fr": "SNR Wi‑Fi (dB)",
+              "it": "SNR WiFi (dB)",
+              "no": "WiFi-SNR (dB)",
+              "sv": "WiFi-SNR (dB)",
+              "pl": "SNR WiFi (dB)",
+              "ru": "SNR WiFi (dB)",
+              "ko": "와이파이 SNR (dB)",
+              "ar": "مُعامل الإشارة لشبكة WiFi (dB)"
             },
             "example": 27
           },
@@ -438,7 +564,19 @@
             "name": "rxBytes",
             "type": "number",
             "title": {
-              "en": "Rx traffic (bytes)"
+              "en": "Rx traffic (bytes)",
+              "nl": "Rx-verkeer (bytes)",
+              "de": "Rx-Verkehr (Bytes)",
+              "da": "Rx-trafik (bytes)",
+              "es": "Tráfico Rx (bytes)",
+              "fr": "Trafic RX (octets)",
+              "it": "Traffico RX (byte)",
+              "no": "Rx-trafikk (bytes)",
+              "sv": "Rx-trafik (bytes)",
+              "pl": "Ruch Rx (bajtów)",
+              "ru": "Rx-трафик (байты)",
+              "ko": "Rx 트래픽 (바이트)",
+              "ar": "حركة الاستقبال (بايت)"
             },
             "example": 1026324
           },
@@ -446,7 +584,19 @@
             "name": "txBytes",
             "type": "number",
             "title": {
-              "en": "Tx traffic (bytes)"
+              "en": "Tx traffic (bytes)",
+              "nl": "Tx-verkeer (bytes)",
+              "de": "Tx-Verkehr (Bytes)",
+              "da": "Tx-trafik (bytes)",
+              "es": "Tráfico Tx (bytes)",
+              "fr": "Trafic TX (octets)",
+              "it": "Traffico TX (byte)",
+              "no": "Tx-trafikk (bytes)",
+              "sv": "Tx-trafik (bytes)",
+              "pl": "Ruch Tx (bajtów)",
+              "ru": "Tx-трафик (байты)",
+              "ko": "Tx 트래픽 (바이트)",
+              "ar": "حركة الإرسال (بايت)"
             },
             "example": 827690
           },
@@ -454,7 +604,19 @@
             "name": "network",
             "type": "string",
             "title": {
-              "en": "network"
+              "en": "network",
+              "nl": "netwerk",
+              "da": "netværk",
+              "de": "Netzwerk",
+              "es": "red",
+              "fr": "réseau",
+              "it": "rete",
+              "no": "nettverk",
+              "sv": "nätverk",
+              "pl": "sieć",
+              "ru": "сеть",
+              "ko": "네트워크",
+              "ar": "الشبكة"
             },
             "example": "['GUEST_WIFI']"
           }
@@ -463,7 +625,19 @@
       },
       {
         "title": {
-          "en": "New connected device"
+          "en": "New connected device",
+          "nl": "Nieuw verbonden apparaat",
+          "da": "Ny tilsluttet enhed",
+          "de": "Neues verbundenes Gerät",
+          "es": "Nuevo dispositivo conectado",
+          "fr": "Nouvel appareil connecté",
+          "it": "Nuovo dispositivo connesso",
+          "no": "Ny tilkoblet enhet",
+          "sv": "Ny ansluten enhet",
+          "pl": "Nowe podłączone urządzenie",
+          "ru": "Новое подключенное устройство",
+          "ko": "새로운 연결된 장치",
+          "ar": "جهاز متصل جديد"
         },
         "highlight": true,
         "args": [
@@ -480,7 +654,17 @@
             "title": {
               "en": "mac",
               "nl": "mac",
-              "de": "MAC"
+              "de": "MAC",
+              "da": "MAC",
+              "es": "MAC",
+              "fr": "MAC",
+              "it": "MAC",
+              "no": "MAC",
+              "sv": "MAC",
+              "pl": "MAC",
+              "ru": "MAC",
+              "ko": "MAC",
+              "ar": "MAC"
             },
             "example": "AA:BB:CC:DD:EE:FF"
           },
@@ -490,7 +674,17 @@
             "title": {
               "en": "name",
               "nl": "naam",
-              "de": "Name"
+              "de": "Name",
+              "da": "navn",
+              "es": "nombre",
+              "fr": "nom",
+              "it": "nome",
+              "no": "navn",
+              "sv": "namn",
+              "pl": "nazwa",
+              "ru": "имя",
+              "ko": "이름",
+              "ar": "الاسم"
             },
             "example": "iPhone"
           },
@@ -500,7 +694,17 @@
             "title": {
               "en": "ip",
               "nl": "ip",
-              "de": "IP"
+              "de": "IP",
+              "da": "IP",
+              "es": "IP",
+              "fr": "IP",
+              "it": "IP",
+              "no": "IP",
+              "sv": "IP",
+              "pl": "IP",
+              "ru": "IP",
+              "ko": "IP",
+              "ar": "IP"
             },
             "example": "10.0.0.10"
           },
@@ -508,7 +712,19 @@
             "name": "routerName",
             "type": "string",
             "title": {
-              "en": "router name"
+              "en": "router name",
+              "nl": "routernaam",
+              "da": "routernavn",
+              "de": "Routername",
+              "es": "Nombre del router",
+              "fr": "Nom du routeur",
+              "it": "Nome del router",
+              "no": "routernavn",
+              "sv": "Routernamn",
+              "pl": "nazwa routera",
+              "ru": "имя маршрутизатора",
+              "ko": "라우터 이름",
+              "ar": "اسم الراوتر"
             },
             "example": "OpenWRT-Router"
           },
@@ -516,7 +732,19 @@
             "name": "port",
             "type": "string",
             "title": {
-              "en": "port"
+              "en": "port",
+              "nl": "poort",
+              "da": "port",
+              "de": "Port",
+              "es": "Puerto",
+              "fr": "Port",
+              "it": "porta",
+              "no": "port",
+              "sv": "port",
+              "pl": "port",
+              "ru": "порт",
+              "ko": "포트",
+              "ar": "منفذ"
             },
             "example": "lan3"
           },
@@ -524,7 +752,19 @@
             "name": "linkSpeed",
             "type": "number",
             "title": {
-              "en": "Link speed (Mb/s)"
+              "en": "Link speed (Mb/s)",
+              "nl": "Link-snelheid (Mb/s)",
+              "da": "Linkhastighed (Mb/s)",
+              "de": "Link-Geschwindigkeit (Mb/s)",
+              "es": "Velocidad de enlace (Mb/s)",
+              "fr": "Vitesse du lien (Mb/s)",
+              "it": "Velocità del link (Mb/s)",
+              "no": "Lenkehastighet (Mb/s)",
+              "sv": "Länkhastighet (Mb/s)",
+              "pl": "Prędkość łącza (Mb/s)",
+              "ru": "Скорость канала (Mb/s)",
+              "ko": "링크 속도 (Mb/s)",
+              "ar": "سرعة الرابط (Mb/s)"
             },
             "example": "100"
           },
@@ -532,7 +772,19 @@
             "name": "wifiSsid",
             "type": "string",
             "title": {
-              "en": "wifi ssid"
+              "en": "wifi ssid",
+              "nl": "wifi SSID",
+              "de": "WLAN-SSID",
+              "da": "WiFi-SSID",
+              "es": "SSID de WiFi",
+              "fr": "SSID Wi‑Fi",
+              "it": "SSID Wi‑Fi",
+              "no": "WiFi-SSID",
+              "sv": "WiFi-SSID",
+              "pl": "SSID WiFi",
+              "ru": "SSID WiFi",
+              "ko": "와이파이 SSID",
+              "ar": "SSID"
             },
             "example": "GUEST_WIFI"
           },
@@ -540,7 +792,19 @@
             "name": "wifiSignal",
             "type": "number",
             "title": {
-              "en": "wifi signal (dBm)"
+              "en": "wifi signal (dBm)",
+              "nl": "WiFi-signaal (dBm)",
+              "da": "WiFi-signal (dBm)",
+              "de": "WiFi-Signal (dBm)",
+              "es": "Señal WiFi (dBm)",
+              "fr": "Signal Wi‑Fi (dBm)",
+              "it": "Segnale Wi‑Fi (dBm)",
+              "no": "WiFi-signal (dBm)",
+              "sv": "WiFi-signal (dBm)",
+              "pl": "Sygnał WiFi (dBm)",
+              "ru": "Сигнал WiFi (dBm)",
+              "ko": "와이파이 신호 (dBm)",
+              "ar": "إشارة WiFi (dBm)"
             },
             "example": -46
           },
@@ -548,7 +812,19 @@
             "name": "wifiSnr",
             "type": "number",
             "title": {
-              "en": "wifi S/NR (dB)"
+              "en": "wifi S/NR (dB)",
+              "nl": "WiFi SNR (dB)",
+              "da": "WiFi-SNR (dB)",
+              "de": "WiFi-SNR (dB)",
+              "es": "SNR de WiFi (dB)",
+              "fr": "SNR Wi‑Fi (dB)",
+              "it": "SNR WiFi (dB)",
+              "no": "WiFi-SNR (dB)",
+              "sv": "WiFi-SNR (dB)",
+              "pl": "SNR WiFi (dB)",
+              "ru": "SNR WiFi (dB)",
+              "ko": "와이파이 SNR (dB)",
+              "ar": "مُعامل الإشارة لشبكة WiFi (dB)"
             },
             "example": 27
           },
@@ -556,7 +832,19 @@
             "name": "rxBytes",
             "type": "number",
             "title": {
-              "en": "Rx traffic (bytes)"
+              "en": "Rx traffic (bytes)",
+              "nl": "Rx-verkeer (bytes)",
+              "de": "Rx-Verkehr (Bytes)",
+              "da": "Rx-trafik (bytes)",
+              "es": "Tráfico Rx (bytes)",
+              "fr": "Trafic RX (octets)",
+              "it": "Traffico RX (byte)",
+              "no": "Rx-trafikk (bytes)",
+              "sv": "Rx-trafik (bytes)",
+              "pl": "Ruch Rx (bajtów)",
+              "ru": "Rx-трафик (байты)",
+              "ko": "Rx 트래픽 (바이트)",
+              "ar": "حركة الاستقبال (بايت)"
             },
             "example": 1026324
           },
@@ -564,7 +852,19 @@
             "name": "txBytes",
             "type": "number",
             "title": {
-              "en": "Tx traffic (bytes)"
+              "en": "Tx traffic (bytes)",
+              "nl": "Tx-verkeer (bytes)",
+              "de": "Tx-Verkehr (Bytes)",
+              "da": "Tx-trafik (bytes)",
+              "es": "Tráfico Tx (bytes)",
+              "fr": "Trafic TX (octets)",
+              "it": "Traffico TX (byte)",
+              "no": "Tx-trafikk (bytes)",
+              "sv": "Tx-trafik (bytes)",
+              "pl": "Ruch Tx (bajtów)",
+              "ru": "Tx-трафик (байты)",
+              "ko": "Tx 트래픽 (바이트)",
+              "ar": "حركة الإرسال (بايت)"
             },
             "example": 827690
           },
@@ -572,7 +872,19 @@
             "name": "network",
             "type": "string",
             "title": {
-              "en": "network"
+              "en": "network",
+              "nl": "netwerk",
+              "da": "netværk",
+              "de": "Netzwerk",
+              "es": "red",
+              "fr": "réseau",
+              "it": "rete",
+              "no": "nettverk",
+              "sv": "nätverk",
+              "pl": "sieć",
+              "ru": "сеть",
+              "ko": "네트워크",
+              "ar": "الشبكة"
             },
             "example": "['GUEST_WIFI']"
           },
@@ -580,7 +892,19 @@
             "name": "firewallZones",
             "type": "string",
             "title": {
-              "en": "firewall zones"
+              "en": "firewall zones",
+              "nl": "firewallzones",
+              "da": "firewall-zoner",
+              "de": "Firewallzonen",
+              "es": "Zonas de firewall",
+              "fr": "Zones de pare-feu",
+              "it": "Zone del firewall",
+              "no": "Brannmursoner",
+              "sv": "Brandväggszoner",
+              "pl": "Strefy zapory",
+              "ru": "Зоны брандмауэра",
+              "ko": "방화벽 영역",
+              "ar": "مناطق جدار الحماية"
             },
             "example": "['GUESTS']"
           }
@@ -589,7 +913,19 @@
       },
       {
         "title": {
-          "en": "A device went offline"
+          "en": "A device went offline",
+          "nl": "Een apparaat ging offline",
+          "da": "En enhed gik offline",
+          "de": "Ein Gerät ging offline",
+          "es": "Un dispositivo se desconectó",
+          "fr": "Un appareil s'est déconnecté",
+          "it": "Un dispositivo è andato offline",
+          "no": "En enhet gikk av nett",
+          "sv": "En enhet gick offline",
+          "pl": "Urządzenie przeszło w tryb offline",
+          "ru": "Устройство вышло из сети",
+          "ko": "장치가 오프라인 상태가 됨",
+          "ar": "جهاز أصبح غير متصل"
         },
         "highlight": true,
         "args": [
@@ -606,7 +942,17 @@
             "title": {
               "en": "mac",
               "nl": "mac",
-              "de": "MAC"
+              "de": "MAC",
+              "da": "MAC",
+              "es": "MAC",
+              "fr": "MAC",
+              "it": "MAC",
+              "no": "MAC",
+              "sv": "MAC",
+              "pl": "MAC",
+              "ru": "MAC",
+              "ko": "MAC",
+              "ar": "MAC"
             },
             "example": "AA:BB:CC:DD:EE:FF"
           },
@@ -616,7 +962,17 @@
             "title": {
               "en": "name",
               "nl": "naam",
-              "de": "Name"
+              "de": "Name",
+              "da": "navn",
+              "es": "nombre",
+              "fr": "nom",
+              "it": "nome",
+              "no": "navn",
+              "sv": "namn",
+              "pl": "nazwa",
+              "ru": "имя",
+              "ko": "이름",
+              "ar": "الاسم"
             },
             "example": "iPhone"
           },
@@ -626,7 +982,17 @@
             "title": {
               "en": "ip",
               "nl": "ip",
-              "de": "IP"
+              "de": "IP",
+              "da": "IP",
+              "es": "IP",
+              "fr": "IP",
+              "it": "IP",
+              "no": "IP",
+              "sv": "IP",
+              "pl": "IP",
+              "ru": "IP",
+              "ko": "IP",
+              "ar": "IP"
             },
             "example": "10.0.0.10"
           },
@@ -634,7 +1000,19 @@
             "name": "routerName",
             "type": "string",
             "title": {
-              "en": "router name"
+              "en": "router name",
+              "nl": "routernaam",
+              "da": "routernavn",
+              "de": "Routername",
+              "es": "Nombre del router",
+              "fr": "Nom du routeur",
+              "it": "Nome del router",
+              "no": "routernavn",
+              "sv": "Routernamn",
+              "pl": "nazwa routera",
+              "ru": "имя маршрутизатора",
+              "ko": "라우터 이름",
+              "ar": "اسم الراوتر"
             },
             "example": "OpenWRT-Router"
           },
@@ -642,7 +1020,19 @@
             "name": "port",
             "type": "string",
             "title": {
-              "en": "port"
+              "en": "port",
+              "nl": "poort",
+              "da": "port",
+              "de": "Port",
+              "es": "Puerto",
+              "fr": "Port",
+              "it": "porta",
+              "no": "port",
+              "sv": "port",
+              "pl": "port",
+              "ru": "порт",
+              "ko": "포트",
+              "ar": "منفذ"
             },
             "example": "lan3"
           },
@@ -650,7 +1040,19 @@
             "name": "linkSpeed",
             "type": "number",
             "title": {
-              "en": "Link speed (Mb/s)"
+              "en": "Link speed (Mb/s)",
+              "nl": "Link-snelheid (Mb/s)",
+              "da": "Linkhastighed (Mb/s)",
+              "de": "Link-Geschwindigkeit (Mb/s)",
+              "es": "Velocidad de enlace (Mb/s)",
+              "fr": "Vitesse du lien (Mb/s)",
+              "it": "Velocità del link (Mb/s)",
+              "no": "Lenkehastighet (Mb/s)",
+              "sv": "Länkhastighet (Mb/s)",
+              "pl": "Prędkość łącza (Mb/s)",
+              "ru": "Скорость канала (Mb/s)",
+              "ko": "링크 속도 (Mb/s)",
+              "ar": "سرعة الرابط (Mb/s)"
             },
             "example": "100"
           },
@@ -658,7 +1060,19 @@
             "name": "wifiSsid",
             "type": "string",
             "title": {
-              "en": "wifi ssid"
+              "en": "wifi ssid",
+              "nl": "wifi SSID",
+              "de": "WLAN-SSID",
+              "da": "WiFi-SSID",
+              "es": "SSID de WiFi",
+              "fr": "SSID Wi‑Fi",
+              "it": "SSID Wi‑Fi",
+              "no": "WiFi-SSID",
+              "sv": "WiFi-SSID",
+              "pl": "SSID WiFi",
+              "ru": "SSID WiFi",
+              "ko": "와이파이 SSID",
+              "ar": "SSID"
             },
             "example": "GUEST_WIFI"
           },
@@ -666,7 +1080,19 @@
             "name": "wifiSignal",
             "type": "number",
             "title": {
-              "en": "wifi signal (dBm)"
+              "en": "wifi signal (dBm)",
+              "nl": "WiFi-signaal (dBm)",
+              "da": "WiFi-signal (dBm)",
+              "de": "WiFi-Signal (dBm)",
+              "es": "Señal WiFi (dBm)",
+              "fr": "Signal Wi‑Fi (dBm)",
+              "it": "Segnale Wi‑Fi (dBm)",
+              "no": "WiFi-signal (dBm)",
+              "sv": "WiFi-signal (dBm)",
+              "pl": "Sygnał WiFi (dBm)",
+              "ru": "Сигнал WiFi (dBm)",
+              "ko": "와이파이 신호 (dBm)",
+              "ar": "إشارة WiFi (dBm)"
             },
             "example": -46
           },
@@ -674,7 +1100,19 @@
             "name": "wifiSnr",
             "type": "number",
             "title": {
-              "en": "wifi S/NR (dB)"
+              "en": "wifi S/NR (dB)",
+              "nl": "WiFi SNR (dB)",
+              "da": "WiFi-SNR (dB)",
+              "de": "WiFi-SNR (dB)",
+              "es": "SNR de WiFi (dB)",
+              "fr": "SNR Wi‑Fi (dB)",
+              "it": "SNR WiFi (dB)",
+              "no": "WiFi-SNR (dB)",
+              "sv": "WiFi-SNR (dB)",
+              "pl": "SNR WiFi (dB)",
+              "ru": "SNR WiFi (dB)",
+              "ko": "와이파이 SNR (dB)",
+              "ar": "مُعامل الإشارة لشبكة WiFi (dB)"
             },
             "example": 27
           },
@@ -682,7 +1120,19 @@
             "name": "rxBytes",
             "type": "number",
             "title": {
-              "en": "Rx traffic (bytes)"
+              "en": "Rx traffic (bytes)",
+              "nl": "Rx-verkeer (bytes)",
+              "de": "Rx-Verkehr (Bytes)",
+              "da": "Rx-trafik (bytes)",
+              "es": "Tráfico Rx (bytes)",
+              "fr": "Trafic RX (octets)",
+              "it": "Traffico RX (byte)",
+              "no": "Rx-trafikk (bytes)",
+              "sv": "Rx-trafik (bytes)",
+              "pl": "Ruch Rx (bajtów)",
+              "ru": "Rx-трафик (байты)",
+              "ko": "Rx 트래픽 (바이트)",
+              "ar": "حركة الاستقبال (بايت)"
             },
             "example": 1026324
           },
@@ -690,7 +1140,19 @@
             "name": "txBytes",
             "type": "number",
             "title": {
-              "en": "Tx traffic (bytes)"
+              "en": "Tx traffic (bytes)",
+              "nl": "Tx-verkeer (bytes)",
+              "de": "Tx-Verkehr (Bytes)",
+              "da": "Tx-trafik (bytes)",
+              "es": "Tráfico Tx (bytes)",
+              "fr": "Trafic TX (octets)",
+              "it": "Traffico TX (byte)",
+              "no": "Tx-trafikk (bytes)",
+              "sv": "Tx-trafik (bytes)",
+              "pl": "Ruch Tx (bajtów)",
+              "ru": "Tx-трафик (байты)",
+              "ko": "Tx 트래픽 (바이트)",
+              "ar": "حركة الإرسال (بايت)"
             },
             "example": 827690
           },
@@ -698,7 +1160,19 @@
             "name": "network",
             "type": "string",
             "title": {
-              "en": "network"
+              "en": "network",
+              "nl": "netwerk",
+              "da": "netværk",
+              "de": "Netzwerk",
+              "es": "red",
+              "fr": "réseau",
+              "it": "rete",
+              "no": "nettverk",
+              "sv": "nätverk",
+              "pl": "sieć",
+              "ru": "сеть",
+              "ko": "네트워크",
+              "ar": "الشبكة"
             },
             "example": "['GUEST_WIFI']"
           },
@@ -706,7 +1180,19 @@
             "name": "firewallZones",
             "type": "string",
             "title": {
-              "en": "firewall zones"
+              "en": "firewall zones",
+              "nl": "firewallzones",
+              "da": "firewall-zoner",
+              "de": "Firewallzonen",
+              "es": "Zonas de firewall",
+              "fr": "Zones de pare-feu",
+              "it": "Zone del firewall",
+              "no": "Brannmursoner",
+              "sv": "Brandväggszoner",
+              "pl": "Strefy zapory",
+              "ru": "Зоны брандмауэра",
+              "ko": "방화벽 영역",
+              "ar": "مناطق جدار الحماية"
             },
             "example": "['GUESTS']"
           }
@@ -717,10 +1203,34 @@
     "conditions": [
       {
         "title": {
-          "en": "Device !{{is|isn't}} online"
+          "en": "Device !{{is|isn't}} online",
+          "nl": "Apparaat !{{is|is niet}} online",
+          "da": "Enhed !{{er|er ikke}} online",
+          "de": "Gerät !{{ist|ist nicht}} online",
+          "es": "Dispositivo !{{está|no está}} en línea",
+          "fr": "Appareil !{{est|n'est pas}} en ligne",
+          "it": "Dispositivo !{{è|non è}} online",
+          "no": "Enhet !{{er|er ikke}} på nett",
+          "sv": "Enhet !{{är|är inte}} online",
+          "pl": "Urządzenie !{{jest|nie jest}} online",
+          "ru": "Устройство !{{в сети|не в сети}}",
+          "ko": "장치가 !{{온라인입니다|오프라인입니다}}",
+          "ar": "الجهاز !{{متصل|غير متصل}}"
         },
         "titleFormatted": {
-          "en": "[[mac]] !{{is|isn't}} online"
+          "en": "[[mac]] !{{is|isn't}} online",
+          "nl": "[[mac]] !{{is|is niet}} online",
+          "da": "[[mac]] !{{er|er ikke}} online",
+          "de": "[[mac]] !{{ist|ist nicht}} online",
+          "es": "[[mac]] !{{está|no está}} en línea",
+          "fr": "[[mac]] !{{est|n'est pas}} en ligne",
+          "it": "[[mac]] !{{è|non è}} online",
+          "no": "[[mac]] !{{er|er ikke}} på nett",
+          "sv": "[[mac]] !{{är|är inte}} online",
+          "pl": "[[mac]] !{{jest|nie jest}} online",
+          "ru": "[[mac]] !{{в сети|не в сети}}",
+          "ko": "[[mac]] !{{온라인입니다|오프라인입니다}}",
+          "ar": "[[mac]] !{{متصل|غير متصل}}"
         },
         "args": [
           {
@@ -743,7 +1253,8 @@
               "da": "Enhed",
               "pl": "Urządzenie",
               "ru": "Устройство",
-              "ko": "장치"
+              "ko": "장치",
+              "ar": "الجهاز"
             },
             "placeholder": {
               "en": "AA:BB:CC:DD:EE:FF"
@@ -757,7 +1268,19 @@
       {
         "id": "getTrafficStats",
         "title": {
-          "en": "Refresh traffic statistics"
+          "en": "Refresh traffic statistics",
+          "nl": "Ververs verkeersstatistieken",
+          "da": "Opdater trafikstatistik",
+          "de": "Verkehrsstatistiken aktualisieren",
+          "es": "Actualizar estadísticas de tráfico",
+          "fr": "Actualiser les statistiques de trafic",
+          "it": "Aggiorna statistiche traffico",
+          "no": "Oppdater trafikkstatistikk",
+          "sv": "Uppdatera trafikstatistik",
+          "pl": "Odśwież statystyki ruchu",
+          "ru": "Обновить статистику трафика",
+          "ko": "트래픽 통계 새로 고침",
+          "ar": "تحديث إحصائيات المرور"
         },
         "args": [
           {
@@ -780,7 +1303,8 @@
           "sv": "Starta om",
           "pl": "Uruchom ponownie",
           "ru": "Перезагрузить",
-          "ko": "재부팅"
+          "ko": "재부팅",
+          "ar": "إعادة تشغيل"
         },
         "highlight": true,
         "args": [
@@ -805,7 +1329,8 @@
           "da": "Aktiver eller deaktiver enhedsadgang",
           "pl": "Włącz lub wyłącz dostęp do urządzenia",
           "ru": "Включить или отключить доступ к устройству",
-          "ko": "장치 액세스 활성화 또는 비활성화"
+          "ko": "장치 액세스 활성화 또는 비활성화",
+          "ar": "تمكين أو تعطيل الوصول للجهاز"
         },
         "titleFormatted": {
           "en": "Set access of [[mac]] for [[blockType]] to [[state]]",
@@ -819,7 +1344,8 @@
           "da": "Sæt adgang for [[mac]] for [[blockType]] til [[state]]",
           "pl": "Ustaw dostęp [[mac]] dla [[blockType]] na [[state]]",
           "ru": "Установить доступ [[mac]] для [[blockType]] в [[state]]",
-          "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정"
+          "ko": "[[blockType]]에 대한 [[mac]]의 액세스를 [[state]]로 설정",
+          "ar": "تعيين وصول [[mac]] لـ [[blockType]] إلى [[state]]"
         },
         "args": [
           {
@@ -842,7 +1368,8 @@
               "da": "Enhed",
               "pl": "Urządzenie",
               "ru": "Устройство",
-              "ko": "장치"
+              "ko": "장치",
+              "ar": "الجهاز"
             },
             "placeholder": {
               "en": "AA:BB:CC:DD:EE:FF"
@@ -863,7 +1390,8 @@
               "da": "Tillad/Bloker",
               "pl": "Zezwól/Zablokuj",
               "ru": "Разрешить/Блокировать",
-              "ko": "허용/차단"
+              "ko": "허용/차단",
+              "ar": "سماح/حظر"
             },
             "values": [
               {
@@ -880,7 +1408,8 @@
                   "da": "Tillad",
                   "pl": "Zezwól",
                   "ru": "Разрешить",
-                  "ko": "허용"
+                  "ko": "허용",
+                  "ar": "سماح"
                 }
               },
               {
@@ -897,7 +1426,8 @@
                   "da": "Bloker",
                   "pl": "Zablokuj",
                   "ru": "Блокировать",
-                  "ko": "차단"
+                  "ko": "차단",
+                  "ar": "حظر"
                 }
               }
             ]
@@ -917,7 +1447,8 @@
               "da": "WAN/LAN/Begge",
               "pl": "WAN/LAN/Oba",
               "ru": "WAN/LAN/Оба",
-              "ko": "WAN/LAN/둘 다"
+              "ko": "WAN/LAN/둘 다",
+              "ar": "WAN/LAN/كلاهما"
             },
             "values": [
               {
@@ -934,7 +1465,8 @@
                   "da": "WAN",
                   "pl": "WAN",
                   "ru": "WAN",
-                  "ko": "WAN"
+                  "ko": "WAN",
+                  "ar": "WAN"
                 }
               },
               {
@@ -951,7 +1483,8 @@
                   "da": "LAN",
                   "pl": "LAN",
                   "ru": "LAN",
-                  "ko": "LAN"
+                  "ko": "LAN",
+                  "ar": "LAN"
                 }
               },
               {
@@ -968,7 +1501,8 @@
                   "da": "Begge",
                   "pl": "Oba",
                   "ru": "Оба",
-                  "ko": "둘 다"
+                  "ko": "둘 다",
+                  "ar": "كلاهما"
                 }
               }
             ]
@@ -1003,7 +1537,8 @@
           "da": "Sæt [[radio]] [[enabled]]",
           "pl": "Ustaw [[radio]] [[enabled]]",
           "ru": "Переключить [[radio]] [[enabled]]",
-          "ko": "[[radio]] [[enabled]]"
+          "ko": "[[radio]] [[enabled]]",
+          "ar": "تحويل [[radio]] [[enabled]]"
         },
         "args": [
           {
@@ -1026,7 +1561,8 @@
               "da": "Wifi-radio",
               "pl": "Radio Wifi",
               "ru": "Радио Wifi",
-              "ko": "Wi-Fi 라디오"
+              "ko": "Wi-Fi 라디오",
+              "ar": "راديو WiFi"
             }
           },
           {
@@ -1044,7 +1580,8 @@
               "da": "Tændt/Slukket",
               "pl": "Włączone/Wyłączone",
               "ru": "Вкл/Выкл",
-              "ko": "켜짐/꺼짐"
+              "ko": "켜짐/꺼짐",
+              "ar": "تشغيل/إيقاف"
             },
             "values": [
               {
@@ -1061,7 +1598,8 @@
                   "da": "Tændt",
                   "pl": "Włączone",
                   "ru": "Вкл",
-                  "ko": "켜짐"
+                  "ko": "켜짐",
+                  "ar": "تشغيل"
                 }
               },
               {
@@ -1078,7 +1616,8 @@
                   "da": "Slukket",
                   "pl": "Wyłączone",
                   "ru": "Выкл",
-                  "ko": "꺼짐"
+                  "ko": "꺼짐",
+                  "ar": "إيقاف"
                 }
               }
             ]
@@ -1113,7 +1652,8 @@
           "da": "Sæt [[ssid]] [[enabled]]",
           "pl": "Ustaw [[ssid]] [[enabled]]",
           "ru": "Переключить [[ssid]] [[enabled]]",
-          "ko": "[[ssid]] [[enabled]]"
+          "ko": "[[ssid]] [[enabled]]",
+          "ar": "تحويل [[ssid]] [[enabled]]"
         },
         "args": [
           {
@@ -1136,7 +1676,8 @@
               "da": "Wifi SSID",
               "pl": "Wifi SSID",
               "ru": "Wifi SSID",
-              "ko": "Wi-Fi SSID"
+              "ko": "Wi-Fi SSID",
+              "ar": "SSID WiFi"
             }
           },
           {
@@ -1154,7 +1695,8 @@
               "da": "Tændt/Slukket",
               "pl": "Włączone/Wyłączone",
               "ru": "Вкл/Выкл",
-              "ko": "켜짐/꺼짐"
+              "ko": "켜짐/꺼짐",
+              "ar": "تشغيل/إيقاف"
             },
             "values": [
               {
@@ -1171,7 +1713,8 @@
                   "da": "Tændt",
                   "pl": "Włączone",
                   "ru": "Вкл",
-                  "ko": "켜짐"
+                  "ko": "켜짐",
+                  "ar": "تشغيل"
                 }
               },
               {
@@ -1188,7 +1731,8 @@
                   "da": "Slukket",
                   "pl": "Wyłączone",
                   "ru": "Выкл",
-                  "ko": "꺼짐"
+                  "ko": "꺼짐",
+                  "ar": "إيقاف"
                 }
               }
             ]
@@ -1209,7 +1753,8 @@
           "sv": "WakeOnLan",
           "pl": "WakeOnLan",
           "ru": "WakeOnLan",
-          "ko": "WakeOnLan"
+          "ko": "WakeOnLan",
+          "ar": "WakeOnLan"
         },
         "titleFormatted": {
           "en": "WakeOnLan [[mac]] [[password]]",
@@ -1223,7 +1768,8 @@
           "sv": "WakeOnLan [[mac]] [[password]]",
           "pl": "WakeOnLan [[mac]] [[password]]",
           "ru": "WakeOnLan [[mac]] [[password]]",
-          "ko": "WakeOnLan [[mac]] [[password]]"
+          "ko": "WakeOnLan [[mac]] [[password]]",
+          "ar": "WakeOnLan [[mac]] [[password]]"
         },
         "args": [
           {
@@ -1246,7 +1792,8 @@
               "da": "Enhed",
               "pl": "Urządzenie",
               "ru": "Устройство",
-              "ko": "장치"
+              "ko": "장치",
+              "ar": "الجهاز"
             },
             "placeholder": {
               "en": "AA:BB:CC:DD:EE:FF"
@@ -1267,7 +1814,8 @@
               "sv": "Lösenord eller använd 00:00:00:00:00:00",
               "pl": "Hasło lub użyj 00:00:00:00:00:00",
               "ru": "Пароль или используйте 00:00:00:00:00:00",
-              "ko": "비밀번호 또는 00:00:00:00:00:00 사용"
+              "ko": "비밀번호 또는 00:00:00:00:00:00 사용",
+              "ar": "كلمة المرور أو استخدم 00:00:00:00:00:00"
             },
             "placeholder": {
               "en": "00:00:00:00:00:00"
@@ -1282,7 +1830,19 @@
   "drivers": [
     {
       "name": {
-        "en": "Device"
+        "en": "Device",
+        "nl": "Apparaat",
+        "da": "Enhed",
+        "de": "Gerät",
+        "es": "Dispositivo",
+        "fr": "Appareil",
+        "it": "Dispositivo",
+        "no": "Enhet",
+        "sv": "Enhet",
+        "pl": "Urządzenie",
+        "ru": "Устройство",
+        "ko": "장치",
+        "ar": "جهاز"
       },
       "class": "sensor",
       "capabilities": [],
@@ -1297,7 +1857,19 @@
         },
         "measure_frequency.band": {
           "title": {
-            "en": "Frequency band"
+            "en": "Frequency band",
+            "nl": "Frequentieband",
+            "da": "Frekvensbånd",
+            "de": "Frequenzband",
+            "es": "Banda de frecuencia",
+            "fr": "Bande de fréquence",
+            "it": "Banda di frequenza",
+            "no": "Frekvensbånd",
+            "sv": "Frekvensband",
+            "pl": "Pasmo częstotliwości",
+            "ru": "Частотный диапазон",
+            "ko": "주파수 대역",
+            "ar": "نطاق التردد"
           },
           "units": {
             "en": "GHz"
@@ -1317,7 +1889,8 @@
             "da": "Kanalbredde",
             "pl": "Szerokość kanału",
             "ru": "Ширина канала",
-            "ko": "채널 폭"
+            "ko": "채널 폭",
+            "ar": "عرض القناة"
           },
           "units": {
             "en": "MHz"
@@ -1365,7 +1938,8 @@
             "sv": "Enhetsinformation",
             "pl": "Informacje o urządzeniu",
             "ru": "Информация об устройстве",
-            "ko": "장치 정보"
+            "ko": "장치 정보",
+            "ar": "معلومات الجهاز"
           },
           "children": [
             {
@@ -1383,7 +1957,8 @@
                 "sv": "MAC",
                 "pl": "MAC",
                 "ru": "MAC",
-                "ko": "MAC"
+                "ko": "MAC",
+                "ar": "MAC"
               },
               "value": ""
             },
@@ -1402,7 +1977,8 @@
                 "sv": "Enhetsnamn",
                 "pl": "Nazwa urządzenia",
                 "ru": "Имя устройства",
-                "ko": "장치 이름"
+                "ko": "장치 이름",
+                "ar": "اسم الجهاز"
               },
               "value": ""
             }
@@ -1422,7 +1998,8 @@
             "sv": "Alias",
             "pl": "Aliasy",
             "ru": "Псевдонимы",
-            "ko": "별칭"
+            "ko": "별칭",
+            "ar": "الأسماء المستعارة"
           },
           "children": [
             {
@@ -1440,7 +2017,8 @@
                 "sv": "Alias MAC 1",
                 "pl": "Alias MAC 1",
                 "ru": "Псевдоним MAC 1",
-                "ko": "별칭 MAC 1"
+                "ko": "별칭 MAC 1",
+                "ar": "اسم مستعار MAC 1"
               },
               "hint": {
                 "en": "Additional MAC address of the same device.",
@@ -1454,7 +2032,8 @@
                 "sv": "Ytterligare MAC-adress för samma enhet.",
                 "pl": "Dodatkowy adres MAC tego samego urządzenia.",
                 "ru": "Дополнительный MAC-адрес того же устройства.",
-                "ko": "동일한 장치의 추가 MAC 주소입니다."
+                "ko": "동일한 장치의 추가 MAC 주소입니다.",
+                "ar": "عنوان MAC إضافي لنفس الجهاز."
               },
               "value": ""
             },
@@ -1473,7 +2052,8 @@
                 "sv": "Alias MAC 2",
                 "pl": "Alias MAC 2",
                 "ru": "Псевдоним MAC 2",
-                "ko": "별칭 MAC 2"
+                "ko": "별칭 MAC 2",
+                "ar": "اسم مستعار MAC 2"
               },
               "hint": {
                 "en": "Additional MAC address of the same device.",
@@ -1487,7 +2067,8 @@
                 "sv": "Ytterligare MAC-adress för samma enhet.",
                 "pl": "Dodatkowy adres MAC tego samego urządzenia.",
                 "ru": "Дополнительный MAC-адрес того же устройства.",
-                "ko": "동일한 장치의 추가 MAC 주소입니다."
+                "ko": "동일한 장치의 추가 MAC 주소입니다.",
+                "ar": "عنوان MAC إضافي لنفس الجهاز."
               },
               "value": ""
             },
@@ -1506,7 +2087,8 @@
                 "sv": "Alias MAC 3",
                 "pl": "Alias MAC 3",
                 "ru": "Псевдоним MAC 3",
-                "ko": "별칭 MAC 3"
+                "ko": "별칭 MAC 3",
+                "ar": "اسم مستعار MAC 3"
               },
               "hint": {
                 "en": "Additional MAC address of the same device.",
@@ -1520,7 +2102,8 @@
                 "sv": "Ytterligare MAC-adress för samma enhet.",
                 "pl": "Dodatkowy adres MAC tego samego urządzenia.",
                 "ru": "Дополнительный MAC-адрес того же устройства.",
-                "ko": "동일한 장치의 추가 MAC 주소입니다."
+                "ko": "동일한 장치의 추가 MAC 주소입니다.",
+                "ar": "عنوان MAC إضافي لنفس الجهاز."
               },
               "value": ""
             },
@@ -1539,7 +2122,8 @@
                 "sv": "Alias MAC 4",
                 "pl": "Alias MAC 4",
                 "ru": "Псевдоним MAC 4",
-                "ko": "별칭 MAC 4"
+                "ko": "별칭 MAC 4",
+                "ar": "اسم مستعار MAC 4"
               },
               "hint": {
                 "en": "Additional MAC address of the same device.",
@@ -1553,7 +2137,8 @@
                 "sv": "Ytterligare MAC-adress för samma enhet.",
                 "pl": "Dodatkowy adres MAC tego samego urządzenia.",
                 "ru": "Дополнительный MAC-адрес того же устройства.",
-                "ko": "동일한 장치의 추가 MAC 주소입니다."
+                "ko": "동일한 장치의 추가 MAC 주소입니다.",
+                "ar": "عنوان MAC إضافي لنفس الجهاز."
               },
               "value": ""
             }
@@ -1573,7 +2158,8 @@
             "sv": "Närvaroinställningar",
             "pl": "Ustawienia obecności",
             "ru": "Настройки присутствия",
-            "ko": "존재 설정"
+            "ko": "존재 설정",
+            "ar": "إعدادات التواجد"
           },
           "children": [
             {
@@ -1591,7 +2177,8 @@
                 "sv": "Offline efter (sekunder)",
                 "pl": "Offline po (sekundach)",
                 "ru": "Офлайн через (секунд)",
-                "ko": "오프라인 대기 시간 (초)"
+                "ko": "오프라인 대기 시간 (초)",
+                "ar": "غير متصل بعد (ثواني)"
               },
               "hint": {
                 "en": "If you have false disconnect reports, increase this value.",
@@ -1605,7 +2192,8 @@
                 "sv": "Om du får falska frånkopplingsrapporter, öka detta värde.",
                 "pl": "Jeśli otrzymujesz fałszywe raporty o rozłączeniu, zwiększ tę wartość.",
                 "ru": "Если вы получаете ложные отчеты об отключении, увеличьте это значение.",
-                "ko": "잘못된 연결 끊김 보고가 발생하면 이 값을 늘리십시오."
+                "ko": "잘못된 연결 끊김 보고가 발생하면 이 값을 늘리십시오.",
+                "ar": "إذا كان لديك تقارير قطع اتصال خاطئة، قم بزيادة هذه القيمة."
               },
               "attr": {
                 "min": 30
@@ -1627,7 +2215,8 @@
                 "sv": "Cache för kända enheter (dagar)",
                 "pl": "Pamięć podręczna znanych urządzeń (dni)",
                 "ru": "Кэш известных устройств (дней)",
-                "ko": "알려진 장치 캐시 (일)"
+                "ko": "알려진 장치 캐시 (일)",
+                "ar": "ذاكرة التخزين المؤقت للأجهزة المعروفة (أيام)"
               },
               "hint": {
                 "en": "Time to keep known devices in cache. When offline for longer than this value, they will be detected as new unknown device on next connection.",
@@ -1641,7 +2230,8 @@
                 "sv": "Tid att behålla kända enheter i cachen. När de är offline längre än detta värde kommer de att upptäckas som en ny okänd enhet vid nästa anslutning.",
                 "pl": "Czas przechowywania znanych urządzeń w pamięci podręcznej. Po upływie tego czasu w trybie offline, przy następnym połączeniu zostaną wykryte jako nowe nieznane urządzenie.",
                 "ru": "Время хранения известных устройств в кэше. Если устройство находится офлайн дольше этого значения, при следующем подключении оно будет обнаружено как новое неизвестное устройство.",
-                "ko": "알려진 장치를 캐시에 유지하는 시간입니다. 이 값보다 오래 오프라인 상태이면 다음 연결 시 새로운 알 수 없는 장치로 감지됩니다."
+                "ko": "알려진 장치를 캐시에 유지하는 시간입니다. 이 값보다 오래 오프라인 상태이면 다음 연결 시 새로운 알 수 없는 장치로 감지됩니다.",
+                "ar": "وقت الاحتفاظ بالأجهزة المعروفة في ذاكرة التخزين المؤقت. عند عدم الاتصال لفترة أطول من هذه القيمة، سيتم اكتشافها كجهاز جديد غير معروف عند الاتصال التالي."
               },
               "attr": {
                 "min": 1,
@@ -1655,14 +2245,38 @@
     },
     {
       "name": {
-        "en": "Router"
+        "en": "Router",
+        "nl": "Router",
+        "da": "Router",
+        "de": "Router",
+        "es": "Router",
+        "fr": "Routeur",
+        "it": "Router",
+        "no": "Ruter",
+        "sv": "Router",
+        "pl": "Router",
+        "ru": "Маршрутизатор",
+        "ko": "라우터",
+        "ar": "راوتر"
       },
       "class": "sensor",
       "capabilities": [],
       "capabilitiesOptions": {
         "measure_signal_strength.tx_2_4": {
           "title": {
-            "en": "2.4GHz TX power"
+            "en": "2.4GHz TX power",
+            "nl": "2.4GHz zendvermogen",
+            "da": "2.4GHz sendestyrke",
+            "de": "2.4GHz Sendeleistung",
+            "es": "Potencia de transmisión 2.4GHz",
+            "fr": "Puissance d'émission 2.4GHz",
+            "it": "Potenza di trasmissione 2.4GHz",
+            "no": "2.4GHz sendestyrke",
+            "sv": "2.4GHz sändningseffekt",
+            "pl": "Moc nadawania 2.4GHz",
+            "ru": "Мощность передачи 2.4ГГц",
+            "ko": "2.4GHz 전송 전력",
+            "ar": "طاقة إرسال 2.4 جيجاهرتز"
           },
           "units": {
             "en": "dBm"
@@ -1670,7 +2284,19 @@
         },
         "measure_signal_strength.tx_5": {
           "title": {
-            "en": "5GHz TX power"
+            "en": "5GHz TX power",
+            "nl": "5GHz zendvermogen",
+            "da": "5GHz sendestyrke",
+            "de": "5GHz Sendeleistung",
+            "es": "Potencia de transmisión 5GHz",
+            "fr": "Puissance d'émission 5GHz",
+            "it": "Potenza di trasmissione 5GHz",
+            "no": "5GHz sendestyrke",
+            "sv": "5GHz sändningseffekt",
+            "pl": "Moc nadawania 5GHz",
+            "ru": "Мощность передачи 5ГГц",
+            "ko": "5GHz 전송 전력",
+            "ar": "طاقة إرسال 5 جيجاهرتز"
           },
           "units": {
             "en": "dBm"
@@ -1678,7 +2304,19 @@
         },
         "measure_signal_strength.noise_2_4": {
           "title": {
-            "en": "2.4GHz RX noise"
+            "en": "2.4GHz RX noise",
+            "nl": "2.4GHz ontvangstuis",
+            "da": "2.4GHz modtagelsesstøj",
+            "de": "2.4GHz Empfangsrauschen",
+            "es": "Ruido de recepción 2.4GHz",
+            "fr": "Bruit de réception 2.4GHz",
+            "it": "Rumore di ricezione 2.4GHz",
+            "no": "2.4GHz mottaksstøy",
+            "sv": "2.4GHz mottagningsbrus",
+            "pl": "Szum odbioru 2.4GHz",
+            "ru": "Шум приема 2.4ГГц",
+            "ko": "2.4GHz 수신 노이즈",
+            "ar": "ضوضاء استقبال 2.4 جيجاهرتز"
           },
           "units": {
             "en": "dBm"
@@ -1686,7 +2324,19 @@
         },
         "measure_signal_strength.noise_5": {
           "title": {
-            "en": "5GHz RX noise"
+            "en": "5GHz RX noise",
+            "nl": "5GHz ontvangstuis",
+            "da": "5GHz modtagelsesstøj",
+            "de": "5GHz Empfangsrauschen",
+            "es": "Ruido de recepción 5GHz",
+            "fr": "Bruit de réception 5GHz",
+            "it": "Rumore di ricezione 5GHz",
+            "no": "5GHz mottaksstøy",
+            "sv": "5GHz mottagningsbrus",
+            "pl": "Szum odbioru 5GHz",
+            "ru": "Шум приема 5ГГц",
+            "ko": "5GHz 수신 노이즈",
+            "ar": "ضوضاء استقبال 5 جيجاهرتز"
           },
           "units": {
             "en": "dBm"
@@ -1694,7 +2344,19 @@
         },
         "measure_signal_strength.snr_2_4": {
           "title": {
-            "en": "2.4GHz SNR"
+            "en": "2.4GHz SNR",
+            "nl": "2.4GHz SNR",
+            "da": "2.4GHz SNR",
+            "de": "2.4GHz SNR",
+            "es": "SNR 2.4GHz",
+            "fr": "SNR 2.4GHz",
+            "it": "SNR 2.4GHz",
+            "no": "2.4GHz SNR",
+            "sv": "2.4GHz SNR",
+            "pl": "SNR 2.4GHz",
+            "ru": "SNR 2.4ГГц",
+            "ko": "2.4GHz SNR",
+            "ar": "SNR 2.4 جيجاهرتز"
           },
           "units": {
             "en": "dB"
@@ -1702,7 +2364,19 @@
         },
         "measure_signal_strength.snr_5": {
           "title": {
-            "en": "5GHz SNR"
+            "en": "5GHz SNR",
+            "nl": "5GHz SNR",
+            "da": "5GHz SNR",
+            "de": "5GHz SNR",
+            "es": "SNR 5GHz",
+            "fr": "SNR 5GHz",
+            "it": "SNR 5GHz",
+            "no": "5GHz SNR",
+            "sv": "5GHz SNR",
+            "pl": "SNR 5GHz",
+            "ru": "SNR 5ГГц",
+            "ko": "5GHz SNR",
+            "ar": "SNR 5 جيجاهرتز"
           },
           "units": {
             "en": "dB"
@@ -1710,7 +2384,19 @@
         },
         "measure_data_rate.2_4": {
           "title": {
-            "en": "2.4GHz Data Rate"
+            "en": "2.4GHz Data Rate",
+            "nl": "2.4GHz datasnelheid",
+            "da": "2.4GHz datahastighed",
+            "de": "2.4GHz Datenrate",
+            "es": "Velocidad de datos 2.4GHz",
+            "fr": "Débit de données 2.4GHz",
+            "it": "Velocità dati 2.4GHz",
+            "no": "2.4GHz datahastighet",
+            "sv": "2.4GHz datahastighet",
+            "pl": "Szybkość transmisji danych 2.4GHz",
+            "ru": "Скорость передачи данных 2.4ГГц",
+            "ko": "2.4GHz 데이터 속도",
+            "ar": "معدل بيانات 2.4 جيجاهرتز"
           },
           "units": {
             "en": "Mb/s"
@@ -1719,7 +2405,19 @@
         },
         "measure_data_rate.5": {
           "title": {
-            "en": "5GHz Data Rate"
+            "en": "5GHz Data Rate",
+            "nl": "5GHz datasnelheid",
+            "da": "5GHz datahastighed",
+            "de": "5GHz Datenrate",
+            "es": "Velocidad de datos 5GHz",
+            "fr": "Débit de données 5GHz",
+            "it": "Velocità dati 5GHz",
+            "no": "5GHz datahastighet",
+            "sv": "5GHz datahastighet",
+            "pl": "Szybkość transmisji danych 5GHz",
+            "ru": "Скорость передачи данных 5ГГц",
+            "ko": "5GHz 데이터 속도",
+            "ar": "معدل بيانات 5 جيجاهرتز"
           },
           "units": {
             "en": "Mb/s"
@@ -1728,12 +2426,36 @@
         },
         "measure_attached_devices.wifi_2_4": {
           "title": {
-            "en": "2.4GHz connections"
+            "en": "2.4GHz connections",
+            "nl": "2.4GHz verbindingen",
+            "da": "2.4GHz forbindelser",
+            "de": "2.4GHz Verbindungen",
+            "es": "Conexiones 2.4GHz",
+            "fr": "Connexions 2.4GHz",
+            "it": "Connessioni 2.4GHz",
+            "no": "2.4GHz tilkoblinger",
+            "sv": "2.4GHz anslutningar",
+            "pl": "Połączenia 2.4GHz",
+            "ru": "Подключения 2.4ГГц",
+            "ko": "2.4GHz 연결",
+            "ar": "اتصالات 2.4 جيجاهرتز"
           }
         },
         "measure_attached_devices.wifi_5": {
           "title": {
-            "en": "5GHz connections"
+            "en": "5GHz connections",
+            "nl": "5GHz verbindingen",
+            "da": "5GHz forbindelser",
+            "de": "5GHz Verbindungen",
+            "es": "Conexiones 5GHz",
+            "fr": "Connexions 5GHz",
+            "it": "Connessioni 5GHz",
+            "no": "5GHz tilkoblinger",
+            "sv": "5GHz anslutningar",
+            "pl": "Połączenia 5GHz",
+            "ru": "Подключения 5ГГц",
+            "ko": "5GHz 연결",
+            "ar": "اتصالات 5 جيجاهرتز"
           }
         }
       },
@@ -1780,7 +2502,8 @@
             "sv": "Routerinformation",
             "pl": "Informacje o routerze",
             "ru": "Информация о маршрутизаторе",
-            "ko": "라우터 정보"
+            "ko": "라우터 정보",
+            "ar": "معلومات الراوتر"
           },
           "children": [
             {
@@ -1798,7 +2521,8 @@
                 "sv": "ID",
                 "pl": "ID",
                 "ru": "ID",
-                "ko": "ID"
+                "ko": "ID",
+                "ar": "المعرف"
               },
               "value": ""
             },
@@ -1817,7 +2541,8 @@
                 "sv": "Värdnamn",
                 "pl": "Nazwa hosta",
                 "ru": "Имя хоста",
-                "ko": "호스트 이름"
+                "ko": "호스트 이름",
+                "ar": "اسم المضيف"
               },
               "value": ""
             },
@@ -1836,7 +2561,8 @@
                 "sv": "OpenWRT-version",
                 "pl": "Wersja OpenWRT",
                 "ru": "Версия OpenWRT",
-                "ko": "OpenWRT 버전"
+                "ko": "OpenWRT 버전",
+                "ar": "إصدار OpenWRT"
               },
               "value": ""
             },
@@ -1855,7 +2581,8 @@
                 "sv": "LuCI-version",
                 "pl": "Wersja LuCI",
                 "ru": "Версия LuCI",
-                "ko": "LuCI 버전"
+                "ko": "LuCI 버전",
+                "ar": "إصدار LuCI"
               },
               "value": ""
             },
@@ -1874,7 +2601,8 @@
                 "sv": "Hårdvarumodell",
                 "pl": "Model sprzętu",
                 "ru": "Аппаратная модель",
-                "ko": "하드웨어 모델"
+                "ko": "하드웨어 모델",
+                "ar": "طراز الجهاز"
               },
               "value": ""
             },
@@ -1893,7 +2621,8 @@
                 "sv": "CPU-arkitektur",
                 "pl": "Architektura CPU",
                 "ru": "Архитектура CPU",
-                "ko": "CPU 아키텍처"
+                "ko": "CPU 아키텍처",
+                "ar": "معمارية المعالج"
               },
               "value": ""
             },
@@ -1912,7 +2641,8 @@
                 "sv": "Totalt minne (MB)",
                 "pl": "Całkowita pamięć (MB)",
                 "ru": "Объем памяти (МБ)",
-                "ko": "총 메모리(MB)"
+                "ko": "총 메모리(MB)",
+                "ar": "إجمالي الذاكرة (ميجابايت)"
               },
               "value": ""
             }
@@ -1932,7 +2662,8 @@
             "sv": "SSH-anslutningsinställningar",
             "pl": "Ustawienia połączenia SSH",
             "ru": "Настройки подключения SSH",
-            "ko": "SSH 연결 설정"
+            "ko": "SSH 연결 설정",
+            "ar": "إعدادات اتصال SSH"
           },
           "children": [
             {
@@ -1950,7 +2681,8 @@
                 "sv": "IP-adress",
                 "pl": "Adres IP",
                 "ru": "IP-адрес",
-                "ko": "IP 주소"
+                "ko": "IP 주소",
+                "ar": "عنوان IP"
               },
               "value": ""
             },
@@ -1969,7 +2701,8 @@
                 "sv": "SSH-port",
                 "pl": "Port SSH",
                 "ru": "Порт SSH",
-                "ko": "SSH 포트"
+                "ko": "SSH 포트",
+                "ar": "منفذ SSH"
               },
               "value": 22
             },
@@ -1988,7 +2721,8 @@
                 "sv": "Användarnamn",
                 "pl": "Nazwa użytkownika",
                 "ru": "Имя пользователя",
-                "ko": "사용자 이름"
+                "ko": "사용자 이름",
+                "ar": "اسم المستخدم"
               },
               "value": "root"
             },
@@ -2007,7 +2741,8 @@
                 "sv": "Lösenord",
                 "pl": "Hasło",
                 "ru": "Пароль",
-                "ko": "비밀번호"
+                "ko": "비밀번호",
+                "ar": "كلمة المرور"
               },
               "value": ""
             }
@@ -2027,7 +2762,8 @@
             "sv": "Routerinställningar",
             "pl": "Ustawienia routera",
             "ru": "Настройки маршрутизатора",
-            "ko": "라우터 설정"
+            "ko": "라우터 설정",
+            "ar": "إعدادات الراوتر"
           },
           "children": [
             {
@@ -2045,7 +2781,8 @@
                 "sv": "Pollinterval (sekunder)",
                 "pl": "Interwał odpytywania (sekundy)",
                 "ru": "Период опроса (секунд)",
-                "ko": "폴링 간격(초)"
+                "ko": "폴링 간격(초)",
+                "ar": "فاصل الاستطلاع (ثواني)"
               },
               "hint": {
                 "en": "Interval to poll the router. Lower values increase presence responsiveness, but also increase load on the router.",
@@ -2059,7 +2796,8 @@
                 "sv": "Intervall för routens polling. Lägre värden ökar responsiviteten men ökar också belastningen på routern.",
                 "pl": "Interwał odpytywania routera. Mniejsze wartości zwiększają responsywność wykrywania obecności, ale zwiększają również obciążenie routera.",
                 "ru": "Интервал опроса маршрутизатора. Меньшие значения повышают отзывчивость, но также увеличивают нагрузку на маршрутизатор.",
-                "ko": "라우터를 폴링하는 간격입니다. 값이 작아지면 응답성이 향상되지만 라우터의 부하도 증가합니다."
+                "ko": "라우터를 폴링하는 간격입니다. 값이 작아지면 응답성이 향상되지만 라우터의 부하도 증가합니다.",
+                "ar": "الفاصل الزمني لاستطلاع الراوتر. القيم المنخفضة تزيد من استجابة التواجد، ولكنها تزيد أيضًا من الحمل على الراوتر."
               },
               "min": 5,
               "max": 60,
@@ -2080,7 +2818,8 @@
                 "sv": "Snabb upptäckt av offline-enheter",
                 "pl": "Szybkie wykrywanie urządzeń offline",
                 "ru": "Быстрое обнаружение офлайн-устройств",
-                "ko": "오프라인 장치의 빠른 탐지"
+                "ko": "오프라인 장치의 빠른 탐지",
+                "ar": "الكشف السريع عن الأجهزة غير المتصلة"
               },
               "hint": {
                 "en": "When enabled, the router will actively ping devices to double-check their presence. This speeds up offline detection, but increases load on the router.",
@@ -2094,7 +2833,8 @@
                 "sv": "När den är aktiverad kommer routern aktivt pinga enheter för att dubbelkolla deras närvaro. Detta ökar hastigheten på offline-detektion, men ökar belastningen på routern.",
                 "pl": "Po włączeniu, router aktywnie wywołuje ping do urządzeń, aby potwierdzić ich obecność. Szybciej wykrywa urządzenia offline, ale zwiększa obciążenie routera.",
                 "ru": "При включении маршрутизатор будет активно отправлять пинги устройствам, чтобы дважды проверить их присутствие. Это ускоряет обнаружение офлайн-устройств, но увеличивает нагрузку на маршрутизатор.",
-                "ko": "활성화되면 라우터가 장치를 적극적으로 핑하여 존재를 재확인합니다. 이로 인해 오프라인 탐지가 빨라지지만 라우터의 부하가 증가합니다."
+                "ko": "활성화되면 라우터가 장치를 적극적으로 핑하여 존재를 재확인합니다. 이로 인해 오프라인 탐지가 빨라지지만 라우터의 부하가 증가합니다.",
+                "ar": "عند التمكين، سيقوم الراوتر باختبار اتصال الأجهزة بشكل نشط للتحقق من وجودها. هذا يسرع من اكتشاف عدم الاتصال، ولكنه يزيد من الحمل على الراوتر."
               },
               "value": false
             },
@@ -2113,7 +2853,8 @@
                 "sv": "Detta är internetroutern",
                 "pl": "To jest router internetowy",
                 "ru": "Это интернет-маршрутизатор",
-                "ko": "이것은 인터넷 라우터입니다"
+                "ko": "이것은 인터넷 라우터입니다",
+                "ar": "هذا هو راوتر الإنترنت"
               },
               "hint": {
                 "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -2127,7 +2868,8 @@
                 "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
                 "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
                 "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+                "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
               },
               "value": false
             },
@@ -2146,7 +2888,8 @@
                 "sv": "Detta är DHCP-servern",
                 "pl": "To jest serwer DHCP",
                 "ru": "Это DHCP-сервер",
-                "ko": "이것은 DHCP 서버입니다"
+                "ko": "이것은 DHCP 서버입니다",
+                "ar": "هذا هو خادم DHCP"
               },
               "hint": {
                 "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -2160,7 +2903,8 @@
                 "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
                 "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
                 "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+                "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
               },
               "value": false
             },
@@ -2179,7 +2923,8 @@
                 "sv": "Detta är en brandvägg",
                 "pl": "To jest zapora sieciowa",
                 "ru": "Это брандмауэр",
-                "ko": "이것은 방화벽입니다"
+                "ko": "이것은 방화벽입니다",
+                "ar": "هذا جدار حماية"
               },
               "hint": {
                 "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -2193,7 +2938,8 @@
                 "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
                 "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
                 "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+                "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
               },
               "value": false
             },
@@ -2212,7 +2958,8 @@
                 "sv": "Detta är en Wi-Fi-accesspunkt",
                 "pl": "To jest punkt dostępu Wi-Fi",
                 "ru": "Это точка доступа Wi-Fi",
-                "ko": "이것은 Wi-Fi 접근 지점입니다"
+                "ko": "이것은 Wi-Fi 접근 지점입니다",
+                "ar": "هذه نقطة وصول Wi-Fi"
               },
               "hint": {
                 "en": "This is auto-detected. Manually changing this setting may lead to unexpected behavior.",
@@ -2226,7 +2973,8 @@
                 "sv": "Detekteras automatiskt. Manuell ändring av denna inställning kan leda till oväntat beteende.",
                 "pl": "To jest wykrywane automatycznie. Ręczna zmiana tej ustawienia może prowadzić do nieprzewidywalnego zachowania.",
                 "ru": "Это определяется автоматически. Ручное изменение этой настройки может привести к непредсказуемому поведению.",
-                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다."
+                "ko": "이 설정은 자동으로 감지됩니다. 수동으로 변경하면 예기치 않은 동작이 발생할 수 있습니다.",
+                "ar": "يتم اكتشاف هذا تلقائيًا. قد يؤدي تغيير هذا الإعداد يدويًا إلى سلوك غير متوقع."
               },
               "value": false
             }
@@ -2346,7 +3094,8 @@
         "sv": "Anslutna enheter",
         "pl": "Podłączone urządzenia",
         "ru": "Подключенные устройства",
-        "ko": "연결된 장치들"
+        "ko": "연결된 장치들",
+        "ar": "الأجهزة المتصلة"
       },
       "getable": true,
       "setable": false,
@@ -2389,22 +3138,13 @@
         "no": "CPU skalering",
         "sv": "CPU skalning",
         "ru": "Масштабирование ЦП",
-        "ko": "CPU 스케일링"
+        "ko": "CPU 스케일링",
+        "ar": "تحجيم وحدة المعالجة المركزية"
       },
       "getable": true,
       "setable": false,
       "units": {
-        "en": "%",
-        "da": "%",
-        "de": "%",
-        "es": "%",
-        "fr": "%",
-        "it": "%",
-        "no": "%",
-        "sv": "%",
-        "pl": "%",
-        "ru": "%",
-        "ko": "%"
+        "en": "%"
       },
       "decimals": 0,
       "insights": true,
@@ -2430,19 +3170,7 @@
       "getable": true,
       "setable": false,
       "units": {
-        "en": "%",
-        "da": "%",
-        "de": "%",
-        "es": "%",
-        "fr": "%",
-        "it": "%",
-        "no": "%",
-        "sv": "%",
-        "pl": "%",
-        "ru": "%",
-        "ko": "%",
-        "nl": "%",
-        "ar": "%"
+        "en": "%"
       },
       "decimals": 0,
       "insights": true,
@@ -2469,15 +3197,6 @@
       "setable": false,
       "units": {
         "en": "MB/s",
-        "nl": "MB/s",
-        "da": "MB/s",
-        "de": "MB/s",
-        "es": "MB/s",
-        "fr": "MB/s",
-        "it": "MB/s",
-        "no": "MB/s",
-        "sv": "MB/s",
-        "pl": "MB/s",
         "ru": "Мбит/с",
         "ko": "메가비트/초",
         "ar": "ميغابت/ث"
@@ -2500,7 +3219,8 @@
         "da": "Inaktiv tid",
         "pl": "Czas nieaktywności",
         "ru": "Время бездействия",
-        "ko": "비활성 시간"
+        "ko": "비활성 시간",
+        "ar": "وقت الخمول"
       },
       "units": {
         "en": "min"
@@ -2529,19 +3249,7 @@
         "ar": "سرعة الرابط"
       },
       "units": {
-        "en": "Mb/s",
-        "nl": "Mb/s",
-        "da": "Mb/s",
-        "de": "Mb/s",
-        "es": "Mb/s",
-        "fr": "Mb/s",
-        "it": "Mb/s",
-        "no": "Mb/s",
-        "sv": "Mb/s",
-        "pl": "Mb/s",
-        "ru": "Mb/s",
-        "ko": "Mb/s",
-        "ar": "Mb/s"
+        "en": "Mb/s"
       },
       "getable": true,
       "setable": false,
@@ -2562,7 +3270,8 @@
         "da": "MCS Indeks",
         "pl": "Indeks MCS",
         "ru": "Индекс MCS",
-        "ko": "MCS 인덱스"
+        "ko": "MCS 인덱스",
+        "ar": "مؤشر MCS"
       },
       "getable": true,
       "setable": false,
@@ -2590,19 +3299,7 @@
       "getable": true,
       "setable": false,
       "units": {
-        "en": "%",
-        "da": "%",
-        "de": "%",
-        "es": "%",
-        "fr": "%",
-        "it": "%",
-        "no": "%",
-        "sv": "%",
-        "pl": "%",
-        "ru": "%",
-        "ko": "%",
-        "nl": "%",
-        "ar": "%"
+        "en": "%"
       },
       "decimals": 0,
       "insights": true,
@@ -2622,10 +3319,11 @@
         "da": "Pakke fejl",
         "pl": "Błędy pakietów",
         "ru": "Ошибки пакетов",
-        "ko": "패킷 오류"
+        "ko": "패킷 오류",
+        "ar": "أخطاء الحزمة"
       },
       "units": {
-        "en": "err/min"
+        "en": "Err/min"
       },
       "getable": true,
       "setable": false,
@@ -2636,12 +3334,27 @@
     "measure_upload_speed": {
       "type": "number",
       "title": {
-        "en": "WAN Upload Speed"
+        "en": "WAN Upload Speed",
+        "nl": "WAN-uploadsnelheid",
+        "da": "WAN-uploadhastighed",
+        "de": "WAN-Upload-Geschwindigkeit",
+        "es": "Velocidad de subida WAN",
+        "fr": "Vitesse d'envoi WAN",
+        "it": "Velocità di upload WAN",
+        "no": "WAN opplastingshastighet",
+        "sv": "WAN uppladdningshastighet",
+        "pl": "Prędkość wysyłania WAN",
+        "ru": "Скорость выгрузки WAN",
+        "ko": "WAN 업로드 속도",
+        "ar": "سرعة رفع WAN"
       },
       "getable": true,
       "setable": false,
       "units": {
-        "en": "MB/s"
+        "en": "MB/s",
+        "ru": "Мбит/с",
+        "ko": "메가비트/초",
+        "ar": "ميغابت/ث"
       },
       "decimals": 2,
       "insights": true,
@@ -2726,7 +3439,8 @@
         "da": "Protokol",
         "pl": "Protokół",
         "ru": "Протокол",
-        "ko": "프로토콜"
+        "ko": "프로토콜",
+        "ar": "البروتوكول"
       },
       "getable": true,
       "setable": false,
@@ -2735,7 +3449,19 @@
     "router_name": {
       "type": "string",
       "title": {
-        "en": "Connected Router"
+        "en": "Connected Router",
+        "nl": "Verbonden router",
+        "da": "Tilsluttet router",
+        "de": "Verbundener Router",
+        "es": "Router conectado",
+        "fr": "Routeur connecté",
+        "it": "Router connesso",
+        "no": "Tilkoblet ruter",
+        "sv": "Ansluten router",
+        "pl": "Podłączony router",
+        "ru": "Подключенный маршрутизатор",
+        "ko": "연결된 라우터",
+        "ar": "الراوتر المتصل"
       },
       "getable": true,
       "setable": false,
@@ -2744,7 +3470,19 @@
     "uptime": {
       "type": "string",
       "title": {
-        "en": "Uptime"
+        "en": "Uptime",
+        "nl": "Uptime",
+        "da": "Oppetid",
+        "de": "Betriebszeit",
+        "es": "Tiempo de actividad",
+        "fr": "Temps de fonctionnement",
+        "it": "Tempo di attività",
+        "no": "Oppetid",
+        "sv": "Upptid",
+        "pl": "Czas pracy",
+        "ru": "Время работы",
+        "ko": "가동 시간",
+        "ar": "وقت التشغيل"
       },
       "getable": true,
       "setable": false,
