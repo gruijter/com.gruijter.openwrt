@@ -3,29 +3,7 @@
     "en": "Router"
   },
   "class": "sensor",
-  "capabilities": [
-    "uptime",
-    "alarm_connectivity",
-    "measure_download_speed",
-    "measure_upload_speed",
-    "measure_packet_errors",
-    "measure_attached_devices",
-    "measure_signal_strength",
-    "measure_cpu_utilization",
-    "measure_cpu_scaling",
-    "measure_mem_utilization",
-    "measure_temperature",
-    "measure_attached_devices.wifi_2_4",
-    "measure_data_rate.2_4",
-    "measure_signal_strength.tx_2_4",
-    "measure_signal_strength.noise_2_4",
-    "measure_signal_strength.snr_2_4",
-    "measure_attached_devices.wifi_5",
-    "measure_data_rate.5",
-    "measure_signal_strength.tx_5",
-    "measure_signal_strength.noise_5",
-    "measure_signal_strength.snr_5"
-  ],
+  "capabilities": [],
   "capabilitiesOptions": {
     "measure_signal_strength.tx_2_4": {
       "title": {
