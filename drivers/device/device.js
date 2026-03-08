@@ -277,7 +277,6 @@ module.exports = class MyDevice extends Homey.Device {
         this.activityExpiry = now + 90000; // 90 seconds hysteresis
       }
 
-      const currentActive = this.getCapabilityValue('active_online') || false;
       // Check if timer is still valid
       const isActive = now < this.activityExpiry;
 
