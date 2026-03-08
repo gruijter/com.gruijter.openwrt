@@ -57,7 +57,7 @@ async function runTest() {
       console.time(`[${discRouter.ip}] getStaticRouterInfo`);
       const staticInfo = await router.getStaticRouterInfo();
       console.timeEnd(`[${discRouter.ip}] getStaticRouterInfo`);
-      console.log(`[${discRouter.ip}] Model: ${staticInfo.model}, FW: ${staticInfo.firmwareVersion}`);
+      console.log(`[${discRouter.ip}] Model: ${staticInfo.model}, FW: ${staticInfo.firmwareVersion}, LuCI: ${staticInfo.luciVersion}`);
       console.log(`[${discRouter.ip}] Roles: DHCP=${staticInfo.isDhcpServer}, Firewall=${staticInfo.isFirewall}, Router=${staticInfo.isInternetRouter}, AP=${staticInfo.isAp}`);
 
       if (baseConfig.debug && staticInfo.cpuMaxFreq) console.log(`[${discRouter.ip}] Max Frequencies: ${staticInfo.cpuMaxFreq.join('/')} MHz`);
