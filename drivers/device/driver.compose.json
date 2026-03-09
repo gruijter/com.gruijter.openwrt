@@ -17,6 +17,26 @@
   "class": "sensor",
   "capabilities": [],
   "capabilitiesOptions": {
+    "onoff.block_wan": {
+      "title": {
+        "en": "WAN BLOCK"
+      },
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "getable": true,
+      "setable": true,
+      "insights": true
+    },
+    "onoff.block_lan": {
+      "title": {
+        "en": "LAN BLOCK"
+      },
+      "uiComponent": "button",
+      "uiQuickAction": false,
+      "getable": true,
+      "setable": true,
+      "insights": true
+    },
     "measure_signal_strength.snr": {
       "title": {
         "en": "SNR"

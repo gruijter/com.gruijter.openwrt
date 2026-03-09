@@ -124,10 +124,10 @@ async function runTest() {
         console.log(`[${ip}] Clients: ${status.routerInfo.totalClientCount}, CPU: ${cpuUsage}${cpuFreq}${cpuScaling}, Mem: ${status.routerInfo.memory.usage}%, PktErr: ${errorRate}/min, Ts: ${routerTime}`);
 
         // Firewall Check (Sample on first run)
-        if (i === 1 && status.attachedDevices.length > 0) {
-          const testMac = status.attachedDevices[0].mac;
-          const isBlocked = await router.isDeviceBlocked(testMac);
-          console.log(`[${ip}] Firewall check (${testMac}): ${isBlocked}`);
+        if (i === 1 && status.attachedDevices.length > 0 && staticInfo.isFirewall) {
+          const testDev = status.attachedDevices[0];
+          const isBlocked = await router.isDeviceBlocked(testDev.mac);
+          console.log(`[${ip}] Firewall check (${testDev.name} | ${testDev.mac}): ${isBlocked}`);
         }
 
         if (baseConfig.debug && i === 1) {
@@ -276,7 +276,66 @@ async function runTest() {
     }
   }
 
-  console.log('\n--- 3. Cleanup ---');
+  console.log('\n--- 3. Testing Block/Unblock ---');
+  const testMac = process.env.TEST_DEVICE;
+
+  if (!testMac) {
+    console.log('Skipping Block/Unblock test: TEST_DEVICE not set in zzz_creds.json');
+  } else {
+    const firewallRouterInstance = routerInstances.find((inst) => inst.staticInfo.isFirewall);
+
+    if (firewallRouterInstance) {
+      const { router, ip } = firewallRouterInstance;
+      console.log(`[${ip}] Found firewall-capable router. Testing block/unblock for MAC: ${testMac}`);
+
+      try {
+        console.log(`[${ip}] Pre-test cleanup: Ensuring no blocks are active for ${testMac}...`);
+        await router.setDevice(testMac, 'allow', 'all');
+        console.log(`[${ip}] --> Cleanup complete.`);
+
+        console.log(`[${ip}] Attempting to BLOCK WAN for ${testMac}...`);
+        await router.setDevice(testMac, 'block', 'wan');
+        console.log(`[${ip}] --> SUCCESS: Block command sent for ${testMac}.`);
+
+        let blockStatus = await router.isDeviceBlocked(testMac);
+        console.log(`[${ip}] --> VERIFY: Block status is '${blockStatus}'`);
+
+        console.log(`[${ip}] Waiting 5 seconds...`);
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        console.log(`[${ip}] Attempting to ALLOW WAN for ${testMac}...`);
+        await router.setDevice(testMac, 'allow', 'wan');
+        console.log(`[${ip}] --> SUCCESS: Allow command sent for ${testMac}.`);
+
+        blockStatus = await router.isDeviceBlocked(testMac);
+        console.log(`[${ip}] --> VERIFY: Block status is '${blockStatus}'`);
+
+        console.log(`[${ip}] Attempting to BLOCK LAN for ${testMac}...`);
+        await router.setDevice(testMac, 'block', 'lan');
+        console.log(`[${ip}] --> SUCCESS: Block command sent for ${testMac}.`);
+
+        blockStatus = await router.isDeviceBlocked(testMac);
+        console.log(`[${ip}] --> VERIFY: Block status is '${blockStatus}'`);
+
+        console.log(`[${ip}] Waiting 5 seconds...`);
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        console.log(`[${ip}] Attempting to ALLOW LAN for ${testMac}...`);
+        await router.setDevice(testMac, 'allow', 'lan');
+        console.log(`[${ip}] --> SUCCESS: Allow command sent for ${testMac}.`);
+
+        blockStatus = await router.isDeviceBlocked(testMac);
+        console.log(`[${ip}] --> VERIFY: Block status is '${blockStatus}'`);
+      } catch (e) {
+        console.error(`[${ip}] --> FAILED to block/unblock ${testMac}: ${e.message}`);
+        console.error(e);
+      }
+    } else {
+      console.log('Could not find a firewall-capable router to test blocking.');
+    }
+  }
+
+  console.log('\n--- 4. Cleanup ---');
   for (const { router } of routerInstances) {
     try {
       await router.logout();

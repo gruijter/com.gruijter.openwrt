@@ -170,11 +170,16 @@ module.exports = class MyDriver extends Homey.Driver {
    * Updates the global list of known devices by aggregating data from this router,
    * and triggers Homey flows for device presence changes.
    */
-  async aggregateAttachedDevices(routerDevice, attachedDevices) {
+  async aggregateAttachedDevices(routerDevice, routerInfo, attachedDevices) {
     const routerId = routerDevice.getData().id;
     const routerName = routerDevice.getName();
     const isInternetRouter = !!routerDevice.getSettings().isInternetRouter;
     const registeredRouterIds = this.getDevices().map((d) => d.getData().id);
+
+    // If this is the firewall router, store its blocked macs list
+    if (routerInfo.blockedMacs) {
+      this.blockedMacs = routerInfo.blockedMacs;
+    }
 
     const oldDevicesMap = new Map(this.knownDevices.map((d) => [d.mac, d]));
 
@@ -184,7 +189,21 @@ module.exports = class MyDriver extends Homey.Driver {
       registeredRouterIds,
     );
 
-    this.emit('knownDevices', this.knownDevices);
+    // After aggregation, loop through all known devices and apply the block status
+    if (this.blockedMacs) {
+      for (const device of this.knownDevices) {
+        const macClean = device.mac.toLowerCase().replace(/:/g, '');
+        const status = this.blockedMacs.get(macClean);
+        if (status) {
+          if (status.wan && status.lan) device.blockStatus = 'all';
+          else if (status.wan) device.blockStatus = 'wan';
+          else if (status.lan) device.blockStatus = 'lan';
+          else device.blockStatus = 'none';
+        } else {
+          device.blockStatus = 'none';
+        }
+      }
+    }
 
     // Check for changes and trigger flows
     for (const device of this.knownDevices) {
@@ -222,6 +241,8 @@ module.exports = class MyDriver extends Homey.Driver {
         this.triggerFlow('trigger_device_went_offline', targetRouter, tokens, `Device disconnected: ${device.mac}, ${device.name}`);
       }
     }
+
+    this.emit('knownDevices', this.knownDevices);
 
     return this.knownDevices;
   }

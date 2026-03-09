@@ -98,19 +98,6 @@ class RouterDevice extends Device {
       if (this.settings?.isAp) correctCaps.push(...this.driver.ds.wifiCaps5);
       if (staticInfo && !staticInfo.nlbwmonDbOnRam) correctCaps.push(...this.driver.ds.trafficRefreshCaps);
 
-      const currentCaps = this.getCapabilities();
-      const capsToRemove = currentCaps.filter((c) => !correctCaps.includes(c));
-      for (const cap of capsToRemove) {
-        this.log(`removing capability ${cap} for ${this.getName()}`);
-        try {
-          await this.removeCapability(cap);
-          capsChanged = true;
-          await this.wait(1000);
-        } catch (error) {
-          this.error(`Could not remove capability ${cap}:`, error);
-        }
-      }
-
       const activeCaps = this.getCapabilities();
       let matchIndex = 0;
       while (matchIndex < activeCaps.length && matchIndex < correctCaps.length) {
@@ -260,7 +247,7 @@ class RouterDevice extends Device {
       }
       // get new status and update the devicestate
       const { routerInfo, attachedDevices } = await this.router.getRouterStatus();
-      await this.driver.aggregateAttachedDevices(this, attachedDevices);
+      await this.driver.aggregateAttachedDevices(this, routerInfo, attachedDevices);
       await this.updateHomeyDeviceState({ ...routerInfo });
       this.setAvailable().catch(() => null);
       this.watchDogCounter = 10;

@@ -4,6 +4,8 @@ const Homey = require('homey');
 
 const capabilities = [
   'onoff',
+  'onoff.block_wan',
+  'onoff.block_lan',
   'device_connected',
   'active_online',
   'router_name',

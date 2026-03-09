@@ -8,6 +8,7 @@ module.exports = class MyDevice extends Homey.Device {
     try {
       await this.migrate();
       this.registerListeners();
+      this.registerCapabilityListeners();
       await this.setAvailable();
       this.log(`${this.getName()} has been initialized`);
     } catch (error) {
@@ -75,19 +76,6 @@ module.exports = class MyDevice extends Homey.Device {
       // check and repair incorrect capability(order)
       let capsChanged = false;
       const correctCaps = [...this.driver.ds.capabilities];
-
-      const currentCaps = this.getCapabilities();
-      const capsToRemove = currentCaps.filter((c) => !correctCaps.includes(c));
-      for (const cap of capsToRemove) {
-        this.log(`removing capability ${cap} for ${this.getName()}`);
-        try {
-          await this.removeCapability(cap);
-          capsChanged = true;
-          await this.wait(1000);
-        } catch (error) {
-          this.error(`Could not remove capability ${cap}:`, error);
-        }
-      }
 
       const activeCaps = this.getCapabilities();
       let matchIndex = 0;
@@ -185,6 +173,7 @@ module.exports = class MyDevice extends Homey.Device {
 
   async updateHomeyDeviceState(deviceInfo) {
     try {
+      if (deviceInfo.routerId) this.routerId = deviceInfo.routerId;
       // Capture old stats before updating lastSpeedStats
       const oldProtocolTraffic = this.lastSpeedStats?.protocolTraffic;
 
@@ -280,6 +269,8 @@ module.exports = class MyDevice extends Homey.Device {
       // Check if timer is still valid
       const isActive = now < this.activityExpiry;
 
+      const blockStatus = deviceInfo.blockStatus || 'none';
+
       const capabilityStates = {
         device_connected: isConnected,
         ip_address: isConnected ? (deviceInfo.ip || '') : '',
@@ -299,6 +290,8 @@ module.exports = class MyDevice extends Homey.Device {
         protocol: isConnected ? protocol : '',
         active_online: isActive,
         'measure_frequency.band': (isConnected && isWifi) ? band : null,
+        'onoff.block_wan': blockStatus === 'wan' || blockStatus === 'all',
+        'onoff.block_lan': blockStatus === 'lan' || blockStatus === 'all',
       };
 
       // set the capabilities
@@ -395,6 +388,11 @@ module.exports = class MyDevice extends Homey.Device {
         merged.firewallZone = fwDev.firewallZone;
       }
     }
+
+    if (!merged.blockStatus) {
+      const d = foundDevices.find((dev) => dev.blockStatus);
+      if (d) merged.blockStatus = d.blockStatus;
+    }
     return merged;
   }
 
@@ -448,6 +446,54 @@ module.exports = class MyDevice extends Homey.Device {
   async handleFlowAction({ action, args }) {
     if (this[action]) return this[action](args, 'flow');
     return Promise.reject(Error('action not found'));
+  }
+
+  registerCapabilityListeners() {
+    if (this.capabilityListenersRegistered) return;
+    this.registerCapabilityListener('onoff.block_wan', async () => {
+      await this.toggleBlock('wan');
+    });
+    this.registerCapabilityListener('onoff.block_lan', async () => {
+      await this.toggleBlock('lan');
+    });
+    this.capabilityListenersRegistered = true;
+  }
+
+  async toggleBlock(type) {
+    const cap = `onoff.block_${type}`;
+    const currentState = this.getCapabilityValue(cap);
+    const newState = currentState ? 'allow' : 'block';
+
+    const routerDriver = this.homey.drivers.getDriver('router');
+    const routers = routerDriver.getDevices();
+
+    // Prefer the internet router / firewall for blocking actions
+    let routerDevice = routers.find((d) => {
+      const s = d.getSettings();
+      return s.isFirewall || s.isInternetRouter;
+    });
+
+    if (!routerDevice) {
+      if (this.routerId) {
+        routerDevice = routers.find((d) => d.getData().id === this.routerId);
+      }
+      if (!routerDevice) {
+        const routerName = this.getCapabilityValue('router_name');
+        if (routerName) {
+          routerDevice = routers.find((d) => d.getName() === routerName);
+        }
+      }
+    }
+
+    if (!routerDevice) throw new Error('Router not found');
+
+    await this.setCapabilityValue(cap, !currentState);
+    try {
+      await routerDevice.setDevice({ mac: this.getData().id, state: newState, blockType: type }, 'device');
+    } catch (e) {
+      await this.setCapabilityValue(cap, currentState);
+      throw e;
+    }
   }
 
 };
