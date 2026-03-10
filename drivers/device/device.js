@@ -250,20 +250,33 @@ module.exports = class MyDevice extends Homey.Device {
 
       const band = deviceInfo?.wifi?.frequency ? deviceInfo.wifi.frequency / 1000 : 0;
 
-      // Determine if device is active based on traffic threshold (0.008 Mbps = 8 Kbps)
+      // Determine if device is active based on traffic threshold (0.01 Mbps = 10 Kbps)
       const traffic = nextWanUp + nextWanDown;
-      const threshold = 0.008;
+      const thresholdLow = 0.01;
+      const thresholdHigh = 0.1;
       const now = Date.now();
 
       // Initialize expiry if undefined
       if (!this.activityExpiry) this.activityExpiry = 0;
+      if (!this.lowTrafficStart) this.lowTrafficStart = 0;
 
       // Robust Active Detection (Leaky Bucket / Timer)
       // Only extend timer if we have FRESH speed data exceeding threshold.
       // This filters out the "train" of duplicate updates (where speeds is null)
       // and ensures we don't extend based on stale data.
-      if (speeds && traffic > threshold) {
-        this.activityExpiry = now + 90000; // 90 seconds hysteresis
+      if (speeds) {
+        if (traffic > thresholdHigh) {
+          this.activityExpiry = now + 90000; // 90 seconds hysteresis
+          this.lowTrafficStart = 0;
+        } else if (traffic > thresholdLow) {
+          if (this.lowTrafficStart === 0) this.lowTrafficStart = now;
+          // If already active, keep it active. If inactive, wait for 30s of sustained traffic.
+          if (now < this.activityExpiry || now - this.lowTrafficStart > 30000) {
+            this.activityExpiry = now + 90000; // 90 seconds hysteresis
+          }
+        } else {
+          this.lowTrafficStart = 0;
+        }
       }
 
       // Check if timer is still valid
