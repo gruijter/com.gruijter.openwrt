@@ -3023,7 +3023,7 @@
       },
       "getable": true,
       "setable": false,
-      "insights": false,
+      "insights": true,
       "uiComponent": "sensor",
       "icon": "./assets/active_online.svg"
     },
