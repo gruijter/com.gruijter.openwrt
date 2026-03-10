@@ -12,6 +12,6 @@
     "en": "Reduced router CPU load. Improved translations."
   },
   "1.3.0": {
-    "en": "Improved 25.12 compatibility."
+    "en": "Added online detection, CPU scaling and many wifi metrics. Added WAN/LAN blocking buttons. Reduced router load. Improved 25.12 compatibility. Improved translations."
   }
 }
